@@ -1,0 +1,75 @@
+<!--
+title: System Architecture
+description: Describe the overall system architecture, components, and how they interact.
+published: true
+date: 2026-04-20T08:37:24.405Z
+tags: architecture, system, backend, frontend, database, integration
+editor: ckeditor
+dateCreated: 2026-04-18T04:34:08.370Z
+-->
+
+<p>The system defines how different components of the platform interact to deliver a complete and efficient user experience.</p>
+<p>It is designed using a modular and scalable structure to support multiple functional spaces such as HR, Account, Credit, Operations, Indoor, and Developer modules. &nbsp;</p>
+<h1>Overview</h1>
+<p>The system follows a typical web-based architecture consisting of:</p>
+<ul>
+  <li>Frontend (User Interface)</li>
+  <li>Backend (Application Logic)</li>
+  <li>Database (Data Storage)</li>
+  <li>External Services (Optional integrations)</li>
+</ul>
+<p>These components work together to process user requests and deliver system functionalities.</p>
+<h1>Architecture Components</h1>
+<h2>Frontend Layer</h2>
+<p>The frontend represents the user interface of the system.</p>
+<ul>
+  <li>Displays all system modules (HR, Account, etc.)</li>
+  <li>Handles user interactions</li>
+  <li>Sends requests to the backend</li>
+</ul>
+<h2>Backend Layer</h2>
+<p>The backend processes all business logic and system operations.</p>
+<ul>
+  <li>Handles user requests</li>
+  <li>Manages workflows (approvals, submissions, tracking)</li>
+  <li>Controls system rules and processes</li>
+  <li>Communicates with the database</li>
+</ul>
+<h2>Database Layer</h2>
+<p>The database stores all system data.</p>
+<ul>
+  <li>User information</li>
+  <li>Announcements, meetings, tasks</li>
+  <li>Financial records and approvals</li>
+  <li>Attendance and operational data</li>
+</ul>
+<h2>Integration Layer</h2>
+<p>The system may integrate with external tools or services such as:</p>
+<ul>
+  <li>Notification services</li>
+  <li>File storage systems</li>
+  <li>Authentication services</li>
+</ul>
+<h1>System Flow</h1>
+<ol>
+  <li>User interacts with the frontend (e.g., submits a form)</li>
+  <li>Request is sent to the backend</li>
+  <li>Backend processes the request</li>
+  <li>Data is stored or retrieved from the database</li>
+  <li>Response is returned to the frontend</li>
+  <li>User receives updated information</li>
+</ol>
+<h1>Key Characteristics</h1>
+<ul>
+  <li>Modular structure (separated by spaces/modules)</li>
+  <li>Scalable design for future enhancements</li>
+  <li>Centralised data management</li>
+  <li>Role-based access control integration</li>
+</ul>
+<h1>Benefits</h1>
+<ul>
+  <li>Easy to maintain and extend</li>
+  <li>Supports multiple departments in one system</li>
+  <li>Improves performance and organisation</li>
+  <li>Enables secure nd structured workflows</li>
+</ul>
