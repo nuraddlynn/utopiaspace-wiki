@@ -1,0 +1,70 @@
+<!--
+title: Database
+description: Explain the database structure, data storage approach, and how Supabase is used in the system.
+published: true
+date: 2026-04-20T08:37:32.319Z
+tags: database, supabase, postgresql, backend, data management
+editor: ckeditor
+dateCreated: 2026-04-20T02:03:21.045Z
+-->
+
+<p>The system uses Supabase as its backend database service. Supabase is built on PostgreSQL and provides a scalable, secure, and real-time database solution.</p>
+<p>It is used to store all application data, manage user authentication, and support system workflows. &nbsp;</p>
+<h1>Why Supabase</h1>
+<p>Supabase was selected because:</p>
+<ul>
+  <li>Built on PostgreSQL (reliable and powerful)</li>
+  <li>Supports real-time data updates</li>
+  <li>Easy integration with frontend and backend</li>
+  <li>Cloud-based and scalable</li>
+</ul>
+<h1>Database Structure</h1>
+<p>The database is designed using a relational structure, where data is stored in tables and linked using relationships.</p>
+<h2>Key Data Entities</h2>
+<p>The system includes several core tables:</p>
+<h3>profiles</h3>
+<p>Stores users information (e.g., full_name, short_name, phone_num)</p>
+<h3>announcements</h3>
+<p>Stores all company announcements (e.g., title, summary, type, department_id)</p>
+<h3>one_to_one</h3>
+<p>Stores meeting records and notes (e.g., meeting_title, meeting_time, meeting_bu)</p>
+<h3>pbac_settings</h3>
+<p>Handles approval-based workflows (e.g., user_id, before_json, after_json)</p>
+<h3>Relationships</h3>
+<p>The database uses relationships to connect data between tables</p>
+<p>Examples:</p>
+<ul>
+  <li>One user can create many announcements</li>
+  <li>One meeting can have multiple tasks</li>
+  <li>One user can have multiple approvals</li>
+</ul>
+<p>This ensure data consistency and efficient queries.</p>
+<h3>abac_policy_metadata</h3>
+<p>Supabase Authentication is used to manage user login and access.</p>
+<ul>
+  <li>Secure login system</li>
+  <li>Role-based access integration</li>
+  <li>Session management</li>
+</ul>
+<h1>Data Flow</h1>
+<ol>
+  <li>User submits data from frontend</li>
+  <li>Request is sent to backend</li>
+  <li>Backend communicates with Supabase</li>
+  <li>Data is stored or retrieved from database</li>
+  <li>Response is returned to user</li>
+</ol>
+<h1>Security</h1>
+<p>The system uses Supabase security features such as:</p>
+<ul>
+  <li>Row Level Security (RLS)</li>
+  <li>Role-based data access</li>
+  <li>Authentication control</li>
+</ul>
+<h1>Benefits</h1>
+<ul>
+  <li>Centralised data management</li>
+  <li>Real-time updates</li>
+  <li>Secure and scalable</li>
+  <li>Easy integration with system modules</li>
+</ul>
