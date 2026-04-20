@@ -1,0 +1,28 @@
+name: Update Docs from PR
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  update-docs:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Append PR info to docs
+        run: |
+          echo "## PR: ${{ github.event.pull_request.title }}" >> docs/updates.md
+          echo "${{ github.event.pull_request.body }}" >> docs/updates.md
+          echo "" >> docs/updates.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add docs/updates.md
+          git commit -m "Auto update docs from PR"
+          git push
