@@ -31,6 +31,5 @@ Role-Based Guides.
 Fixed login error in system.
 Fixed sidebar menu.
 
-Test sync trigger.
-Testtt lagiiii
+added claim button in home page
  
