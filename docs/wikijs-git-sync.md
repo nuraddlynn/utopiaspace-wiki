@@ -7,7 +7,7 @@ but only if Wiki.js is configured to use Git storage.
 
 1. A pull request updates one or more `.md` files in this repository.
 2. After the PR is merged, GitHub Actions reads the PR text and the available wiki page catalog.
-3. GitHub Actions asks OpenAI to classify the PR into one or more wiki update targets.
+3. GitHub Actions asks Gemini to classify the PR into one or more wiki update targets.
 4. For each target, GitHub Actions creates a brand-new update page file.
 5. Wiki.js pulls the latest repository changes through its Git storage module.
 6. The new Markdown files become separate Wiki.js pages.
@@ -42,7 +42,7 @@ from the Git storage module.
 
 ## How page categorization works
 
-The workflow uses OpenAI to classify the PR text into one or more existing wiki page targets.
+The workflow uses Gemini to classify the PR text into one or more existing wiki page targets.
 It does not rely only on tags in the PR title.
 
 Examples:
@@ -59,6 +59,6 @@ separate page.
 
 This workflow requires a GitHub Actions secret:
 
-- `OPENAI_API_KEY`
+- `GEMINI_API_KEY`
 
 Without that secret, the AI classification step cannot run.

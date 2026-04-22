@@ -92,11 +92,11 @@ jobs:
             } >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Analyze event with OpenAI
+      - name: Analyze event with Gemini
         id: analyze-event
         if: steps.page-catalog.outputs.count != '0'
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           EVENT_KIND: ${{ steps.event-meta.outputs.kind }}
           EVENT_ID: ${{ steps.event-meta.outputs.id }}
           EVENT_TITLE: ${{ steps.event-meta.outputs.title }}
@@ -104,8 +104,8 @@ jobs:
           EVENT_URL: ${{ steps.event-meta.outputs.url }}
         shell: bash
         run: |
-          if [[ -z "$OPENAI_API_KEY" ]]; then
-            echo "Missing OPENAI_API_KEY secret." >&2
+          if [[ -z "$GEMINI_API_KEY" ]]; then
+            echo "Missing GEMINI_API_KEY secret." >&2
             exit 1
           fi
 
@@ -124,56 +124,38 @@ jobs:
           const catalog = JSON.parse(process.env.CATALOG_JSON)
           const eventLabel = process.env.EVENT_KIND === 'pr' ? 'merged documentation PR' : 'direct documentation push'
           const payload = {
-            model: 'gpt-4o-mini',
-            input: [
-              {
-                role: 'system',
-                content: [
-                  {
-                    type: 'input_text',
-                    text:
-                      `You are classifying a ${eventLabel} into one or more Wiki.js update pages. Return JSON only. Split unrelated updates into separate items. Each item must map to exactly one existing wiki page from the provided catalog. Prefer the closest matching page. Use concise markdown in summary_markdown. Return at most one item per target_file.`
-                  }
-                ]
-              },
+            contents: [
               {
                 role: 'user',
-                content: [
+                parts: [
                   {
-                    type: 'input_text',
                     text:
-                      `Event type: ${process.env.EVENT_KIND}\nEvent id: ${process.env.EVENT_ID}\nTitle: ${process.env.EVENT_TITLE}\nURL: ${process.env.EVENT_URL}\nDescription:\n${process.env.EVENT_BODY || '(empty)'}\n\nAvailable wiki pages:\n${catalog.map((item) => `- ${item.file} (alias: ${item.alias})`).join('\n')}\n\nReturn JSON with this schema:\n{\n  "updates": [\n    {\n      "target_file": "existing-page.md",\n      "target_alias": "short-alias",\n      "update_title": "Short human title",\n      "summary_markdown": "Markdown summary only for that page"\n    }\n  ]\n}\n\nIf the text mentions both login and manager updates, return two items. Do not invent target files outside the catalog.`
+                      `You are classifying a ${eventLabel} into one or more Wiki.js update pages. Return JSON only. Split unrelated updates into separate items. Each item must map to exactly one existing wiki page from the provided catalog. Prefer the closest matching page. Use concise markdown in summary_markdown. Return at most one item per target_file.\n\nEvent type: ${process.env.EVENT_KIND}\nEvent id: ${process.env.EVENT_ID}\nTitle: ${process.env.EVENT_TITLE}\nURL: ${process.env.EVENT_URL}\nDescription:\n${process.env.EVENT_BODY || '(empty)'}\n\nAvailable wiki pages:\n${catalog.map((item) => `- ${item.file} (alias: ${item.alias})`).join('\n')}\n\nIf the text mentions both login and manager updates, return two items. Do not invent target files outside the catalog.`
                   }
                 ]
               }
             ],
-            text: {
-              format: {
-                type: 'json_schema',
-                name: 'wiki_update_plan',
-                strict: true,
-                schema: {
-                  type: 'object',
-                  additionalProperties: false,
-                  properties: {
-                    updates: {
-                      type: 'array',
-                      items: {
-                        type: 'object',
-                        additionalProperties: false,
-                        properties: {
-                          target_file: { type: 'string' },
-                          target_alias: { type: 'string' },
-                          update_title: { type: 'string' },
-                          summary_markdown: { type: 'string' }
-                        },
-                        required: ['target_file', 'target_alias', 'update_title', 'summary_markdown']
-                      }
+            generationConfig: {
+              responseMimeType: 'application/json',
+              responseJsonSchema: {
+                type: 'object',
+                properties: {
+                  updates: {
+                    type: 'array',
+                    items: {
+                      type: 'object',
+                      properties: {
+                        target_file: { type: 'string' },
+                        target_alias: { type: 'string' },
+                        update_title: { type: 'string' },
+                        summary_markdown: { type: 'string' }
+                      },
+                      required: ['target_file', 'target_alias', 'update_title', 'summary_markdown']
                     }
-                  },
-                  required: ['updates']
+                  }
                 }
-              }
+              },
+              temperature: 0.2
             }
           }
 
@@ -181,30 +163,33 @@ jobs:
           NODE
           )
 
-          RESPONSE=$(curl https://api.openai.com/v1/responses \
-            -H "Authorization: Bearer $OPENAI_API_KEY" \
+          RESPONSE=$(curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent" \
+            -H "x-goog-api-key: $GEMINI_API_KEY" \
             -H "Content-Type: application/json" \
             -d "$REQUEST_JSON")
 
-          printf '%s' "$RESPONSE" > openai-response.json
+          printf '%s' "$RESPONSE" > gemini-response.json
 
           node <<'NODE'
           const fs = require('fs')
 
-          const response = JSON.parse(fs.readFileSync('openai-response.json', 'utf8'))
+          const response = JSON.parse(fs.readFileSync('gemini-response.json', 'utf8'))
           if (response.error) {
-            throw new Error(response.error.message || 'OpenAI API error')
+            throw new Error(response.error.message || 'Gemini API error')
           }
 
-          const outputText = (response.output || [])
-            .flatMap((item) => item.content || [])
-            .filter((item) => item.type === 'output_text')
-            .map((item) => item.text)
-            .join('')
-            .trim()
+          const outputText =
+            response.candidates &&
+            response.candidates[0] &&
+            response.candidates[0].content &&
+            response.candidates[0].content.parts &&
+            response.candidates[0].content.parts[0] &&
+            response.candidates[0].content.parts[0].text
+              ? response.candidates[0].content.parts[0].text.trim()
+              : ''
 
           if (!outputText) {
-            throw new Error('No structured output returned from OpenAI.')
+            throw new Error('No structured output returned from Gemini.')
           }
 
           const parsed = JSON.parse(outputText)
