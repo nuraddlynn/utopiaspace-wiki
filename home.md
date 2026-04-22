@@ -31,4 +31,6 @@ Role-Based Guides.
 Fixed login error in system.
 Fixed sidebar menu.
 
+Test sync trigger.
+
  
