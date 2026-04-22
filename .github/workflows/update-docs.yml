@@ -1,5 +1,8 @@
 name: Update Wiki on PR Merge
 
+permissions:
+  contents: write
+  
 on:
   pull_request:
     types: [closed]
@@ -10,6 +13,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Append PR content
+        run: |
+          echo "## PR: ${{ github.event.pull_request.title }}" >> updates.md
+          echo "${{ github.event.pull_request.body }}" >> updates.md
+          echo "" >> updates.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Auto update from PR"
+          git push
       - name: Checkout repo
         uses: actions/checkout@v3
 
@@ -43,3 +62,4 @@ jobs:
 
           echo "## PR: $TITLE" >> $FILE
           echo "${{ github.event.pull_request.body }}" >> $FILE
+
