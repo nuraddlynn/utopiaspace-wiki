@@ -1,14 +1,11 @@
-name: Update Docs from PR (AI)
+name: Update Wiki on PR Merge
 
 on:
   pull_request:
     types: [closed]
 
-permissions:
-  contents: write
-
 jobs:
-  update-docs:
+  update-wiki:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
@@ -16,44 +13,33 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Get PR content
+      - name: Append PR content
         run: |
-          echo "${{ github.event.pull_request.title }}" > pr.txt
-          echo "${{ github.event.pull_request.body }}" >> pr.txt
-
-      - name: Send to AI
-        run: |
-          RESPONSE=$(curl https://api.openai.com/v1/chat/completions \
-          -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
-          -H "Content-Type: application/json" \
-          -d "{\"model\":\"gpt-4o-mini\",\"messages\":[{\"role\":\"system\",\"content\":\"Reply ONLY like this: file: filename.md content: text\"},{\"role\":\"user\",\"content\":\"$(cat pr.txt)\"}]}")
-          
-          echo "$RESPONSE" > ai.txt
-
-      - name: Extract result
-        run: |
-          FILE=$(cat ai.txt | grep -o 'file: [^ ]*' | cut -d' ' -f2)
-          CONTENT=$(cat ai.txt | sed -n 's/.*content: //p')
-
-          echo "FILE=$FILE" >> $GITHUB_ENV
-          echo "CONTENT=$CONTENT" >> $GITHUB_ENV
-
-      - name: Update file
-        run: |
-          if [ -z "$FILE" ]; then
-            echo "AI did not return file, fallback to announcements.md"
-            FILE="announcements.md"
-          fi
-
-          touch $FILE
-          echo "## PR Update" >> $FILE
-          echo "$CONTENT" >> $FILE
-          echo "" >> $FILE
+          echo "## PR: ${{ github.event.pull_request.title }}" >> updates.md
+          echo "${{ github.event.pull_request.body }}" >> updates.md
+          echo "" >> updates.md
 
       - name: Commit changes
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add *.md
-          git commit -m "AI update docs" || echo "No changes"
+          git add .
+          git commit -m "Auto update from PR"
           git push
+
+      - name: Categorize PR
+        run: |
+          TITLE="${{ github.event.pull_request.title }}"
+
+          if [[ "$TITLE" == *"[OE]"* ]]; then
+            FILE="oe-space.md"
+          elif [[ "$TITLE" == *"[INDOOR]"* ]]; then
+            FILE="indoor-space.md"
+          elif [[ "$TITLE" == *"[DEV]"* ]]; then
+            FILE="developer-space.md"
+          else
+            FILE="updates.md"
+          fi
+
+          echo "## PR: $TITLE" >> $FILE
+          echo "${{ github.event.pull_request.body }}" >> $FILE
