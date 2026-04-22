@@ -1,4 +1,4 @@
-name: Update Wiki on PR Merge
+name: Create AI Wiki Update Pages After PR Merge
 
 on:
   pull_request:
@@ -6,55 +6,248 @@ on:
 
 permissions:
   contents: write
+  pull-requests: read
 
 jobs:
-  update-wiki:
+  create-update-pages:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout merged branch
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.base.ref }}
 
-      - name: Append PR content
+      - name: Build wiki page catalog
+        id: page-catalog
         shell: bash
         run: |
-          TITLE="${{ github.event.pull_request.title }}"
-          BODY="${{ github.event.pull_request.body }}"
+          {
+            find . -maxdepth 1 -type f -name '*.md' -print
+          } | sed 's|^\./||' | sort | while IFS= read -r file; do
+            [[ "$file" == "updates.md" ]] && continue
+            [[ "$file" == *"-update-pr-"* ]] && continue
 
-          if [[ "$TITLE" == *"[OE]"* ]]; then
-            FILE="oe-space.md"
-          elif [[ "$TITLE" == *"[INDOOR]"* ]]; then
-            FILE="indoor-space.md"
-          elif [[ "$TITLE" == *"[DEV]"* ]]; then
-            FILE="developer-space.md"
-          else
-            FILE="updates.md"
+            base_name="${file%.md}"
+            alias_name="${base_name%-space}"
+            alias_name="${alias_name%-guide}"
+
+            printf '%s|%s\n' "$file" "$alias_name"
+          done > page-catalog.txt
+
+          echo "count=$(wc -l < page-catalog.txt | tr -d ' ')" >> "$GITHUB_OUTPUT"
+
+      - name: Analyze PR with OpenAI
+        id: analyze-pr
+        if: steps.page-catalog.outputs.count != '0'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        shell: bash
+        run: |
+          if [[ -z "$OPENAI_API_KEY" ]]; then
+            echo "Missing OPENAI_API_KEY secret." >&2
+            exit 1
           fi
 
-          {
-            echo "## PR: $TITLE"
-            if [[ -n "$BODY" ]]; then
-              echo "$BODY"
-            else
-              echo "_No PR description provided._"
-            fi
-            echo ""
-          } >> "$FILE"
+          CATALOG_JSON=$(node <<'NODE'
+          const fs = require('fs')
+          const lines = fs.readFileSync('page-catalog.txt', 'utf8').trim().split('\n').filter(Boolean)
+          const catalog = lines.map((line) => {
+            const [file, alias] = line.split('|')
+            return { file, alias }
+          })
+          process.stdout.write(JSON.stringify(catalog))
+          NODE
+          )
 
-      - name: Commit changes
+          REQUEST_JSON=$(CATALOG_JSON="$CATALOG_JSON" node <<'NODE'
+          const catalog = JSON.parse(process.env.CATALOG_JSON)
+          const payload = {
+            model: 'gpt-4o-mini',
+            input: [
+              {
+                role: 'system',
+                content: [
+                  {
+                    type: 'input_text',
+                    text:
+                      'You are classifying a merged documentation PR into one or more Wiki.js update pages. Return JSON only. Split unrelated updates into separate items. Each item must map to exactly one existing wiki page from the provided catalog. Prefer the closest matching page. Use concise markdown in summary_markdown. Return at most one item per target_file.'
+                  }
+                ]
+              },
+              {
+                role: 'user',
+                content: [
+                  {
+                    type: 'input_text',
+                    text:
+                      `PR number: ${process.env.PR_NUMBER}\nPR title: ${process.env.PR_TITLE}\nPR URL: ${process.env.PR_URL}\nPR body:\n${process.env.PR_BODY || '(empty)'}\n\nAvailable wiki pages:\n${catalog.map((item) => `- ${item.file} (alias: ${item.alias})`).join('\n')}\n\nReturn JSON with this schema:\n{\n  "updates": [\n    {\n      "target_file": "existing-page.md",\n      "target_alias": "short-alias",\n      "update_title": "Short human title",\n      "summary_markdown": "Markdown summary only for that page"\n    }\n  ]\n}\n\nIf the PR mentions both login and manager updates, return two items. Do not invent target files outside the catalog.`
+                  }
+                ]
+              }
+            ],
+            text: {
+              format: {
+                type: 'json_schema',
+                name: 'wiki_update_plan',
+                strict: true,
+                schema: {
+                  type: 'object',
+                  additionalProperties: false,
+                  properties: {
+                    updates: {
+                      type: 'array',
+                      items: {
+                        type: 'object',
+                        additionalProperties: false,
+                        properties: {
+                          target_file: { type: 'string' },
+                          target_alias: { type: 'string' },
+                          update_title: { type: 'string' },
+                          summary_markdown: { type: 'string' }
+                        },
+                        required: ['target_file', 'target_alias', 'update_title', 'summary_markdown']
+                      }
+                    }
+                  },
+                  required: ['updates']
+                }
+              }
+            }
+          }
+
+          process.stdout.write(JSON.stringify(payload))
+          NODE
+          )
+
+          RESPONSE=$(curl https://api.openai.com/v1/responses \
+            -H "Authorization: Bearer $OPENAI_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "$REQUEST_JSON")
+
+          printf '%s' "$RESPONSE" > openai-response.json
+
+          node <<'NODE'
+          const fs = require('fs')
+
+          const response = JSON.parse(fs.readFileSync('openai-response.json', 'utf8'))
+          if (response.error) {
+            throw new Error(response.error.message || 'OpenAI API error')
+          }
+
+          const outputText = (response.output || [])
+            .flatMap((item) => item.content || [])
+            .filter((item) => item.type === 'output_text')
+            .map((item) => item.text)
+            .join('')
+            .trim()
+
+          if (!outputText) {
+            throw new Error('No structured output returned from OpenAI.')
+          }
+
+          const parsed = JSON.parse(outputText)
+          fs.writeFileSync('update-plan.json', JSON.stringify(parsed, null, 2))
+          NODE
+
+      - name: Create update pages from AI plan
+        shell: bash
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          if [[ ! -f update-plan.json ]]; then
+            echo "Missing update-plan.json." >&2
+            exit 1
+          fi
+
+          node <<'NODE'
+          const fs = require('fs')
+
+          const plan = JSON.parse(fs.readFileSync('update-plan.json', 'utf8'))
+          const catalogLines = fs.readFileSync('page-catalog.txt', 'utf8').trim().split('\n').filter(Boolean)
+          const validTargets = new Map(
+            catalogLines.map((line) => {
+              const [file, alias] = line.split('|')
+              return [file, alias]
+            })
+          )
+
+          const prNumber = process.env.PR_NUMBER
+          const prTitle = process.env.PR_TITLE
+          const prUrl = process.env.PR_URL
+          const normalized = new Map()
+
+          for (const item of plan.updates || []) {
+            if (!validTargets.has(item.target_file)) {
+              throw new Error(`Invalid target file from AI: ${item.target_file}`)
+            }
+
+            if (normalized.has(item.target_file)) {
+              const current = normalized.get(item.target_file)
+              current.summary_markdown = `${current.summary_markdown.trim()}\n\n${item.summary_markdown.trim()}`
+              continue
+            }
+
+            normalized.set(item.target_file, { ...item })
+          }
+
+          const createdPages = []
+
+          for (const item of normalized.values()) {
+
+            const alias = (item.target_alias || validTargets.get(item.target_file) || 'general')
+              .toLowerCase()
+              .replace(/[^a-z0-9-]+/g, '-')
+              .replace(/^-+|-+$/g, '') || 'general'
+
+            const updateFile = `${alias}-update-pr-${prNumber}.md`
+            const markdown = [
+              `# ${item.update_title}`,
+              '',
+              `- Target page: \`${item.target_file}\``,
+              `- PR number: #${prNumber}`,
+              `- PR title: ${prTitle}`,
+              `- PR link: ${prUrl}`,
+              '',
+              '## Update Summary',
+              '',
+              item.summary_markdown.trim(),
+              ''
+            ].join('\n')
+
+            fs.writeFileSync(updateFile, markdown)
+            createdPages.push(updateFile)
+          }
+
+          const updatesEntry = [
+            `## PR #${prNumber}: ${prTitle}`,
+            '',
+            'Created AI update pages:',
+            ...createdPages.map((page) => `- ${page}`),
+            ''
+          ].join('\n')
+
+          fs.appendFileSync('updates.md', `${updatesEntry}\n`)
+          NODE
+
+      - name: Commit generated update pages
         shell: bash
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add updates.md oe-space.md indoor-space.md developer-space.md
+          git add updates.md *.md
 
           if git diff --cached --quiet; then
-            echo "No documentation changes to commit."
+            echo "No generated update pages to commit."
             exit 0
           fi
 
-          git commit -m "Auto update from PR"
+          git commit -m "Create AI wiki update pages from merged PR"
           git push origin HEAD:${{ github.event.pull_request.base.ref }}
