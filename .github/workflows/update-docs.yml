@@ -1,4 +1,4 @@
-name: Update Docs from PR
+name: Update Docs from PR (AI)
 
 on:
   pull_request:
@@ -6,26 +6,109 @@ on:
 
 permissions:
   contents: write
-  
+
 jobs:
   update-docs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout repo
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Append PR info to docs
-        run: |
-          echo "## PR: ${{ github.event.pull_request.title }}" >> docs/updates.md
-          echo "${{ github.event.pull_request.body }}" >> docs/updates.md
-          echo "" >> docs/updates.md
+      # 2. Install jq (WAJIB)
+      - name: Install jq
+        run: sudo apt-get install jq
 
+      # 3. Get PR diff
+      - name: Get PR diff
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          git diff origin/${{ github.base_ref }} > pr_diff.txt
+
+      # 4. Send to AI
+      - name: Send to AI
+        run: |
+          RESPONSE=$(curl https://api.openai.com/v1/chat/completions \
+          -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
+          -H "Content-Type: application/json" \
+          -d "{
+            \"model\": \"gpt-4o-mini\",
+            \"messages\": [
+              {
+                \"role\": \"system\",
+                \"content\": \"You are a strict documentation assistant. You MUST return valid JSON only. No explanation.\"
+              },
+              {
+                \"role\": \"user\",
+                \"content\": \"Analyze this PR diff and decide which documentation file to update.
+
+IMPORTANT: All documentation files are in ROOT folder.
+
+Available files:
+- api.md → API related changes
+- database.md → database/schema changes
+- architecture.md → system design
+- basic-navigation.md → UI/navigation
+- login-guide.md → login/authentication
+- end-user-guide.md → user features
+- developer-space.md → backend/dev logic
+- announcements.md → bug fixes / updates
+- faq.md → common questions
+- home.md → general overview
+
+Rules:
+- API → api.md
+- Database → database.md
+- Architecture → architecture.md
+- UI → basic-navigation.md
+- Login/Auth → login-guide.md
+- Developer → developer-space.md
+- Bug fix → announcements.md
+- General → home.md
+
+Return ONLY JSON:
+{
+  \\\"file\\\": \\\"api.md\\\",
+  \\\"content\\\": \\\"documentation update here\\\"
+}
+
+PR Diff:
+$(cat pr_diff.txt)
+\"
+              }
+            ]
+          }")
+
+          echo \"$RESPONSE\" > ai_output.json
+
+      # 5. Extract AI output
+      - name: Extract AI result
+        run: |
+          FILE=$(jq -r '.choices[0].message.content | fromjson | .file' ai_output.json)
+          CONTENT=$(jq -r '.choices[0].message.content | fromjson | .content' ai_output.json)
+
+          echo "Selected file: $FILE"
+          echo "Content: $CONTENT"
+
+          echo "FILE=$FILE" >> $GITHUB_ENV
+          echo "CONTENT<<EOF" >> $GITHUB_ENV
+          echo "$CONTENT" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      # 6. Update markdown file
+      - name: Update markdown
+        run: |
+          echo "## PR Update - $(date)" >> $FILE
+          echo "$CONTENT" >> $FILE
+          echo "" >> $FILE
+
+      # 7. Commit changes
       - name: Commit changes
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add docs/updates.md
-          git commit -m "Auto update docs from PR"
+          git add *.md
+          git commit -m "AI auto update docs from PR"
           git push
