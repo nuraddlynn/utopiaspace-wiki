@@ -1,11 +1,11 @@
 name: Update Wiki on PR Merge
 
-permissions:
-  contents: write
-  
 on:
   pull_request:
     types: [closed]
+
+permissions:
+  contents: write
 
 jobs:
   update-wiki:
@@ -14,41 +14,15 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
 
       - name: Append PR content
-        run: |
-          echo "## PR: ${{ github.event.pull_request.title }}" >> updates.md
-          echo "${{ github.event.pull_request.body }}" >> updates.md
-          echo "" >> updates.md
-
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "Auto update from PR"
-          git push
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Append PR content
-        run: |
-          echo "## PR: ${{ github.event.pull_request.title }}" >> updates.md
-          echo "${{ github.event.pull_request.body }}" >> updates.md
-          echo "" >> updates.md
-
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "Auto update from PR"
-          git push
-
-      - name: Categorize PR
+        shell: bash
         run: |
           TITLE="${{ github.event.pull_request.title }}"
+          BODY="${{ github.event.pull_request.body }}"
 
           if [[ "$TITLE" == *"[OE]"* ]]; then
             FILE="oe-space.md"
@@ -60,6 +34,27 @@ jobs:
             FILE="updates.md"
           fi
 
-          echo "## PR: $TITLE" >> $FILE
-          echo "${{ github.event.pull_request.body }}" >> $FILE
+          {
+            echo "## PR: $TITLE"
+            if [[ -n "$BODY" ]]; then
+              echo "$BODY"
+            else
+              echo "_No PR description provided._"
+            fi
+            echo ""
+          } >> "$FILE"
 
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add updates.md oe-space.md indoor-space.md developer-space.md
+
+          if git diff --cached --quiet; then
+            echo "No documentation changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Auto update from PR"
+          git push origin HEAD:${{ github.event.pull_request.base.ref }}
