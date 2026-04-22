@@ -40,6 +40,11 @@ jobs:
 
       - name: Update file
         run: |
+          if [ -z "$FILE" ]; then
+            echo "AI did not return file, fallback to announcements.md"
+            FILE="announcements.md"
+          fi
+
           touch $FILE
           echo "## PR Update" >> $FILE
           echo "$CONTENT" >> $FILE
