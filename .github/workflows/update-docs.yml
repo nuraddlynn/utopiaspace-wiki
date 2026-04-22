@@ -1,8 +1,11 @@
-name: Create AI Wiki Update Pages After PR Merge
+name: Create AI Wiki Update Pages
 
 on:
   pull_request:
     types: [closed]
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -10,14 +13,18 @@ permissions:
 
 jobs:
   create-update-pages:
-    if: github.event.pull_request.merged == true
+    if: |
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true) ||
+      (github.event_name == 'push' &&
+       github.actor != 'github-actions[bot]' &&
+       !startsWith(github.event.head_commit.message, 'Create AI wiki update pages'))
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout merged branch
+      - name: Checkout target branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.base.ref }}
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref || github.ref_name }}
 
       - name: Build wiki page catalog
         id: page-catalog
@@ -28,6 +35,7 @@ jobs:
           } | sed 's|^\./||' | sort | while IFS= read -r file; do
             [[ "$file" == "updates.md" ]] && continue
             [[ "$file" == *"-update-pr-"* ]] && continue
+            [[ "$file" == *"-update-commit-"* ]] && continue
 
             base_name="${file%.md}"
             alias_name="${base_name%-space}"
@@ -38,15 +46,62 @@ jobs:
 
           echo "count=$(wc -l < page-catalog.txt | tr -d ' ')" >> "$GITHUB_OUTPUT"
 
-      - name: Analyze PR with OpenAI
-        id: analyze-pr
+      - name: Set event metadata
+        id: event-meta
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          COMMIT_SHA: ${{ github.sha }}
+          COMMIT_TITLE: ${{ github.event.head_commit.message }}
+          COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
+        run: |
+          if [[ "$EVENT_NAME" == "pull_request" ]]; then
+            {
+              echo "kind=pr"
+              echo "id=$PR_NUMBER"
+              echo "title<<EOF"
+              echo "$PR_TITLE"
+              echo "EOF"
+              echo "body<<EOF"
+              echo "$PR_BODY"
+              echo "EOF"
+              echo "url=$PR_URL"
+              echo "file_suffix=pr-$PR_NUMBER"
+              echo "commit_message=Create AI wiki update pages from merged PR"
+              echo "summary_heading=PR #$PR_NUMBER: $PR_TITLE"
+            } >> "$GITHUB_OUTPUT"
+          else
+            short_sha="${COMMIT_SHA::7}"
+            {
+              echo "kind=commit"
+              echo "id=$short_sha"
+              echo "title<<EOF"
+              echo "$COMMIT_TITLE"
+              echo "EOF"
+              echo "body<<EOF"
+              echo "$COMMIT_TITLE"
+              echo "EOF"
+              echo "url=$COMMIT_URL"
+              echo "file_suffix=commit-$short_sha"
+              echo "commit_message=Create AI wiki update pages from direct push"
+              echo "summary_heading=Commit $short_sha: $COMMIT_TITLE"
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Analyze event with OpenAI
+        id: analyze-event
         if: steps.page-catalog.outputs.count != '0'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          PR_TITLE: ${{ github.event.pull_request.title }}
-          PR_BODY: ${{ github.event.pull_request.body }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
+          EVENT_KIND: ${{ steps.event-meta.outputs.kind }}
+          EVENT_ID: ${{ steps.event-meta.outputs.id }}
+          EVENT_TITLE: ${{ steps.event-meta.outputs.title }}
+          EVENT_BODY: ${{ steps.event-meta.outputs.body }}
+          EVENT_URL: ${{ steps.event-meta.outputs.url }}
         shell: bash
         run: |
           if [[ -z "$OPENAI_API_KEY" ]]; then
@@ -67,6 +122,7 @@ jobs:
 
           REQUEST_JSON=$(CATALOG_JSON="$CATALOG_JSON" node <<'NODE'
           const catalog = JSON.parse(process.env.CATALOG_JSON)
+          const eventLabel = process.env.EVENT_KIND === 'pr' ? 'merged documentation PR' : 'direct documentation push'
           const payload = {
             model: 'gpt-4o-mini',
             input: [
@@ -76,7 +132,7 @@ jobs:
                   {
                     type: 'input_text',
                     text:
-                      'You are classifying a merged documentation PR into one or more Wiki.js update pages. Return JSON only. Split unrelated updates into separate items. Each item must map to exactly one existing wiki page from the provided catalog. Prefer the closest matching page. Use concise markdown in summary_markdown. Return at most one item per target_file.'
+                      `You are classifying a ${eventLabel} into one or more Wiki.js update pages. Return JSON only. Split unrelated updates into separate items. Each item must map to exactly one existing wiki page from the provided catalog. Prefer the closest matching page. Use concise markdown in summary_markdown. Return at most one item per target_file.`
                   }
                 ]
               },
@@ -86,7 +142,7 @@ jobs:
                   {
                     type: 'input_text',
                     text:
-                      `PR number: ${process.env.PR_NUMBER}\nPR title: ${process.env.PR_TITLE}\nPR URL: ${process.env.PR_URL}\nPR body:\n${process.env.PR_BODY || '(empty)'}\n\nAvailable wiki pages:\n${catalog.map((item) => `- ${item.file} (alias: ${item.alias})`).join('\n')}\n\nReturn JSON with this schema:\n{\n  "updates": [\n    {\n      "target_file": "existing-page.md",\n      "target_alias": "short-alias",\n      "update_title": "Short human title",\n      "summary_markdown": "Markdown summary only for that page"\n    }\n  ]\n}\n\nIf the PR mentions both login and manager updates, return two items. Do not invent target files outside the catalog.`
+                      `Event type: ${process.env.EVENT_KIND}\nEvent id: ${process.env.EVENT_ID}\nTitle: ${process.env.EVENT_TITLE}\nURL: ${process.env.EVENT_URL}\nDescription:\n${process.env.EVENT_BODY || '(empty)'}\n\nAvailable wiki pages:\n${catalog.map((item) => `- ${item.file} (alias: ${item.alias})`).join('\n')}\n\nReturn JSON with this schema:\n{\n  "updates": [\n    {\n      "target_file": "existing-page.md",\n      "target_alias": "short-alias",\n      "update_title": "Short human title",\n      "summary_markdown": "Markdown summary only for that page"\n    }\n  ]\n}\n\nIf the text mentions both login and manager updates, return two items. Do not invent target files outside the catalog.`
                   }
                 ]
               }
@@ -158,9 +214,12 @@ jobs:
       - name: Create update pages from AI plan
         shell: bash
         env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          PR_TITLE: ${{ github.event.pull_request.title }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
+          EVENT_KIND: ${{ steps.event-meta.outputs.kind }}
+          EVENT_ID: ${{ steps.event-meta.outputs.id }}
+          EVENT_TITLE: ${{ steps.event-meta.outputs.title }}
+          EVENT_URL: ${{ steps.event-meta.outputs.url }}
+          FILE_SUFFIX: ${{ steps.event-meta.outputs.file_suffix }}
+          SUMMARY_HEADING: ${{ steps.event-meta.outputs.summary_heading }}
         run: |
           if [[ ! -f update-plan.json ]]; then
             echo "Missing update-plan.json." >&2
@@ -179,9 +238,12 @@ jobs:
             })
           )
 
-          const prNumber = process.env.PR_NUMBER
-          const prTitle = process.env.PR_TITLE
-          const prUrl = process.env.PR_URL
+          const eventKind = process.env.EVENT_KIND
+          const eventId = process.env.EVENT_ID
+          const eventTitle = process.env.EVENT_TITLE
+          const eventUrl = process.env.EVENT_URL
+          const fileSuffix = process.env.FILE_SUFFIX
+          const summaryHeading = process.env.SUMMARY_HEADING
           const normalized = new Map()
 
           for (const item of plan.updates || []) {
@@ -201,20 +263,20 @@ jobs:
           const createdPages = []
 
           for (const item of normalized.values()) {
-
             const alias = (item.target_alias || validTargets.get(item.target_file) || 'general')
               .toLowerCase()
               .replace(/[^a-z0-9-]+/g, '-')
               .replace(/^-+|-+$/g, '') || 'general'
 
-            const updateFile = `${alias}-update-pr-${prNumber}.md`
+            const updateFile = `${alias}-update-${fileSuffix}.md`
+            const label = eventKind === 'pr' ? `PR number: #${eventId}` : `Commit: ${eventId}`
             const markdown = [
               `# ${item.update_title}`,
               '',
               `- Target page: \`${item.target_file}\``,
-              `- PR number: #${prNumber}`,
-              `- PR title: ${prTitle}`,
-              `- PR link: ${prUrl}`,
+              `- ${label}`,
+              `- Title: ${eventTitle}`,
+              `- Link: ${eventUrl}`,
               '',
               '## Update Summary',
               '',
@@ -227,7 +289,7 @@ jobs:
           }
 
           const updatesEntry = [
-            `## PR #${prNumber}: ${prTitle}`,
+            `## ${summaryHeading}`,
             '',
             'Created AI update pages:',
             ...createdPages.map((page) => `- ${page}`),
@@ -249,5 +311,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Create AI wiki update pages from merged PR"
-          git push origin HEAD:${{ github.event.pull_request.base.ref }}
+          git commit -m "${{ steps.event-meta.outputs.commit_message }}"
+          git push origin HEAD:${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref || github.ref_name }}
