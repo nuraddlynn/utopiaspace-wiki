@@ -10,3 +10,6 @@ Test2## PR: Test pr 2
 ## PR: Fix formatting in home.md header
 
 
+## PR: Update bug fix details in home.md
+Removed mention of navigation fix from sidebar menu.
+
