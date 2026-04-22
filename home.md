@@ -1,4 +1,4 @@
-[**Welcome to UtopiaSpace Wiki !**]{.text-huge}
+[**Welcome to UtopiaSpace Wiki !**]
 
 # Overview
 
