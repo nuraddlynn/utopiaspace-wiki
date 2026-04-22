@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      # 2. Install jq (WAJIB)
+      # 2. Install jq
       - name: Install jq
         run: sudo apt-get install jq
 
@@ -27,79 +27,78 @@ jobs:
           git fetch origin ${{ github.base_ref }}
           git diff origin/${{ github.base_ref }} > pr_diff.txt
 
-      # 4. Send to AI
+      # 4. Send to AI (SAFE VERSION - NO YAML ERROR)
       - name: Send to AI
         run: |
+          DIFF=$(cat pr_diff.txt)
+
           RESPONSE=$(curl https://api.openai.com/v1/chat/completions \
           -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
           -H "Content-Type: application/json" \
-          -d "{
-            \"model\": \"gpt-4o-mini\",
-            \"messages\": [
-              {
-                \"role\": \"system\",
-                \"content\": \"You are a strict documentation assistant. You MUST return valid JSON only. No explanation.\"
-              },
-              {
-                \"role\": \"user\",
-                \"content\": \"Analyze this PR diff and decide which documentation file to update.
+          -d @- <<EOF
+{
+  "model": "gpt-4o-mini",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Return simple structured text only."
+    },
+    {
+      "role": "user",
+      "content": "Analyze PR diff and choose documentation file.
 
-IMPORTANT: All documentation files are in ROOT folder.
-
-Available files:
-- api.md → API related changes
-- database.md → database/schema changes
-- architecture.md → system design
-- basic-navigation.md → UI/navigation
-- login-guide.md → login/authentication
-- end-user-guide.md → user features
-- developer-space.md → backend/dev logic
-- announcements.md → bug fixes / updates
-- faq.md → common questions
-- home.md → general overview
+Files:
+api.md
+database.md
+architecture.md
+basic-navigation.md
+login-guide.md
+end-user-guide.md
+developer-space.md
+announcements.md
+faq.md
+home.md
 
 Rules:
-- API → api.md
-- Database → database.md
-- Architecture → architecture.md
-- UI → basic-navigation.md
-- Login/Auth → login-guide.md
-- Developer → developer-space.md
-- Bug fix → announcements.md
-- General → home.md
+API→api.md
+Database→database.md
+Architecture→architecture.md
+UI→basic-navigation.md
+Login→login-guide.md
+Developer→developer-space.md
+Bug→announcements.md
+General→home.md
 
-Return ONLY JSON:
-{
-  \\\"file\\\": \\\"api.md\\\",
-  \\\"content\\\": \\\"documentation update here\\\"
-}
+Return EXACT format:
+file: api.md
+content: your update here
 
 PR Diff:
-$(cat pr_diff.txt)
-\"
-              }
-            ]
-          }")
+$DIFF"
+    }
+  ]
+}
+EOF
+)
 
-          echo \"$RESPONSE\" > ai_output.json
+          echo "$RESPONSE" > ai_output.txt
 
-      # 5. Extract AI output
+      # 5. Extract AI result (NO JSON PARSE ISSUE)
       - name: Extract AI result
         run: |
-          FILE=$(jq -r '.choices[0].message.content | fromjson | .file' ai_output.json)
-          CONTENT=$(jq -r '.choices[0].message.content | fromjson | .content' ai_output.json)
+          FILE=$(grep '^file:' ai_output.txt | sed 's/file: //')
+          CONTENT=$(grep '^content:' ai_output.txt | sed 's/content: //')
 
           echo "Selected file: $FILE"
           echo "Content: $CONTENT"
 
           echo "FILE=$FILE" >> $GITHUB_ENV
-          echo "CONTENT<<EOF" >> $GITHUB_ENV
-          echo "$CONTENT" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          echo "CONTENT=$CONTENT" >> $GITHUB_ENV
 
-      # 6. Update markdown file
+      # 6. Update markdown
       - name: Update markdown
         run: |
+          touch $FILE
           echo "## PR Update - $(date)" >> $FILE
           echo "$CONTENT" >> $FILE
           echo "" >> $FILE
@@ -110,5 +109,5 @@ $(cat pr_diff.txt)
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add *.md
-          git commit -m "AI auto update docs from PR"
+          git commit -m "AI auto update docs from PR" || echo "No changes to commit"
           git push
