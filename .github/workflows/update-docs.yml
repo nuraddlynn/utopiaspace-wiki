@@ -13,92 +13,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout repo
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      # 2. Get PR diff
-      - name: Get PR diff
+      - name: Get PR content
         run: |
-          git fetch origin ${{ github.base_ref }}
-          git diff origin/${{ github.base_ref }} > pr_diff.txt
+          echo "${{ github.event.pull_request.title }}" > pr.txt
+          echo "${{ github.event.pull_request.body }}" >> pr.txt
 
-      # 3. Prepare request.json (SAFE WAY)
-      - name: Prepare AI request
-        run: |
-          DIFF=$(cat pr_diff.txt)
-
-          cat <<EOF > request.json
-{
-  "model": "gpt-4o-mini",
-  "messages": [
-    {
-      "role": "system",
-      "content": "Return ONLY this format:\nfile: filename.md\ncontent: text"
-    },
-    {
-      "role": "user",
-      "content": "Analyze PR diff and choose documentation file.
-
-Files:
-api.md
-database.md
-architecture.md
-basic-navigation.md
-login-guide.md
-end-user-guide.md
-developer-space.md
-announcements.md
-faq.md
-home.md
-
-Rules:
-API→api.md
-Database→database.md
-Architecture→architecture.md
-UI→basic-navigation.md
-Login→login-guide.md
-Developer→developer-space.md
-Bug→announcements.md
-General→home.md
-
-PR Diff:
-$DIFF"
-    }
-  ]
-}
-EOF
-
-      # 4. Call OpenAI
       - name: Send to AI
         run: |
-          curl https://api.openai.com/v1/chat/completions \
+          RESPONSE=$(curl https://api.openai.com/v1/chat/completions \
           -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
           -H "Content-Type: application/json" \
-          -d @request.json > ai_output.txt
+          -d "{\"model\":\"gpt-4o-mini\",\"messages\":[{\"role\":\"system\",\"content\":\"Reply ONLY like this: file: filename.md content: text\"},{\"role\":\"user\",\"content\":\"$(cat pr.txt)\"}]}")
+          
+          echo "$RESPONSE" > ai.txt
 
-      # 5. Extract result (SIMPLE PARSE)
-      - name: Extract AI result
+      - name: Extract result
         run: |
-          FILE=$(grep '^file:' ai_output.txt | sed 's/file: //')
-          CONTENT=$(grep '^content:' ai_output.txt | sed 's/content: //')
+          FILE=$(cat ai.txt | grep -o 'file: [^ ]*' | cut -d' ' -f2)
+          CONTENT=$(cat ai.txt | sed -n 's/.*content: //p')
 
           echo "FILE=$FILE" >> $GITHUB_ENV
           echo "CONTENT=$CONTENT" >> $GITHUB_ENV
 
-      # 6. Update markdown
-      - name: Update markdown
+      - name: Update file
         run: |
           touch $FILE
-          echo "## PR Update - $(date)" >> $FILE
+          echo "## PR Update" >> $FILE
           echo "$CONTENT" >> $FILE
           echo "" >> $FILE
 
-      # 7. Commit changes
       - name: Commit changes
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add *.md
-          git commit -m "AI auto update docs from PR" || echo "No changes"
+          git commit -m "AI update docs" || echo "No changes"
           git push
