@@ -17,31 +17,28 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      # 2. Install jq
-      - name: Install jq
-        run: sudo apt-get install jq
-
-      # 3. Get PR diff
+      # 2. Get PR diff
       - name: Get PR diff
         run: |
           git fetch origin ${{ github.base_ref }}
           git diff origin/${{ github.base_ref }} > pr_diff.txt
 
+      # 3. Prepare request.json (SAFE WAY)
       - name: Prepare AI request
         run: |
           DIFF=$(cat pr_diff.txt)
 
           cat <<EOF > request.json
-      {
-        "model": "gpt-4o-mini",
-        "messages": [
-          {
-            "role": "system",
-            "content": "Return simple structured text only."
-          },
-          {
-            "role": "user",
-            "content": "Analyze PR diff and choose documentation file.
+{
+  "model": "gpt-4o-mini",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Return ONLY this format:\nfile: filename.md\ncontent: text"
+    },
+    {
+      "role": "user",
+      "content": "Analyze PR diff and choose documentation file.
 
 Files:
 api.md
@@ -65,28 +62,26 @@ Developer→developer-space.md
 Bug→announcements.md
 General→home.md
 
-Return EXACT format:
-file: api.md
-content: your update here
-
 PR Diff:
 $DIFF"
     }
   ]
 }
 EOF
-)
 
-          echo "$RESPONSE" > ai_output.txt
+      # 4. Call OpenAI
+      - name: Send to AI
+        run: |
+          curl https://api.openai.com/v1/chat/completions \
+          -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
+          -H "Content-Type: application/json" \
+          -d @request.json > ai_output.txt
 
-      # 5. Extract AI result (NO JSON PARSE ISSUE)
+      # 5. Extract result (SIMPLE PARSE)
       - name: Extract AI result
         run: |
           FILE=$(grep '^file:' ai_output.txt | sed 's/file: //')
           CONTENT=$(grep '^content:' ai_output.txt | sed 's/content: //')
-
-          echo "Selected file: $FILE"
-          echo "Content: $CONTENT"
 
           echo "FILE=$FILE" >> $GITHUB_ENV
           echo "CONTENT=$CONTENT" >> $GITHUB_ENV
@@ -105,5 +100,5 @@ EOF
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add *.md
-          git commit -m "AI auto update docs from PR" || echo "No changes to commit"
+          git commit -m "AI auto update docs from PR" || echo "No changes"
           git push
