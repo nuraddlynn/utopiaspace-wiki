@@ -33,3 +33,8 @@ Created AI update pages:
 Created AI update pages:
 - [home-update-commit-2f1033a.md](/home-update-commit-2f1033a)
 
+## Commit 505f74b: Update HR backcharge management documentation
+
+Created AI update pages:
+- [hr-update-commit-505f74b.md](/hr-update-commit-505f74b)
+
