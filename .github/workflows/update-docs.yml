@@ -229,6 +229,7 @@ jobs:
           const eventUrl = process.env.EVENT_URL
           const fileSuffix = process.env.FILE_SUFFIX
           const summaryHeading = process.env.SUMMARY_HEADING
+          const now = new Date().toISOString()
           const normalized = new Map()
 
           for (const item of plan.updates || []) {
@@ -254,8 +255,19 @@ jobs:
               .replace(/^-+|-+$/g, '') || 'general'
 
             const updateFile = `${alias}-update-${fileSuffix}.md`
+            const pagePath = updateFile.replace(/\.md$/, '')
             const label = eventKind === 'pr' ? `PR number: #${eventId}` : `Commit: ${eventId}`
             const markdown = [
+              '---',
+              `title: ${item.update_title}`,
+              `description: AI-generated update page for ${item.target_file}`,
+              'published: true',
+              `date: ${now}`,
+              `dateCreated: ${now}`,
+              'tags: updates, ai-generated',
+              'editor: markdown',
+              '---',
+              '',
               `# ${item.update_title}`,
               '',
               `- Target page: \`${item.target_file}\``,
@@ -270,14 +282,14 @@ jobs:
             ].join('\n')
 
             fs.writeFileSync(updateFile, markdown)
-            createdPages.push(updateFile)
+            createdPages.push({ file: updateFile, path: pagePath })
           }
 
           const updatesEntry = [
             `## ${summaryHeading}`,
             '',
             'Created AI update pages:',
-            ...createdPages.map((page) => `- ${page}`),
+            ...createdPages.map((page) => `- [${page.file}](/${page.path})`),
             ''
           ].join('\n')
 

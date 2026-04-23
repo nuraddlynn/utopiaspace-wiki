@@ -55,6 +55,10 @@ This means the original page is not overwritten by the workflow.
 Instead, each merged PR creates a new update page that Wiki.js can sync as a
 separate page.
 
+Generated update pages include Wiki.js front matter with `published: true`.
+The workflow also adds clickable links to `updates.md`, so the `updates` page can
+be used as an index for generated update pages after Wiki.js imports them.
+
 ## Required repository secret
 
 This workflow requires a GitHub Actions secret:
