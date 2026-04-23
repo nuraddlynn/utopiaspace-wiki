@@ -1,9 +1,16 @@
-The HR Space is a centralised model for managing all human
-resource-related workflows, including employee records, approvals,
-attendance, and organisational.
+---
+title: HR Space
+description: Guide for managing HR-related workflows including employee records, approvals, attendance, and benefits.
+published: true
+date: 2026-04-23T08:52:13.876Z
+tags: management, workflow, hr, attendance, benefits, employees
+editor: markdown
+dateCreated: 2026-04-21T05:11:56.196Z
+---
 
-It enables HR personnel to monitor, manage, and maintain accurate
-employee and operational information.  
+The HR Space is a centralised model for managing all human resource-related workflows, including employee records, approvals, attendance, and organisational.
+
+It enables HR personnel to monitor, manage, and maintain accurate employee and operational information.  
 
 # Overview
 
@@ -22,8 +29,7 @@ View company-wide events, employee leave, and birthdays.
 # Claim Management
 
 - Benefit Approval - Review and approve employee benefit claims
-- Benefit Entitlement - Allocate and manage benefit entitlements for
-  employees
+- Benefit Entitlement - Allocate and manage benefit entitlements for employees
 - Advance Salary Approvals - Review and process advance salary requests
 
 # Leave Management
@@ -59,14 +65,12 @@ View company-wide events, employee leave, and birthdays.
 # Reports
 
 - Attendance Record - View daily attendance (who is in or out of office)
-- Non-Exec Attendance Record - View attendance specifically for
-  non-executive staff
+- Non-Exec Attendance Record - View attendance specifically for non-executive staff
 - Punch State Admin - Review anomalies and adjust attendance records
 
 # Incident Report Management
 
-- Incident Report Review - Review employee-related or policy-sensitive
-  incident reports
+- Incident Report Review - Review employee-related or policy-sensitive incident reports
 
 # Key Responsibilities
 
