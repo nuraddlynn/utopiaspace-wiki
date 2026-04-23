@@ -23,3 +23,8 @@ Created AI update pages:
 Created AI update pages:
 - [announcements-update-commit-fc9e190.md](/announcements-update-commit-fc9e190)
 
+## Commit 9b25f5b: Update end user guide staff documentation note
+
+Created AI update pages:
+- [end-user-update-commit-9b25f5b.md](/end-user-update-commit-9b25f5b)
+
