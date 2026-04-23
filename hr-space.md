@@ -48,6 +48,10 @@ View company-wide events, employee leave, and birthdays.
 
 - Petty Cash - Track HR-related petty cash records
 
+# Backcharge Management
+
+- Backcharge - Manage and track employee backcharge records
+
 # Announcement Management
 
 - Manage Announcement - Manage and monitor uploaded announcements
