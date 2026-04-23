@@ -1,27 +1,45 @@
 ---
-title: Documentation Updates
-description: Index of generated wiki update pages
+title: What’s New This Week
+description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-23T04:43:17.942Z
-dateCreated: 2026-04-23T04:43:17.942Z
+date: 2026-04-23T04:49:45.019Z
+dateCreated: 2026-04-23T04:49:45.019Z
 tags: updates, ai-generated
 editor: markdown
 ---
 
-# Documentation Updates
+# 🚀 What’s New This Week
 
-This page is automatically rebuilt from generated update pages.
+📅 April 23, 2026
 
-## Latest Trigger
+## 🔥 Big Updates
 
-Commit 627fc77: Rebuild updates index from generated pages
+- Reformatted the announcements page to function as a weekly summary.
+- Renamed the main home page to 'docs/home' for better organization.
 
-## Generated Update Pages
+## ⚡ Improvements
+
+- Regenerated the internal wiki updates index to ensure all generated pages are correctly reflected.
+- Added Wiki.js metadata to automatically generated update pages for improved content management.
+- Updated staff documentation note in the end user guide.
+- Updated content on the home page.
+- Updated HR backcharge management documentation.
+
+## 🐛 Fixes
+
+- No fixes recorded yet.
+
+## 📚 Update Details
 
 - [announcements-update-commit-627fc77.md](/announcements-update-commit-627fc77)
+- [announcements-update-commit-6bff029.md](/announcements-update-commit-6bff029)
 - [announcements-update-commit-fc9e190.md](/announcements-update-commit-fc9e190)
 - [end-user-update-commit-9b25f5b.md](/end-user-update-commit-9b25f5b)
 - [home-update-commit-2f1033a.md](/home-update-commit-2f1033a)
 - [home-update-commit-d274883.md](/home-update-commit-d274883)
 - [hr-update-commit-505f74b.md](/hr-update-commit-505f74b)
+
+## Latest Trigger
+
+Commit 6bff029: Format updates page as weekly summary
 
