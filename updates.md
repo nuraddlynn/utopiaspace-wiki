@@ -28,3 +28,8 @@ Created AI update pages:
 Created AI update pages:
 - [end-user-update-commit-9b25f5b.md](/end-user-update-commit-9b25f5b)
 
+## Commit 2f1033a: docs: rename home to docs/home
+
+Created AI update pages:
+- [home-update-commit-2f1033a.md](/home-update-commit-2f1033a)
+
