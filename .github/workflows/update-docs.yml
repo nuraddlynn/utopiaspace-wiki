@@ -199,6 +199,7 @@ jobs:
       - name: Create update pages from AI plan
         shell: bash
         env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           EVENT_KIND: ${{ steps.event-meta.outputs.kind }}
           EVENT_ID: ${{ steps.event-meta.outputs.id }}
           EVENT_TITLE: ${{ steps.event-meta.outputs.title }}
@@ -213,6 +214,7 @@ jobs:
 
           node <<'NODE'
           const fs = require('fs')
+          const { execFileSync } = require('child_process')
 
           const plan = JSON.parse(fs.readFileSync('update-plan.json', 'utf8'))
           const catalogLines = fs.readFileSync('page-catalog.txt', 'utf8').trim().split('\n').filter(Boolean)
@@ -286,10 +288,94 @@ jobs:
             .filter((file) => /-update-(commit|pr)-.+\.md$/.test(file))
             .sort()
 
+          const updateDetails = updateFiles.map((file) => ({
+            file,
+            content: fs.readFileSync(file, 'utf8')
+          }))
+
+          function summarizeUpdates() {
+            const fallback = {
+              big_updates: updateFiles.map((file) => `New update page generated: ${file}`),
+              improvements: [],
+              fixes: []
+            }
+
+            if (!process.env.GEMINI_API_KEY || updateDetails.length === 0) {
+              return fallback
+            }
+
+            const payload = {
+              contents: [
+                {
+                  role: 'user',
+                  parts: [
+                    {
+                      text:
+                        `Summarize these Wiki.js generated update pages into a weekly changelog. Return JSON only. Put feature additions and major documentation changes in big_updates. Put refinements, cleanups, and minor documentation improvements in improvements. Put bug fixes, resolved issues, and corrected problems in fixes. Keep bullets concise and user-friendly. Use plain text only, no markdown bullets.\n\nUpdate pages:\n${updateDetails.map((item) => `FILE: ${item.file}\n${item.content}`).join('\n\n---\n\n')}`
+                    }
+                  ]
+                }
+              ],
+              generationConfig: {
+                responseMimeType: 'application/json',
+                responseJsonSchema: {
+                  type: 'object',
+                  properties: {
+                    big_updates: { type: 'array', items: { type: 'string' } },
+                    improvements: { type: 'array', items: { type: 'string' } },
+                    fixes: { type: 'array', items: { type: 'string' } }
+                  }
+                },
+                temperature: 0.3
+              }
+            }
+
+            const responseText = execFileSync('curl', [
+              '-sS',
+              'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
+              '-H',
+              `x-goog-api-key: ${process.env.GEMINI_API_KEY}`,
+              '-H',
+              'Content-Type: application/json',
+              '-d',
+              JSON.stringify(payload)
+            ], {
+              encoding: 'utf8',
+              maxBuffer: 1024 * 1024 * 10
+            })
+
+            const response = JSON.parse(responseText)
+            if (response.error) {
+              throw new Error(response.error.message || 'Gemini API error while summarizing updates.')
+            }
+
+            const outputText =
+              response.candidates &&
+              response.candidates[0] &&
+              response.candidates[0].content &&
+              response.candidates[0].content.parts &&
+              response.candidates[0].content.parts[0] &&
+              response.candidates[0].content.parts[0].text
+                ? response.candidates[0].content.parts[0].text.trim()
+                : ''
+
+            return outputText ? JSON.parse(outputText) : fallback
+          }
+
+          const weeklySummary = summarizeUpdates()
+          const displayDate = new Intl.DateTimeFormat('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+            timeZone: 'Asia/Kuala_Lumpur'
+          }).format(new Date())
+          const section = (items, fallbackText) =>
+            items && items.length ? items.map((item) => `- ${item}`) : [`- ${fallbackText}`]
+
           const updatesIndex = [
             '---',
-            'title: Documentation Updates',
-            'description: Index of generated wiki update pages',
+            'title: What’s New This Week',
+            'description: Weekly summary of generated wiki update pages',
             'published: true',
             `date: ${now}`,
             `dateCreated: ${now}`,
@@ -297,20 +383,32 @@ jobs:
             'editor: markdown',
             '---',
             '',
-            '# Documentation Updates',
+            '# 🚀 What’s New This Week',
             '',
-            'This page is automatically rebuilt from generated update pages.',
+            `📅 ${displayDate}`,
             '',
-            '## Latest Trigger',
+            '## 🔥 Big Updates',
             '',
-            summaryHeading,
+            ...section(weeklySummary.big_updates, 'No big updates recorded yet.'),
             '',
-            '## Generated Update Pages',
+            '## ⚡ Improvements',
+            '',
+            ...section(weeklySummary.improvements, 'No improvements recorded yet.'),
+            '',
+            '## 🐛 Fixes',
+            '',
+            ...section(weeklySummary.fixes, 'No fixes recorded yet.'),
+            '',
+            '## 📚 Update Details',
             '',
             ...updateFiles.map((file) => {
               const pagePath = file.replace(/\.md$/, '')
               return `- [${file}](/${pagePath})`
             }),
+            '',
+            '## Latest Trigger',
+            '',
+            summaryHeading,
             ''
           ].join('\n')
 

@@ -56,9 +56,9 @@ Instead, each merged PR creates a new update page that Wiki.js can sync as a
 separate page.
 
 Generated update pages include Wiki.js front matter with `published: true`.
-The workflow also rebuilds `updates.md` as a clean index of generated update
-pages, so the `updates` page can be used as the main update index after Wiki.js
-imports it.
+The workflow also rebuilds `updates.md` as a "What's New This Week" page. Gemini
+summarizes generated update pages into Big Updates, Improvements, and Fixes, then
+keeps detail links to each generated update page.
 
 Do not manually edit `updates.md`; the workflow rewrites it on each generated
 update.
