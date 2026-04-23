@@ -56,8 +56,12 @@ Instead, each merged PR creates a new update page that Wiki.js can sync as a
 separate page.
 
 Generated update pages include Wiki.js front matter with `published: true`.
-The workflow also adds clickable links to `updates.md`, so the `updates` page can
-be used as an index for generated update pages after Wiki.js imports them.
+The workflow also rebuilds `updates.md` as a clean index of generated update
+pages, so the `updates` page can be used as the main update index after Wiki.js
+imports it.
+
+Do not manually edit `updates.md`; the workflow rewrites it on each generated
+update.
 
 ## Required repository secret
 

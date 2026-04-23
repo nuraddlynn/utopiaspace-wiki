@@ -246,8 +246,6 @@ jobs:
             normalized.set(item.target_file, { ...item })
           }
 
-          const createdPages = []
-
           for (const item of normalized.values()) {
             const alias = (item.target_alias || validTargets.get(item.target_file) || 'general')
               .toLowerCase()
@@ -282,18 +280,41 @@ jobs:
             ].join('\n')
 
             fs.writeFileSync(updateFile, markdown)
-            createdPages.push({ file: updateFile, path: pagePath })
           }
 
-          const updatesEntry = [
-            `## ${summaryHeading}`,
+          const updateFiles = fs.readdirSync('.')
+            .filter((file) => /-update-(commit|pr)-.+\.md$/.test(file))
+            .sort()
+
+          const updatesIndex = [
+            '---',
+            'title: Documentation Updates',
+            'description: Index of generated wiki update pages',
+            'published: true',
+            `date: ${now}`,
+            `dateCreated: ${now}`,
+            'tags: updates, ai-generated',
+            'editor: markdown',
+            '---',
             '',
-            'Created AI update pages:',
-            ...createdPages.map((page) => `- [${page.file}](/${page.path})`),
+            '# Documentation Updates',
+            '',
+            'This page is automatically rebuilt from generated update pages.',
+            '',
+            '## Latest Trigger',
+            '',
+            summaryHeading,
+            '',
+            '## Generated Update Pages',
+            '',
+            ...updateFiles.map((file) => {
+              const pagePath = file.replace(/\.md$/, '')
+              return `- [${file}](/${pagePath})`
+            }),
             ''
           ].join('\n')
 
-          fs.appendFileSync('updates.md', `${updatesEntry}\n`)
+          fs.writeFileSync('updates.md', `${updatesIndex}\n`)
           NODE
 
       - name: Commit generated update pages
