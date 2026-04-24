@@ -2,28 +2,29 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-23T04:49:45.019Z
-dateCreated: 2026-04-23T04:49:45.019Z
+date: 2026-04-24T03:33:10.609Z
+dateCreated: 2026-04-24T03:33:10.609Z
 tags: updates, ai-generated
 editor: markdown
 ---
 
 # 🚀 What’s New This Week
 
-📅 April 23, 2026
+📅 April 24, 2026
 
 ## 🔥 Big Updates
 
 - Reformatted the announcements page to function as a weekly summary.
-- Renamed the main home page to 'docs/home' for better organization.
+- Added Wiki.js metadata to automatically generated update pages for improved content management.
+- Renamed the main home page documentation from 'home' to 'docs/home' for better organization.
 
 ## ⚡ Improvements
 
-- Regenerated the internal wiki updates index to ensure all generated pages are correctly reflected.
-- Added Wiki.js metadata to automatically generated update pages for improved content management.
+- Rebuilt the internal index for wiki updates to ensure all generated pages are correctly reflected.
 - Updated staff documentation note in the end user guide.
 - Updated content on the home page.
-- Updated HR backcharge management documentation.
+- Updated documentation for HR backcharge management.
+- Updated workspace metadata files.
 
 ## 🐛 Fixes
 
@@ -38,8 +39,9 @@ editor: markdown
 - [home-update-commit-2f1033a.md](/home-update-commit-2f1033a)
 - [home-update-commit-d274883.md](/home-update-commit-d274883)
 - [hr-update-commit-505f74b.md](/hr-update-commit-505f74b)
+- [settings-update-commit-ab7f2fb.md](/settings-update-commit-ab7f2fb)
 
 ## Latest Trigger
 
-Commit 6bff029: Format updates page as weekly summary
+Commit ab7f2fb: Update workspace metadata files
 
