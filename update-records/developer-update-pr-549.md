@@ -18,3 +18,4 @@ editor: markdown
 ## Update Summary
 
 Introduced branch-sync convention, auto back-merge workflow, AI agentic dev workflow, and AmountSteps isolation.
+    
