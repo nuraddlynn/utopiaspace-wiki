@@ -61,3 +61,13 @@ Managers can review and manage submitted feedback:
 - Monitor reports to track team performance
 - Ensure all approvals are handled accurately
 - Use the dashboard to stay updated on team activities
+
+## 🚀 Latest Updates
+
+<!-- AUTO-UPDATE-START -->
+<!-- AUTO-UPDATE-ENTRY-START -->
+### April 25, 2026 at 5:20 PM - Fixed Petty Cash Validation
+
+Resolved a validation issue in the Petty Cash manager interface by removing a stray dependency-array fragment.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-END -->

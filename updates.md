@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-25T08:32:02.635Z
-dateCreated: 2026-04-25T08:32:02.635Z
+date: 2026-04-25T09:20:25.275Z
+dateCreated: 2026-04-25T09:20:25.275Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -16,11 +16,11 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 🔥 Big Updates
 
-- CI/CD: Development to Staging Promotion
+- No big updates recorded yet.
 
 ## ⚡ Improvements
 
-- No improvements recorded yet.
+- Internal branch synchronization completed.
 
 ## 🐛 Fixes
 
@@ -28,9 +28,9 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 📚 Update Details
 
-- CI/CD: Development to Staging Promotion ([record](/update-records/updates-update-pr-553))
+- Development Branch Synchronization ([record](/update-records/updates-update-pr-556))
 
 ## Latest Trigger
 
-PR #553: promote: development -> staging (2026-04-25)
+PR #556: sync: staging -> development (2026-04-25)
 
