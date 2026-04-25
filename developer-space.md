@@ -55,9 +55,7 @@ The Developer Space allows users to:
 <!-- AUTO-UPDATE-START -->
 <!-- AUTO-UPDATE-ENTRY-START -->
 ### April 24, 2026 at 11:52 AM - Add repository dispatch support for wiki updates
-- Commit: 5866a12
-- Trigger: Add repository dispatch support for wiki updates
-- Link: https://github.com/nuraddlynn/utopiaspace-wiki/commit/5866a12a68b219cec3233f6548c9a8d7da96082b
+
 Added support for repository dispatch to automate wiki updates.
 <!-- AUTO-UPDATE-ENTRY-END -->
 <!-- AUTO-UPDATE-END -->

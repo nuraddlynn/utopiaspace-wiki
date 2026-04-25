@@ -93,9 +93,7 @@ HR personnel are responsible for:
 <!-- AUTO-UPDATE-START -->
 <!-- AUTO-UPDATE-ENTRY-START -->
 ### April 23, 2026 at 12:32 PM - Update HR backcharge management documentation
-- Commit: 505f74b
-- Trigger: Update HR backcharge management documentation
-- Link: https://github.com/nuraddlynn/utopiaspace-wiki/commit/505f74be0de1f869f7bf6f0cd2ddc668990fbf5e
+
 Updated documentation for HR backcharge management.
 <!-- AUTO-UPDATE-ENTRY-END -->
 <!-- AUTO-UPDATE-END -->

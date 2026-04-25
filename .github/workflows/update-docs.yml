@@ -31,7 +31,6 @@ jobs:
           {
             find . -maxdepth 1 -type f -name '*.md' -print
           } | sed 's|^\./||' | sort | while IFS= read -r file; do
-            [[ "$file" == "updates.md" ]] && continue
             [[ "$file" == *"-update-pr-"* ]] && continue
             [[ "$file" == *"-update-commit-"* ]] && continue
 
@@ -182,7 +181,7 @@ jobs:
                 parts: [
                   {
                     text:
-                      `You are classifying a ${eventLabel} into one or more Wiki.js update pages. Return JSON only. Split unrelated updates into separate items. Each item must map to exactly one existing wiki page from the provided catalog. Prefer the closest matching page. Use concise markdown in summary_markdown. Return at most one item per target_file.\n\nEvent type: ${process.env.EVENT_KIND}\nEvent id: ${process.env.EVENT_ID}\nTitle: ${process.env.EVENT_TITLE}\nURL: ${process.env.EVENT_URL}\nDescription:\n${process.env.EVENT_BODY || '(empty)'}\n\nAvailable wiki pages:\n${catalog.map((item) => `- ${item.file} (alias: ${item.alias})`).join('\n')}\n\nIf the text mentions both login and manager updates, return two items. Do not invent target files outside the catalog.`
+                      `You are classifying a ${eventLabel} into one or more Wiki.js update destinations. Return JSON only. Split unrelated updates into separate items. Each item must map to exactly one destination. Prefer the closest matching existing wiki page when the update clearly belongs to a space/page. Only use \`updates.md\` when the change is general, cross-cutting, infrastructure-related, or does not clearly belong to any single wiki page. Use concise markdown in summary_markdown. Return at most one item per target_file.\n\nEvent type: ${process.env.EVENT_KIND}\nEvent id: ${process.env.EVENT_ID}\nTitle: ${process.env.EVENT_TITLE}\nURL: ${process.env.EVENT_URL}\nDescription:\n${process.env.EVENT_BODY || '(empty)'}\n\nAvailable wiki pages:\n${catalog.map((item) => `- ${item.file} (alias: ${item.alias})`).join('\n')}\n- updates.md (alias: whats-new, use only for general/unrelated updates)\n\nIf the text mentions both login and manager updates, return two items. Do not invent target files outside the catalog except for \`updates.md\`.`
                   }
                 ]
               }
@@ -287,7 +286,7 @@ jobs:
           const normalized = new Map()
 
           for (const item of plan.updates || []) {
-            if (!validTargets.has(item.target_file)) {
+            if (item.target_file !== 'updates.md' && !validTargets.has(item.target_file)) {
               throw new Error(`Invalid target file from AI: ${item.target_file}`)
             }
 
@@ -305,6 +304,7 @@ jobs:
           const AUTO_UPDATE_END = '<!-- AUTO-UPDATE-END -->'
           const ENTRY_START = '<!-- AUTO-UPDATE-ENTRY-START -->'
           const ENTRY_END = '<!-- AUTO-UPDATE-ENTRY-END -->'
+          const UPDATE_RECORDS_DIR = 'update-records'
           const MAX_PAGE_UPDATES = 10
           const displayTimestamp = new Intl.DateTimeFormat('en-US', {
             month: 'long',
@@ -373,17 +373,55 @@ jobs:
             return frontMatter ? `${frontMatter}${nextBody}` : nextBody
           }
 
+          fs.mkdirSync(UPDATE_RECORDS_DIR, { recursive: true })
+
           const updatedPages = []
+          const generalUpdates = []
 
           for (const item of normalized.values()) {
-            const label = eventKind === 'pr' ? `PR number: #${eventId}` : `Commit: ${eventId}`
+            const alias = (item.target_alias || validTargets.get(item.target_file) || item.target_file.replace(/\.md$/, '') || 'general')
+              .toLowerCase()
+              .replace(/[^a-z0-9-]+/g, '-')
+              .replace(/^-+|-+$/g, '') || 'general'
+            const recordFile = `${UPDATE_RECORDS_DIR}/${alias}-update-${fileSuffix}.md`
+            const recordMarkdown = [
+              '---',
+              `title: ${item.update_title}`,
+              `description: Auto-generated update record for ${item.target_file}`,
+              'published: true',
+              `date: ${now}`,
+              `dateCreated: ${now}`,
+              'tags: updates, ai-generated, records',
+              'editor: markdown',
+              '---',
+              '',
+              `# ${item.update_title}`,
+              '',
+              `- Target page: \`${item.target_file}\``,
+              `- Trigger type: ${eventKind === 'pr' ? 'Merged PR' : 'Commit update'}`,
+              `- Title: ${eventTitle}`,
+              `- Link: ${eventUrl}`,
+              '',
+              '## Update Summary',
+              '',
+              item.summary_markdown.trim(),
+              ''
+            ].join('\n')
+
+            fs.writeFileSync(recordFile, recordMarkdown)
+
+            if (item.target_file === 'updates.md') {
+              generalUpdates.push({
+                title: item.update_title,
+                summaryMarkdown: item.summary_markdown.trim(),
+                recordFile
+              })
+              continue
+            }
+
             const pageContent = fs.readFileSync(item.target_file, 'utf8')
             const entryMarkdown = [
               `### ${displayTimestamp} - ${item.update_title}`,
-              '',
-              `- ${label}`,
-              `- Trigger: ${eventTitle}`,
-              `- Link: ${eventUrl}`,
               '',
               item.summary_markdown.trim()
             ].join('\n')
@@ -394,7 +432,8 @@ jobs:
             updatedPages.push({
               file: item.target_file,
               pagePath: item.target_file.replace(/\.md$/, ''),
-              entryMarkdown
+              entryMarkdown,
+              recordFile
             })
           }
 
@@ -403,14 +442,19 @@ jobs:
             content: page.entryMarkdown
           }))
 
+          const generalUpdateDetails = generalUpdates.map((item) => ({
+            file: 'updates.md',
+            content: [`TITLE: ${item.title}`, item.summaryMarkdown].join('\n\n')
+          }))
+
           function summarizeUpdates() {
             const fallback = {
-              big_updates: updatedPages.map((page) => `Updated ${page.file} with a new latest-update entry.`),
+              big_updates: generalUpdates.map((item) => item.title),
               improvements: [],
               fixes: []
             }
 
-            if (!process.env.GEMINI_API_KEY || updateDetails.length === 0) {
+            if (!process.env.GEMINI_API_KEY || generalUpdateDetails.length === 0) {
               return fallback
             }
 
@@ -421,7 +465,7 @@ jobs:
                   parts: [
                     {
                       text:
-                        `Summarize these Wiki.js generated update pages into a weekly changelog. Return JSON only. Put feature additions and major documentation changes in big_updates. Put refinements, cleanups, and minor documentation improvements in improvements. Put bug fixes, resolved issues, and corrected problems in fixes. Keep bullets concise and user-friendly. Use plain text only, no markdown bullets.\n\nUpdate pages:\n${updateDetails.map((item) => `FILE: ${item.file}\n${item.content}`).join('\n\n---\n\n')}`
+                        `Summarize these general Wiki.js updates into a weekly changelog for the global What's New page. Return JSON only. Put feature additions and major documentation changes in big_updates. Put refinements, cleanups, and minor documentation improvements in improvements. Put bug fixes, resolved issues, and corrected problems in fixes. Keep bullets concise and user-friendly. Use plain text only, no markdown bullets.\n\nGeneral updates:\n${generalUpdateDetails.map((item) => `FILE: ${item.file}\n${item.content}`).join('\n\n---\n\n')}`
                     }
                   ]
                 }
@@ -502,6 +546,8 @@ jobs:
             '',
             `📅 ${displayDate}`,
             '',
+            'General updates that do not belong to a single space/page are collected here.',
+            '',
             '## 🔥 Big Updates',
             '',
             ...section(weeklySummary.big_updates, 'No big updates recorded yet.'),
@@ -516,9 +562,9 @@ jobs:
             '',
             '## 📚 Update Details',
             '',
-            ...updatedPages.map((page) => {
-              return `- [${page.file}](/${page.pagePath})`
-            }),
+            ...(generalUpdates.length
+              ? generalUpdates.map((item) => `- ${item.title} ([record](/${item.recordFile.replace(/\.md$/, '')}))`)
+              : ['- No general updates recorded yet.']),
             '',
             '## Latest Trigger',
             '',
@@ -534,7 +580,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add updates.md *.md
+          git add updates.md *.md update-records
 
           if git diff --cached --quiet; then
             echo "No generated update pages to commit."

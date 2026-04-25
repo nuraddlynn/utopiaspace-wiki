@@ -73,23 +73,17 @@ dateCreated: 2026-04-16T01:36:09.539Z
 <!-- AUTO-UPDATE-START -->
 <!-- AUTO-UPDATE-ENTRY-START -->
 ### April 23, 2026 at 12:49 PM - Format updates page as weekly summary
-- Commit: 6bff029
-- Trigger: Format updates page as weekly summary
-- Link: https://github.com/nuraddlynn/utopiaspace-wiki/commit/6bff029e2fedf3dab3fa573ac071e1ce5506e0a5
+
 Reformatted the announcements page to function as a weekly summary.
 <!-- AUTO-UPDATE-ENTRY-END -->
 <!-- AUTO-UPDATE-ENTRY-START -->
 ### April 23, 2026 at 12:43 PM - Wiki Updates Index Regenerated
-- Commit: 627fc77
-- Trigger: Rebuild updates index from generated pages
-- Link: https://github.com/nuraddlynn/utopiaspace-wiki/commit/627fc77f3aa6fab1b7bb69f726cc5968e7bac534
+
 The internal index for wiki updates has been rebuilt to ensure all generated pages are correctly reflected.
 <!-- AUTO-UPDATE-ENTRY-END -->
 <!-- AUTO-UPDATE-ENTRY-START -->
 ### April 23, 2026 at 9:30 AM - Wiki.js Metadata Added to Update Pages
-- Commit: fc9e190
-- Trigger: Add Wiki.js metadata to generated update pages
-- Link: https://github.com/nuraddlynn/utopiaspace-wiki/commit/fc9e19078bd6037e02567aa7ad131863f61aba92
+
 Added Wiki.js metadata to automatically generated update pages for improved content management.
 <!-- AUTO-UPDATE-ENTRY-END -->
 <!-- AUTO-UPDATE-END -->

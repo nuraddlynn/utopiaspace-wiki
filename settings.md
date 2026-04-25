@@ -78,9 +78,7 @@ The System Settings page allows users to:
 <!-- AUTO-UPDATE-START -->
 <!-- AUTO-UPDATE-ENTRY-START -->
 ### April 24, 2026 at 11:33 AM - Update workspace metadata files
-- Commit: ab7f2fb
-- Trigger: Update workspace metadata files
-- Link: https://github.com/nuraddlynn/utopiaspace-wiki/commit/ab7f2fb2d8dd47f1006c3520878a0b571beb8add
+
 Updated workspace metadata files.
 <!-- AUTO-UPDATE-ENTRY-END -->
 <!-- AUTO-UPDATE-END -->
