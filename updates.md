@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-25T12:46:16.927Z
-dateCreated: 2026-04-25T12:46:16.927Z
+date: 2026-04-25T13:25:40.681Z
+dateCreated: 2026-04-25T13:25:40.681Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -16,7 +16,7 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 🔥 Big Updates
 
-- No big updates recorded yet.
+- General System Update
 
 ## ⚡ Improvements
 
@@ -28,9 +28,9 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 📚 Update Details
 
-- No general updates recorded yet.
+- General System Update ([record](/update-records/updates-update-pr-561))
 
 ## Latest Trigger
 
-PR #560: promote: development -> staging (2026-04-25)
+PR #561: merge: staging to development
 
