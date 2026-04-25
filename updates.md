@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-25T12:32:32.003Z
-dateCreated: 2026-04-25T12:32:32.003Z
+date: 2026-04-25T12:46:16.927Z
+dateCreated: 2026-04-25T12:46:16.927Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -32,7 +32,5 @@ General updates that do not belong to a single space/page are collected here.
 
 ## Latest Trigger
 
-Commit 438db3f: fix: enable IT to debug IR IS
-
-Signed-off-by: Nazwa Najmuddin <naznajmuddin@gmail.com>
+PR #560: promote: development -> staging (2026-04-25)
 

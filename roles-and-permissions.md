@@ -101,3 +101,13 @@ Access is managed based on roles to ensure that:
 - Avoid granting full administrative access unnecessarily
 - Regularly review and update user roles
 - Ensure proper separation of duties
+
+## 🚀 Latest Updates
+
+<!-- AUTO-UPDATE-START -->
+<!-- AUTO-UPDATE-ENTRY-START -->
+### April 25, 2026 at 8:46 PM - IT Debugging Access to Feedback/Improvement Reports
+
+Enabled IT users to view all rows on feedback and improvement suggestion list pages in Manager and Director workspaces for debugging.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-END -->
