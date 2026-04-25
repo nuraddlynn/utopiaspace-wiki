@@ -32,4 +32,22 @@ Fixed login error in system.
 Fixed sidebar menu.
 
 added claim button in home page
- 
+
+## 🚀 Latest Updates
+
+<!-- AUTO-UPDATE-START -->
+<!-- AUTO-UPDATE-ENTRY-START -->
+### April 23, 2026 at 11:11 AM - Home page renamed
+- Commit: 2f1033a
+- Trigger: docs: rename home to docs/home
+- Link: https://github.com/nuraddlynn/utopiaspace-wiki/commit/2f1033ace044c5ed041fbf2dde929ce384c93d0c
+The main home page documentation has been renamed from `home` to `docs/home` for better organization.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-ENTRY-START -->
+### Historical update - Update home page content
+- Commit: d274883
+- Trigger: Update home page content
+- Link: https://github.com/nuraddlynn/utopiaspace-wiki/commit/d274883fbbb8a1dac8d4bce2878bcc618861a2aa
+Updated content on the home page.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-END -->

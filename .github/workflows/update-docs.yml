@@ -3,9 +3,6 @@ name: Create AI Wiki Update Pages
 on:
   pull_request:
     types: [closed]
-  push:
-    branches:
-      - main
   repository_dispatch:
     types:
       - sync-docs-update
@@ -18,9 +15,6 @@ jobs:
   create-update-pages:
     if: |
       (github.event_name == 'pull_request' && github.event.pull_request.merged == true) ||
-      (github.event_name == 'push' &&
-       github.actor != 'github-actions[bot]' &&
-       !startsWith(github.event.head_commit.message, 'Create AI wiki update pages')) ||
       github.event_name == 'repository_dispatch'
     runs-on: ubuntu-latest
 
@@ -83,7 +77,9 @@ jobs:
               echo "url=$PR_URL"
               echo "file_suffix=pr-$PR_NUMBER"
               echo "commit_message=Create AI wiki update pages from merged PR"
-              echo "summary_heading=PR #$PR_NUMBER: $PR_TITLE"
+              echo "summary_heading<<EOF"
+              echo "PR #$PR_NUMBER: $PR_TITLE"
+              echo "EOF"
             } >> "$GITHUB_OUTPUT"
           elif [[ "$EVENT_NAME" == "repository_dispatch" ]]; then
             source_kind="commit"
@@ -124,7 +120,9 @@ jobs:
               echo "url=$source_url"
               echo "file_suffix=$file_suffix"
               echo "commit_message=$commit_message"
-              echo "summary_heading=$summary_heading"
+              echo "summary_heading<<EOF"
+              echo "$summary_heading"
+              echo "EOF"
             } >> "$GITHUB_OUTPUT"
           else
             short_sha="${COMMIT_SHA::7}"
@@ -140,7 +138,9 @@ jobs:
               echo "url=$COMMIT_URL"
               echo "file_suffix=commit-$short_sha"
               echo "commit_message=Create AI wiki update pages from direct push"
-              echo "summary_heading=Commit $short_sha: $COMMIT_TITLE"
+              echo "summary_heading<<EOF"
+              echo "Commit $short_sha: $COMMIT_TITLE"
+              echo "EOF"
             } >> "$GITHUB_OUTPUT"
           fi
 
@@ -300,54 +300,112 @@ jobs:
             normalized.set(item.target_file, { ...item })
           }
 
-          for (const item of normalized.values()) {
-            const alias = (item.target_alias || validTargets.get(item.target_file) || 'general')
-              .toLowerCase()
-              .replace(/[^a-z0-9-]+/g, '-')
-              .replace(/^-+|-+$/g, '') || 'general'
+          const AUTO_UPDATE_HEADER = '## 🚀 Latest Updates'
+          const AUTO_UPDATE_START = '<!-- AUTO-UPDATE-START -->'
+          const AUTO_UPDATE_END = '<!-- AUTO-UPDATE-END -->'
+          const ENTRY_START = '<!-- AUTO-UPDATE-ENTRY-START -->'
+          const ENTRY_END = '<!-- AUTO-UPDATE-ENTRY-END -->'
+          const MAX_PAGE_UPDATES = 10
+          const displayTimestamp = new Intl.DateTimeFormat('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+            timeZone: 'Asia/Kuala_Lumpur'
+          }).format(new Date())
 
-            const updateFile = `${alias}-update-${fileSuffix}.md`
-            const pagePath = updateFile.replace(/\.md$/, '')
-            const label = eventKind === 'pr' ? `PR number: #${eventId}` : `Commit: ${eventId}`
-            const markdown = [
-              '---',
-              `title: ${item.update_title}`,
-              `description: AI-generated update page for ${item.target_file}`,
-              'published: true',
-              `date: ${now}`,
-              `dateCreated: ${now}`,
-              'tags: updates, ai-generated',
-              'editor: markdown',
-              '---',
-              '',
-              `# ${item.update_title}`,
-              '',
-              `- Target page: \`${item.target_file}\``,
-              `- ${label}`,
-              `- Title: ${eventTitle}`,
-              `- Link: ${eventUrl}`,
-              '',
-              '## Update Summary',
-              '',
-              item.summary_markdown.trim(),
-              ''
-            ].join('\n')
+          function splitFrontMatter(markdown) {
+            if (!markdown.startsWith('---\n')) {
+              return { frontMatter: '', body: markdown }
+            }
 
-            fs.writeFileSync(updateFile, markdown)
+            const endIndex = markdown.indexOf('\n---\n', 4)
+            if (endIndex === -1) {
+              return { frontMatter: '', body: markdown }
+            }
+
+            return {
+              frontMatter: markdown.slice(0, endIndex + 5),
+              body: markdown.slice(endIndex + 5)
+            }
           }
 
-          const updateFiles = fs.readdirSync('.')
-            .filter((file) => /-update-(commit|pr)-.+\.md$/.test(file))
-            .sort()
+          function upsertLatestUpdatesSection(markdown, newEntries) {
+            const { frontMatter, body } = splitFrontMatter(markdown)
+            const blockRegex = new RegExp(
+              `${AUTO_UPDATE_HEADER}\\n\\n${AUTO_UPDATE_START}\\n([\\s\\S]*?)\\n${AUTO_UPDATE_END}`
+            )
+            const existingMatch = body.match(blockRegex)
+            const existingContent = existingMatch ? existingMatch[1].trim() : ''
+            const existingEntries = []
 
-          const updateDetails = updateFiles.map((file) => ({
-            file,
-            content: fs.readFileSync(file, 'utf8')
+            if (existingContent) {
+              const entryRegex = new RegExp(`${ENTRY_START}\\n([\\s\\S]*?)\\n${ENTRY_END}`, 'g')
+              let match
+              while ((match = entryRegex.exec(existingContent)) !== null) {
+                existingEntries.push(match[1].trim())
+              }
+
+              if (existingEntries.length === 0) {
+                existingEntries.push(existingContent)
+              }
+            }
+
+            const combinedEntries = [...newEntries, ...existingEntries]
+              .filter(Boolean)
+              .slice(0, MAX_PAGE_UPDATES)
+              .map((entry) => `${ENTRY_START}\n${entry.trim()}\n${ENTRY_END}`)
+
+            const managedBlock = [
+              AUTO_UPDATE_HEADER,
+              '',
+              AUTO_UPDATE_START,
+              ...combinedEntries,
+              AUTO_UPDATE_END
+            ].join('\n')
+
+            const nextBody = existingMatch
+              ? body.replace(blockRegex, managedBlock)
+              : `${body.replace(/\s*$/, '')}\n\n${managedBlock}\n`
+
+            return frontMatter ? `${frontMatter}${nextBody}` : nextBody
+          }
+
+          const updatedPages = []
+
+          for (const item of normalized.values()) {
+            const label = eventKind === 'pr' ? `PR number: #${eventId}` : `Commit: ${eventId}`
+            const pageContent = fs.readFileSync(item.target_file, 'utf8')
+            const entryMarkdown = [
+              `### ${displayTimestamp} - ${item.update_title}`,
+              '',
+              `- ${label}`,
+              `- Trigger: ${eventTitle}`,
+              `- Link: ${eventUrl}`,
+              '',
+              item.summary_markdown.trim()
+            ].join('\n')
+
+            const nextContent = upsertLatestUpdatesSection(pageContent, [entryMarkdown])
+            fs.writeFileSync(item.target_file, nextContent)
+
+            updatedPages.push({
+              file: item.target_file,
+              pagePath: item.target_file.replace(/\.md$/, ''),
+              entryMarkdown
+            })
+          }
+
+          const updateDetails = updatedPages.map((page) => ({
+            file: page.file,
+            content: page.entryMarkdown
           }))
 
           function summarizeUpdates() {
             const fallback = {
-              big_updates: updateFiles.map((file) => `New update page generated: ${file}`),
+              big_updates: updatedPages.map((page) => `Updated ${page.file} with a new latest-update entry.`),
               improvements: [],
               fixes: []
             }
@@ -382,36 +440,41 @@ jobs:
               }
             }
 
-            const responseText = execFileSync('curl', [
-              '-sS',
-              'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
-              '-H',
-              `x-goog-api-key: ${process.env.GEMINI_API_KEY}`,
-              '-H',
-              'Content-Type: application/json',
-              '-d',
-              JSON.stringify(payload)
-            ], {
-              encoding: 'utf8',
-              maxBuffer: 1024 * 1024 * 10
-            })
+            try {
+              const responseText = execFileSync('curl', [
+                '-sS',
+                'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
+                '-H',
+                `x-goog-api-key: ${process.env.GEMINI_API_KEY}`,
+                '-H',
+                'Content-Type: application/json',
+                '-d',
+                JSON.stringify(payload)
+              ], {
+                encoding: 'utf8',
+                maxBuffer: 1024 * 1024 * 10
+              })
 
-            const response = JSON.parse(responseText)
-            if (response.error) {
-              throw new Error(response.error.message || 'Gemini API error while summarizing updates.')
+              const response = JSON.parse(responseText)
+              if (response.error) {
+                throw new Error(response.error.message || 'Gemini API error while summarizing updates.')
+              }
+
+              const outputText =
+                response.candidates &&
+                response.candidates[0] &&
+                response.candidates[0].content &&
+                response.candidates[0].content.parts &&
+                response.candidates[0].content.parts[0] &&
+                response.candidates[0].content.parts[0].text
+                  ? response.candidates[0].content.parts[0].text.trim()
+                  : ''
+
+              return outputText ? JSON.parse(outputText) : fallback
+            } catch (error) {
+              console.warn(`Falling back to basic weekly summary: ${error.message}`)
+              return fallback
             }
-
-            const outputText =
-              response.candidates &&
-              response.candidates[0] &&
-              response.candidates[0].content &&
-              response.candidates[0].content.parts &&
-              response.candidates[0].content.parts[0] &&
-              response.candidates[0].content.parts[0].text
-                ? response.candidates[0].content.parts[0].text.trim()
-                : ''
-
-            return outputText ? JSON.parse(outputText) : fallback
           }
 
           const weeklySummary = summarizeUpdates()
@@ -453,9 +516,8 @@ jobs:
             '',
             '## 📚 Update Details',
             '',
-            ...updateFiles.map((file) => {
-              const pagePath = file.replace(/\.md$/, '')
-              return `- [${file}](/${pagePath})`
+            ...updatedPages.map((page) => {
+              return `- [${page.file}](/${page.pagePath})`
             }),
             '',
             '## Latest Trigger',

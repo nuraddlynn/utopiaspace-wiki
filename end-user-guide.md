@@ -46,3 +46,15 @@ For role-specific tasks, navigate to your assigned space.
 
  
 documentation is for staff only
+
+## 🚀 Latest Updates
+
+<!-- AUTO-UPDATE-START -->
+<!-- AUTO-UPDATE-ENTRY-START -->
+### April 23, 2026 at 9:32 AM - Update end user guide staff documentation note
+- Commit: 9b25f5b
+- Trigger: Update end user guide staff documentation note
+- Link: https://github.com/nuraddlynn/utopiaspace-wiki/commit/9b25f5b63327f1fd0a0a7d53327cde8a4c97b342
+Updated staff documentation note in the end user guide.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-END -->
