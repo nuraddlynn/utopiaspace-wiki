@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-27T07:20:57.673Z
-dateCreated: 2026-04-27T07:20:57.673Z
+date: 2026-04-27T09:52:27.161Z
+dateCreated: 2026-04-27T09:52:27.161Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -32,5 +32,7 @@ General updates that do not belong to a single space/page are collected here.
 
 ## Latest Trigger
 
-PR #17: Convert workspace links to quickstart table
+Commit 7d0ad7b: setup: infisical environment
+
+Signed-off-by: Nazwa Najmuddin <naznajmuddin@gmail.com>
 

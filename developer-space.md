@@ -54,6 +54,11 @@ The Developer Space allows users to:
 
 <!-- AUTO-UPDATE-START -->
 <!-- AUTO-UPDATE-ENTRY-START -->
+### April 27, 2026 at 5:52 PM - Infisical Environment Setup
+
+Documented the setup process for the Infisical environment.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-ENTRY-START -->
 ### April 24, 2026 at 11:52 AM - Add repository dispatch support for wiki updates
 
 Added support for repository dispatch to automate wiki updates.
