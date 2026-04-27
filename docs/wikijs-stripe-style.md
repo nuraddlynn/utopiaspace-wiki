@@ -35,8 +35,8 @@ Copy everything inside this CSS block. Do not copy the opening or closing triple
   --utopia-brand-blue-soft: #e8f2fd;
   --utopia-bg: #f6f9fc;
   --utopia-surface: #ffffff;
-  --utopia-surface-soft: #eef4ff;
-  --utopia-row-soft: #f6f9fc;
+  --utopia-surface-soft: #f9fbfd;
+  --utopia-row-soft: #f7f9fc;
   --utopia-text: #0a2540;
   --utopia-muted: #5b6b7f;
   --utopia-border: #dbe4ef;
@@ -46,7 +46,7 @@ Copy everything inside this CSS block. Do not copy the opening or closing triple
   --utopia-code-text: #e6edf7;
   --utopia-inline-code-bg: #eef4ff;
   --utopia-inline-code-text: #334155;
-  --utopia-shadow: 0 18px 45px rgba(10, 37, 64, 0.08);
+  --utopia-shadow: 0 1px 2px rgba(10, 37, 64, 0.04);
   --utopia-shadow-strong: 0 18px 45px rgba(10, 37, 64, 0.14);
 }
 
@@ -267,8 +267,8 @@ main:has(.utopia-home-scope) .utopia-quickstart-table,
 .page-contents:has(.utopia-home-scope) .utopia-quickstart-table,
 .v-main:has(.utopia-home-scope) .utopia-quickstart-table {
   display: grid;
-  grid-template-columns: minmax(180px, 28%) 1fr;
-  margin: 14px 0 28px;
+  grid-template-columns: minmax(190px, 34%) 1fr;
+  margin: 10px 0 30px;
   overflow: hidden;
   background: var(--utopia-surface);
   border: 1px solid var(--utopia-border);
@@ -280,12 +280,12 @@ main:has(.utopia-home-scope) .utopia-quickstart-head,
 .contents:has(.utopia-home-scope) .utopia-quickstart-head,
 .page-contents:has(.utopia-home-scope) .utopia-quickstart-head,
 .v-main:has(.utopia-home-scope) .utopia-quickstart-head {
-  padding: 18px 22px;
+  padding: 14px 20px;
   color: var(--utopia-muted);
-  background: var(--utopia-bg);
+  background: transparent;
   border-bottom: 1px solid var(--utopia-border);
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -298,7 +298,7 @@ main:has(.utopia-home-scope) .utopia-quickstart-table p,
 .contents:has(.utopia-home-scope) .utopia-quickstart-table p,
 .page-contents:has(.utopia-home-scope) .utopia-quickstart-table p,
 .v-main:has(.utopia-home-scope) .utopia-quickstart-table p {
-  min-height: 74px;
+  min-height: 62px;
   margin: 0;
   padding: 16px 20px;
   border-bottom: 1px solid var(--utopia-border);
@@ -334,8 +334,8 @@ main:has(.utopia-home-scope) .utopia-quickstart-table a,
   display: flex;
   align-items: center;
   color: var(--utopia-accent-strong) !important;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
   line-height: 1.35;
 }
 
@@ -353,7 +353,7 @@ main:has(.utopia-home-scope) .utopia-quickstart-table p,
 .v-main:has(.utopia-home-scope) .utopia-quickstart-table p {
   color: var(--utopia-text);
   font-size: 15px;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 @media (max-width: 720px) {
