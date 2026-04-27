@@ -1,8 +1,8 @@
 # Wiki.js Stripe-Inspired UI Polish
 
-Use this when you want the wiki home page to feel closer to Stripe Docs: clearer navigation, tighter typography, card-like tables, code-friendly spacing, and a cleaner content surface.
+Use this when you want the wiki to use the same blue as the existing UtopiaSpace action buttons, while making the home page feel closer to Stripe Docs: clearer navigation, tighter typography, card-like tables, code-friendly spacing, and a cleaner content surface.
 
-The CSS below is scoped to the home page only. It activates only when the page contains:
+Most of the visual polish below is scoped to the home page only. The brand-blue overrides are global so the website blue matches the button color shown in the UtopiaSpace UI.
 
 ```html
 <span class="utopia-home-scope"></span>
@@ -30,14 +30,17 @@ Copy everything inside this CSS block. Do not copy the opening or closing triple
 }
 
 :root {
+  --utopia-brand-blue: #1976d2;
+  --utopia-brand-blue-hover: #1565c0;
+  --utopia-brand-blue-soft: #e8f2fd;
   --utopia-bg: #f6f9fc;
   --utopia-surface: #ffffff;
   --utopia-surface-soft: #eef4ff;
   --utopia-text: #0a2540;
   --utopia-muted: #5b6b7f;
   --utopia-border: #dbe4ef;
-  --utopia-accent: #635bff;
-  --utopia-accent-strong: #4f46e5;
+  --utopia-accent: var(--utopia-brand-blue);
+  --utopia-accent-strong: var(--utopia-brand-blue);
   --utopia-code-bg: #0a2540;
   --utopia-code-text: #e6edf7;
   --utopia-inline-code-bg: #eef4ff;
@@ -48,14 +51,17 @@ Copy everything inside this CSS block. Do not copy the opening or closing triple
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --utopia-brand-blue: #1976d2;
+    --utopia-brand-blue-hover: #1565c0;
+    --utopia-brand-blue-soft: #112b46;
     --utopia-bg: #0b1220;
     --utopia-surface: #111827;
     --utopia-surface-soft: #172033;
     --utopia-text: #f8fafc;
     --utopia-muted: #b6c2d1;
     --utopia-border: #263247;
-    --utopia-accent: #8b85ff;
-    --utopia-accent-strong: #a8c7ff;
+    --utopia-accent: var(--utopia-brand-blue);
+    --utopia-accent-strong: #64b5f6;
     --utopia-code-bg: #050816;
     --utopia-code-text: #e6edf7;
     --utopia-inline-code-bg: #1b2638;
@@ -69,20 +75,60 @@ Copy everything inside this CSS block. Do not copy the opening or closing triple
 .theme--dark.v-application,
 body.theme--dark,
 html.theme--dark {
+  --utopia-brand-blue: #1976d2;
+  --utopia-brand-blue-hover: #1565c0;
+  --utopia-brand-blue-soft: #112b46;
   --utopia-bg: #0b1220;
   --utopia-surface: #111827;
   --utopia-surface-soft: #172033;
   --utopia-text: #f8fafc;
   --utopia-muted: #b6c2d1;
   --utopia-border: #263247;
-  --utopia-accent: #8b85ff;
-  --utopia-accent-strong: #a8c7ff;
+  --utopia-accent: var(--utopia-brand-blue);
+  --utopia-accent-strong: #64b5f6;
   --utopia-code-bg: #050816;
   --utopia-code-text: #e6edf7;
   --utopia-inline-code-bg: #1b2638;
   --utopia-inline-code-text: #dbeafe;
   --utopia-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
   --utopia-shadow-strong: 0 18px 45px rgba(0, 0, 0, 0.36);
+}
+
+.v-application .primary,
+.v-application .blue,
+.v-application .info,
+.v-application .v-btn.primary,
+.v-application .v-btn.blue,
+.v-application .v-btn.info {
+  background-color: var(--utopia-brand-blue) !important;
+  border-color: var(--utopia-brand-blue) !important;
+}
+
+.v-application .primary--text,
+.v-application .blue--text,
+.v-application .info--text,
+.v-application a:not(.v-btn):not(.v-list-item) {
+  color: var(--utopia-brand-blue) !important;
+  caret-color: var(--utopia-brand-blue) !important;
+}
+
+.v-application .v-btn.primary:hover,
+.v-application .v-btn.blue:hover,
+.v-application .v-btn.info:hover {
+  background-color: var(--utopia-brand-blue-hover) !important;
+  border-color: var(--utopia-brand-blue-hover) !important;
+}
+
+.v-application .v-tabs-slider,
+.v-application .v-progress-linear__determinate,
+.v-application .v-pagination__item--active {
+  background-color: var(--utopia-brand-blue) !important;
+  border-color: var(--utopia-brand-blue) !important;
+}
+
+.v-application .v-list-item--active,
+.v-application .v-chip.primary {
+  background-color: var(--utopia-brand-blue-soft) !important;
 }
 
 main:has(.utopia-home-scope),
