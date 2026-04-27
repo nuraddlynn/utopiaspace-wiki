@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-27T03:41:44.707Z
-dateCreated: 2026-04-27T03:41:44.707Z
+date: 2026-04-27T04:49:40.887Z
+dateCreated: 2026-04-27T04:49:40.887Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -16,7 +16,7 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 🔥 Big Updates
 
-- No big updates recorded yet.
+- Updated wiki notification workflow to dispatch sync updates from development, staging, and production branches on direct pushes and relevant PR events.
 
 ## ⚡ Improvements
 
@@ -28,11 +28,9 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 📚 Update Details
 
-- No general updates recorded yet.
+- Wiki Notification Workflow Updated ([record](/update-records/updates-update-pr-564))
 
 ## Latest Trigger
 
-Commit ddecb7d: fix: backfill FT to IRIS
-
-Signed-off-by: Nazwa Najmuddin <naznajmuddin@gmail.com>
+PR #564: update: wiki notification workflow
 
