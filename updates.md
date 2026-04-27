@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-27T06:44:00.859Z
-dateCreated: 2026-04-27T06:44:00.859Z
+date: 2026-04-27T06:57:42.319Z
+dateCreated: 2026-04-27T06:57:42.319Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -24,13 +24,13 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 🐛 Fixes
 
-- Resolved a race condition in the documentation update workflow.
+- No fixes recorded yet.
 
 ## 📚 Update Details
 
-- Fixed update workflow push race ([record](/update-records/updates-update-pr-14))
+- No general updates recorded yet.
 
 ## Latest Trigger
 
-PR #14: Fix update workflow push race
+PR #15: Polish wiki home page styling guide
 

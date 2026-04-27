@@ -76,3 +76,13 @@ The main home page documentation has been renamed from `home` to `docs/home` for
 Updated content on the home page.
 <!-- AUTO-UPDATE-ENTRY-END -->
 <!-- AUTO-UPDATE-END -->
+
+## 🚀 Latest Updates
+
+<!-- AUTO-UPDATE-START -->
+<!-- AUTO-UPDATE-ENTRY-START -->
+### April 27, 2026 at 2:57 PM - Polish wiki home page styling guide
+
+Improved styling guide for the wiki home page.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-END -->
