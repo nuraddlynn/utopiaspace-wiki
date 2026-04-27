@@ -134,16 +134,27 @@ html.theme--dark {
   background-color: var(--utopia-brand-blue-soft) !important;
 }
 
-.v-application .v-navigation-drawer {
+.v-application .v-navigation-drawer,
+.v-application .v-navigation-drawer.primary,
+.v-application .v-navigation-drawer.blue,
+.v-application .v-navigation-drawer.info,
+.v-application .v-navigation-drawer .v-navigation-drawer__content {
   background: #ffffff !important;
+  background-color: #ffffff !important;
   border-right: 1px solid var(--utopia-border) !important;
   box-shadow: none !important;
 }
 
 .v-application .v-navigation-drawer .v-list,
 .v-application .v-navigation-drawer .v-list-group,
-.v-application .v-navigation-drawer .v-list-item {
+.v-application .v-navigation-drawer .v-list-item,
+.v-application .v-navigation-drawer .v-list-item.primary,
+.v-application .v-navigation-drawer .v-list-item.blue,
+.v-application .v-navigation-drawer .v-list-item.info,
+.v-application .v-navigation-drawer .v-list-group__header,
+.v-application .v-navigation-drawer .v-list-group__items {
   background: transparent !important;
+  background-color: transparent !important;
 }
 
 .v-application .v-navigation-drawer .v-list-item {
@@ -178,6 +189,7 @@ html.theme--dark {
 
 .v-application .v-navigation-drawer .v-list-item:hover {
   background: #f6f9fc !important;
+  background-color: #f6f9fc !important;
   color: #000000 !important;
 }
 
@@ -189,6 +201,7 @@ html.theme--dark {
 .v-application .v-navigation-drawer .v-list-item--active,
 .v-application .v-navigation-drawer .v-list-item.v-list-item--active {
   background: transparent !important;
+  background-color: transparent !important;
   color: var(--utopia-brand-blue) !important;
   font-weight: 700 !important;
 }
@@ -377,13 +390,22 @@ main:has(.utopia-home-scope) .utopia-quickstart-table p,
 
 main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
 main:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4),
+main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3) *,
+main:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4) *,
 .contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
 .contents:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4),
+.contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3) *,
+.contents:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4) *,
 .page-contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
 .page-contents:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4),
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3) *,
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4) *,
 .v-main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
-.v-main:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4) {
-  background: var(--utopia-row-soft);
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4),
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3) *,
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4) * {
+  background: var(--utopia-row-soft) !important;
+  background-color: var(--utopia-row-soft) !important;
 }
 
 main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-last-child(2),
