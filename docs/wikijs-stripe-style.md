@@ -231,7 +231,7 @@ body,
 
 .v-application .v-navigation-drawer .v-subheader {
   margin-top: 18px !important;
-  margin-bottom: 6px !important;
+  margin-bottom: 0 !important;
   min-height: 24px !important;
 }
 
