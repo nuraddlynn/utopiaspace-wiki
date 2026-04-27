@@ -361,7 +361,8 @@ main:has(.utopia-home-scope) a:hover,
 .contents:has(.utopia-home-scope) a:hover,
 .page-contents:has(.utopia-home-scope) a:hover,
 .v-main:has(.utopia-home-scope) a:hover {
-  text-decoration: underline;
+  color: #000000 !important;
+  text-decoration: none !important;
 }
 
 main:has(.utopia-home-scope) .utopia-home-actions,
