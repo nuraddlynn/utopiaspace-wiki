@@ -1,39 +1,68 @@
-[**Welcome to UtopiaSpace Wiki !**]
+---
+title: UtopiaSpace Wiki
+description: Internal documentation for UtopiaSpace users, role spaces, workflows, and developers.
+published: true
+date: 2026-04-27T00:00:00.000Z
+tags: home, documentation, guide
+editor: markdown
+---
 
-# Overview
+# UtopiaSpace Wiki
 
-This wiki provides comprehensive documentation for the UtopiaSpace
-system, covering both  users and developers.
+<span class="utopia-home-scope"></span>
 
-# Purpose
+Internal documentation for daily operations, role-based spaces, workflows, and system support.
 
-- To improve workflow efficiency within UtopiaSpace
-- To provide clear and structured documentation
-- To support both system usage and development processes
+[Get started](/end-user-guide) [View updates](/updates) [Developer docs](/developer-space)
 
-# Sections
+## Start Here
 
-- User Guide - For general users to understand system features and usage
-- Role-Based Guides - Detailed guides for Manager, Director, Supervisor,
-  HR, Accounts, Credit, Operations Efficiency, and Indoor
-- Developer Documentation - Technical details for system development
-- Workflows - Step-by-step process flows within the system
+| Guide | Best for | What you will find |
+| --- | --- | --- |
+| [End User Guide](/end-user-guide) | All staff | System overview, common actions, and next steps |
+| [Login Guide](/login-guide) | New users | Account access, sign-in flow, and login help |
+| [Basic Navigation](/basic-navigation) | First-time users | Sidebar, top bar, pages, and role-based access |
+| [FAQ](/faq) | Everyone | Quick answers to common questions |
 
-# Getting Started
+## Browse by Workspace
 
-To begin, navigate to the User Guide if you are a general user, or the
-Developer Documentation if you are part of the technical team.
+### Operations
 
-For role-specific instructions, refer to the relevant section under
-Role-Based Guides.
+- [Personal Space](/personal-space): Manage your own tasks and activities.
+- [Taskboard](/taskboard): Create, assign, track, and manage tasks.
+- [Calendar](/calendar): Review schedules, events, and important dates.
+- [Meeting Notes](/meeting-notes): Record decisions, notes, and follow-ups.
 
-## Bug Fix
-Fixed login error in system.
-Fixed sidebar menu.
+### Role-Based Guides
 
-added claim button in home page
+- [Manager Space](/manager-space): Review team workflows and approvals.
+- [Director Space](/director-space): Monitor higher-level operations and decisions.
+- [Supervisor Space](/supervisor-space): Track team activity and task progress.
+- [HR Space](/hr-space): Manage HR-related processes and records.
+- [Account Space](/account-space): Handle account and finance-related workflows.
+- [Credit Space](/credit-space): Review credit-related customer activity.
+- [Operations Efficiency Space](/oe-space): Improve workflows and operational processes.
+- [Indoor Space](/indoor-space): Support indoor sales and customer records.
 
-## 🚀 Latest Updates
+### System and Support
+
+- [Announcements](/announcements): Read system notices and internal updates.
+- [User Management](/user-management): Manage users, access, and account setup.
+- [Roles and Permissions](/roles-and-permissions): Understand what each role can access.
+- [Settings](/settings): Configure system preferences.
+- [Troubleshooting](/troubleshooting): Fix common issues before escalating.
+
+## Developer Resources
+
+| Resource | Use it when you need to |
+| --- | --- |
+| [Developer Space](/developer-space) | Monitor system health, server performance, and operations |
+| [Architecture](/architecture) | Understand the system structure and major components |
+| [Database](/database) | Review database usage and data structure notes |
+| [API](/api) | Reference integration and API-related documentation |
+| [Wiki.js Git Sync](/docs/wikijs-git-sync) | Maintain Git-backed wiki publishing |
+
+## Latest Updates
 
 <!-- AUTO-UPDATE-START -->
 <!-- AUTO-UPDATE-ENTRY-START -->
