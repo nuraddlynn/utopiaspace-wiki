@@ -65,7 +65,6 @@ Copy everything inside this CSS block. Do not copy the opening or closing triple
   }
 }
 
-.theme--dark,
 .theme--dark.v-application,
 body.theme--dark,
 html.theme--dark {
@@ -164,7 +163,11 @@ body,
 .v-application .v-navigation-drawer.primary,
 .v-application .v-navigation-drawer.blue,
 .v-application .v-navigation-drawer.info,
-.v-application .v-navigation-drawer .v-navigation-drawer__content {
+.v-application .v-navigation-drawer.theme--dark,
+.v-application .v-navigation-drawer .v-navigation-drawer__content,
+.v-application .v-navigation-drawer .v-sheet,
+.v-application .v-navigation-drawer .v-toolbar,
+.v-application .v-navigation-drawer .v-card {
   background: var(--utopia-sidebar-bg) !important;
   background-color: var(--utopia-sidebar-bg) !important;
   border-right: 1px solid var(--utopia-border) !important;
@@ -178,7 +181,8 @@ body,
 .v-application .v-navigation-drawer .v-list-item.blue,
 .v-application .v-navigation-drawer .v-list-item.info,
 .v-application .v-navigation-drawer .v-list-group__header,
-.v-application .v-navigation-drawer .v-list-group__items {
+.v-application .v-navigation-drawer .v-list-group__items,
+.v-application .v-navigation-drawer .theme--dark {
   background: transparent !important;
   background-color: transparent !important;
 }
