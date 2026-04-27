@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-27T04:49:40.887Z
-dateCreated: 2026-04-27T04:49:40.887Z
+date: 2026-04-27T06:44:00.859Z
+dateCreated: 2026-04-27T06:44:00.859Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -16,7 +16,7 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 🔥 Big Updates
 
-- Updated wiki notification workflow to dispatch sync updates from development, staging, and production branches on direct pushes and relevant PR events.
+- No big updates recorded yet.
 
 ## ⚡ Improvements
 
@@ -24,13 +24,13 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 🐛 Fixes
 
-- No fixes recorded yet.
+- Resolved a race condition in the documentation update workflow.
 
 ## 📚 Update Details
 
-- Wiki Notification Workflow Updated ([record](/update-records/updates-update-pr-564))
+- Fixed update workflow push race ([record](/update-records/updates-update-pr-14))
 
 ## Latest Trigger
 
-PR #564: update: wiki notification workflow
+PR #14: Fix update workflow push race
 
