@@ -246,7 +246,13 @@ body,
 .v-application .v-navigation-drawer .v-btn.primary,
 .v-application .v-navigation-drawer .v-btn.blue,
 .v-application .v-navigation-drawer .v-btn.info,
-.v-application .v-navigation-drawer button {
+.v-application .v-navigation-drawer .v-btn--active,
+.v-application .v-navigation-drawer .v-item--active,
+.v-application .v-navigation-drawer button,
+.v-application .v-navigation-drawer .v-btn-toggle,
+.v-application .v-navigation-drawer .v-btn-toggle .v-btn,
+.v-application .v-navigation-drawer .v-tabs,
+.v-application .v-navigation-drawer .v-tab {
   background: transparent !important;
   background-color: transparent !important;
   box-shadow: none !important;
@@ -259,14 +265,17 @@ body,
 }
 
 .v-application .v-navigation-drawer .v-btn:hover,
-.v-application .v-navigation-drawer button:hover {
+.v-application .v-navigation-drawer button:hover,
+.v-application .v-navigation-drawer .v-tab:hover {
   background: transparent !important;
   background-color: transparent !important;
   color: var(--utopia-brand-blue) !important;
 }
 
 .v-application .v-navigation-drawer .v-btn:hover .v-btn__content,
-.v-application .v-navigation-drawer .v-btn:hover .v-icon {
+.v-application .v-navigation-drawer .v-btn:hover .v-icon,
+.v-application .v-navigation-drawer .v-tab:hover,
+.v-application .v-navigation-drawer .v-tab:hover .v-icon {
   color: var(--utopia-brand-blue) !important;
 }
 
