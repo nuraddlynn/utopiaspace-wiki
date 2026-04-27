@@ -229,6 +229,12 @@ body,
   text-transform: uppercase !important;
 }
 
+.v-application .v-navigation-drawer .v-subheader {
+  margin-top: 18px !important;
+  margin-bottom: 6px !important;
+  min-height: 24px !important;
+}
+
 .v-application .v-navigation-drawer .v-list-item:hover {
   background: transparent !important;
   background-color: transparent !important;
