@@ -13,7 +13,7 @@ editor: markdown
 
 Internal documentation for daily operations, role-based spaces, workflows, and system support.
 
-<div class="utopia-home-actions">
+<div class="utopia-home-actions" style="margin-top: 1em;">
   <a href="/end-user-guide">Get started</a>
   <a href="/updates">View updates</a>
   <a href="/developer-space">Developer docs</a>
@@ -32,7 +32,7 @@ Internal documentation for daily operations, role-based spaces, workflows, and s
 
 ### User Guides
 
-<div class="utopia-quickstart-table">
+<div class="utopia-quickstart-table" style="margin-top: 1em;">
   <div class="utopia-quickstart-head">Quickstart</div>
   <div class="utopia-quickstart-head">Description</div>
 
@@ -51,7 +51,7 @@ Internal documentation for daily operations, role-based spaces, workflows, and s
 
 ### Workspaces
 
-<div class="utopia-quickstart-table">
+<div class="utopia-quickstart-table" style="margin-top: 1em;">
   <div class="utopia-quickstart-head">Workspace</div>
   <div class="utopia-quickstart-head">Description</div>
 
@@ -70,7 +70,7 @@ Internal documentation for daily operations, role-based spaces, workflows, and s
 
 ### Role-Based Guides
 
-<div class="utopia-quickstart-table">
+<div class="utopia-quickstart-table" style="margin-top: 1em;">
   <div class="utopia-quickstart-head">Role Space</div>
   <div class="utopia-quickstart-head">Description</div>
 
