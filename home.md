@@ -30,8 +30,29 @@ Internal documentation for daily operations, role-based spaces, workflows, and s
 
 ## Browse by Workspace
 
+### User Guides
+
 <div class="utopia-quickstart-table">
   <div class="utopia-quickstart-head">Quickstart</div>
+  <div class="utopia-quickstart-head">Description</div>
+
+  <a href="/end-user-guide">End User Guide</a>
+  <p>Start here for the system overview, common actions, and staff usage guidance.</p>
+
+  <a href="/login-guide">Login Guide</a>
+  <p>Learn how to access your account, sign in, and handle login issues.</p>
+
+  <a href="/basic-navigation">Basic Navigation</a>
+  <p>Understand the sidebar, top bar, page layout, and role-based access.</p>
+
+  <a href="/faq">FAQ</a>
+  <p>Find quick answers to common questions before escalating to support.</p>
+</div>
+
+### Workspaces
+
+<div class="utopia-quickstart-table">
+  <div class="utopia-quickstart-head">Workspace</div>
   <div class="utopia-quickstart-head">Description</div>
 
   <a href="/personal-space">Personal Space</a>
@@ -45,6 +66,13 @@ Internal documentation for daily operations, role-based spaces, workflows, and s
 
   <a href="/meeting-notes">Meeting Notes</a>
   <p>Record decisions, discussion notes, action items, and follow-ups.</p>
+</div>
+
+### Role-Based Guides
+
+<div class="utopia-quickstart-table">
+  <div class="utopia-quickstart-head">Role Space</div>
+  <div class="utopia-quickstart-head">Description</div>
 
   <a href="/manager-space">Manager Space</a>
   <p>Review team workflows, approvals, assigned tasks, and department activity.</p>
@@ -69,6 +97,13 @@ Internal documentation for daily operations, role-based spaces, workflows, and s
 
   <a href="/indoor-space">Indoor Space</a>
   <p>Support indoor sales activity, pricing checks, and customer records.</p>
+</div>
+
+### System and Support
+
+<div class="utopia-quickstart-table">
+  <div class="utopia-quickstart-head">Support Area</div>
+  <div class="utopia-quickstart-head">Description</div>
 
   <a href="/announcements">Announcements</a>
   <p>Read system notices, internal updates, and important operational messages.</p>

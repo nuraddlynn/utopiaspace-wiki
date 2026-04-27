@@ -36,6 +36,7 @@ Copy everything inside this CSS block. Do not copy the opening or closing triple
   --utopia-bg: #f6f9fc;
   --utopia-surface: #ffffff;
   --utopia-surface-soft: #eef4ff;
+  --utopia-row-soft: #f6f9fc;
   --utopia-text: #0a2540;
   --utopia-muted: #5b6b7f;
   --utopia-border: #dbe4ef;
@@ -57,6 +58,7 @@ Copy everything inside this CSS block. Do not copy the opening or closing triple
     --utopia-bg: #0b1220;
     --utopia-surface: #111827;
     --utopia-surface-soft: #172033;
+    --utopia-row-soft: #0f172a;
     --utopia-text: #f8fafc;
     --utopia-muted: #b6c2d1;
     --utopia-border: #263247;
@@ -81,6 +83,7 @@ html.theme--dark {
   --utopia-bg: #0b1220;
   --utopia-surface: #111827;
   --utopia-surface-soft: #172033;
+  --utopia-row-soft: #0f172a;
   --utopia-text: #f8fafc;
   --utopia-muted: #b6c2d1;
   --utopia-border: #263247;
@@ -265,7 +268,7 @@ main:has(.utopia-home-scope) .utopia-quickstart-table,
 .v-main:has(.utopia-home-scope) .utopia-quickstart-table {
   display: grid;
   grid-template-columns: minmax(180px, 28%) 1fr;
-  margin: 18px 0 34px;
+  margin: 14px 0 28px;
   overflow: hidden;
   background: var(--utopia-surface);
   border: 1px solid var(--utopia-border);
@@ -297,9 +300,20 @@ main:has(.utopia-home-scope) .utopia-quickstart-table p,
 .v-main:has(.utopia-home-scope) .utopia-quickstart-table p {
   min-height: 74px;
   margin: 0;
-  padding: 20px 22px;
+  padding: 16px 20px;
   border-bottom: 1px solid var(--utopia-border);
   background: var(--utopia-surface);
+}
+
+main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
+main:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4),
+.contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
+.contents:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4),
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4),
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4) {
+  background: var(--utopia-row-soft);
 }
 
 main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-last-child(2),
@@ -320,9 +334,17 @@ main:has(.utopia-home-scope) .utopia-quickstart-table a,
   display: flex;
   align-items: center;
   color: var(--utopia-accent-strong) !important;
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.35;
+}
+
+main:has(.utopia-home-scope) .utopia-quickstart-table a:hover,
+.contents:has(.utopia-home-scope) .utopia-quickstart-table a:hover,
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table a:hover,
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table a:hover {
+  color: #000000 !important;
+  text-decoration: none !important;
 }
 
 main:has(.utopia-home-scope) .utopia-quickstart-table p,
@@ -330,7 +352,7 @@ main:has(.utopia-home-scope) .utopia-quickstart-table p,
 .page-contents:has(.utopia-home-scope) .utopia-quickstart-table p,
 .v-main:has(.utopia-home-scope) .utopia-quickstart-table p {
   color: var(--utopia-text);
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.55;
 }
 
