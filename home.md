@@ -115,6 +115,11 @@ Updated content on the home page.
 
 <!-- AUTO-UPDATE-START -->
 <!-- AUTO-UPDATE-ENTRY-START -->
+### April 27, 2026 at 3:20 PM - Converted workspace links to quickstart table
+
+Improved navigation to various workspaces by converting links into a quickstart table.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-ENTRY-START -->
 ### April 27, 2026 at 2:57 PM - Polish wiki home page styling guide
 
 Improved styling guide for the wiki home page.

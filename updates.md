@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-27T07:07:47.497Z
-dateCreated: 2026-04-27T07:07:47.497Z
+date: 2026-04-27T07:20:57.673Z
+dateCreated: 2026-04-27T07:20:57.673Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -20,7 +20,7 @@ General updates that do not belong to a single space/page are collected here.
 
 ## ⚡ Improvements
 
-- General update.
+- No improvements recorded yet.
 
 ## 🐛 Fixes
 
@@ -28,9 +28,9 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 📚 Update Details
 
-- My update ([record](/update-records/updates-update-pr-16))
+- No general updates recorded yet.
 
 ## Latest Trigger
 
-PR #16: My update
+PR #17: Convert workspace links to quickstart table
 
