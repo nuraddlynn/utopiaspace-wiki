@@ -547,6 +547,20 @@ main:has(.utopia-home-scope) .utopia-quickstart-table a,
   font-size: 15px;
   font-weight: 600;
   line-height: 1.35;
+  box-shadow: none !important;
+  outline: 0 !important;
+  text-decoration: none !important;
+}
+
+main:has(.utopia-home-scope) .utopia-quickstart-table a::before,
+main:has(.utopia-home-scope) .utopia-quickstart-table a::after,
+.contents:has(.utopia-home-scope) .utopia-quickstart-table a::before,
+.contents:has(.utopia-home-scope) .utopia-quickstart-table a::after,
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table a::before,
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table a::after,
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table a::before,
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table a::after {
+  display: none !important;
 }
 
 main:has(.utopia-home-scope) .utopia-quickstart-table a:hover,
