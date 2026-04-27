@@ -199,6 +199,12 @@ body,
   background-color: transparent !important;
 }
 
+.v-application .v-navigation-drawer .v-item-group:first-of-type,
+.v-application .v-navigation-drawer .v-btn-toggle:first-of-type,
+.v-application .v-navigation-drawer .v-slide-group:first-of-type {
+  display: none !important;
+}
+
 .v-application .v-navigation-drawer .v-list-item {
   min-height: 38px !important;
   margin: 1px 12px !important;
