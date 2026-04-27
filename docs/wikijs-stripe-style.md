@@ -60,26 +60,8 @@ Copy everything inside this CSS block. Do not copy the opening or closing triple
     --utopia-brand-blue: #1976d2;
     --utopia-brand-blue-hover: #1565c0;
     --utopia-brand-blue-soft: #112b46;
-    --utopia-page-bg: #0b1220;
-    --utopia-sidebar-bg: #0b1220;
-    --utopia-sidebar-hover: #111827;
-    --utopia-sidebar-text: #dbe7f6;
-    --utopia-sidebar-muted: #9aa8bc;
-    --utopia-bg: #0b1220;
-    --utopia-surface: #111827;
-    --utopia-surface-soft: #172033;
-    --utopia-row-soft: #0f172a;
-    --utopia-text: #f8fafc;
-    --utopia-muted: #b6c2d1;
-    --utopia-border: #263247;
     --utopia-accent: var(--utopia-brand-blue);
-    --utopia-accent-strong: #64b5f6;
-    --utopia-code-bg: #050816;
-    --utopia-code-text: #e6edf7;
-    --utopia-inline-code-bg: #1b2638;
-    --utopia-inline-code-text: #dbeafe;
-    --utopia-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
-    --utopia-shadow-strong: 0 18px 45px rgba(0, 0, 0, 0.36);
+    --utopia-accent-strong: var(--utopia-brand-blue);
   }
 }
 
@@ -254,6 +236,34 @@ body,
 .v-application .v-navigation-drawer .v-list-item--active .v-icon {
   color: var(--utopia-brand-blue) !important;
   font-weight: 700 !important;
+}
+
+.v-application .v-navigation-drawer .v-btn,
+.v-application .v-navigation-drawer .v-btn.primary,
+.v-application .v-navigation-drawer .v-btn.blue,
+.v-application .v-navigation-drawer .v-btn.info,
+.v-application .v-navigation-drawer button {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--utopia-sidebar-text) !important;
+}
+
+.v-application .v-navigation-drawer .v-btn .v-btn__content,
+.v-application .v-navigation-drawer .v-btn .v-icon {
+  color: var(--utopia-sidebar-text) !important;
+}
+
+.v-application .v-navigation-drawer .v-btn:hover,
+.v-application .v-navigation-drawer button:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--utopia-brand-blue) !important;
+}
+
+.v-application .v-navigation-drawer .v-btn:hover .v-btn__content,
+.v-application .v-navigation-drawer .v-btn:hover .v-icon {
+  color: var(--utopia-brand-blue) !important;
 }
 
 .v-application .v-navigation-drawer hr,
@@ -434,22 +444,14 @@ main:has(.utopia-home-scope) .utopia-quickstart-table p,
   background: var(--utopia-surface);
 }
 
-main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
-main:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4),
-main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3) *,
-main:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4) *,
-.contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
-.contents:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4),
-.contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3) *,
-.contents:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4) *,
-.page-contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
-.page-contents:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4),
-.page-contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3) *,
-.page-contents:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4) *,
-.v-main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3),
-.v-main:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4),
-.v-main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-child(4n + 3) *,
-.v-main:has(.utopia-home-scope) .utopia-quickstart-table p:nth-child(4n + 4) * {
+main:has(.utopia-home-scope) .utopia-quickstart-table > a:nth-of-type(odd),
+main:has(.utopia-home-scope) .utopia-quickstart-table > p:nth-of-type(odd),
+.contents:has(.utopia-home-scope) .utopia-quickstart-table > a:nth-of-type(odd),
+.contents:has(.utopia-home-scope) .utopia-quickstart-table > p:nth-of-type(odd),
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table > a:nth-of-type(odd),
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table > p:nth-of-type(odd),
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table > a:nth-of-type(odd),
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table > p:nth-of-type(odd) {
   background: var(--utopia-row-soft) !important;
   background-color: var(--utopia-row-soft) !important;
 }
