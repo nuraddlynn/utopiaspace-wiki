@@ -33,7 +33,12 @@ Copy everything inside this CSS block. Do not copy the opening or closing triple
   --utopia-brand-blue: #1976d2;
   --utopia-brand-blue-hover: #1565c0;
   --utopia-brand-blue-soft: #e8f2fd;
-  --utopia-bg: #f6f9fc;
+  --utopia-page-bg: #ffffff;
+  --utopia-sidebar-bg: #ffffff;
+  --utopia-sidebar-hover: #f6f9fc;
+  --utopia-sidebar-text: #22324a;
+  --utopia-sidebar-muted: #4b5568;
+  --utopia-bg: #ffffff;
   --utopia-surface: #ffffff;
   --utopia-surface-soft: #f9fbfd;
   --utopia-row-soft: #f7f9fc;
@@ -55,6 +60,11 @@ Copy everything inside this CSS block. Do not copy the opening or closing triple
     --utopia-brand-blue: #1976d2;
     --utopia-brand-blue-hover: #1565c0;
     --utopia-brand-blue-soft: #112b46;
+    --utopia-page-bg: #0b1220;
+    --utopia-sidebar-bg: #0b1220;
+    --utopia-sidebar-hover: #111827;
+    --utopia-sidebar-text: #dbe7f6;
+    --utopia-sidebar-muted: #9aa8bc;
     --utopia-bg: #0b1220;
     --utopia-surface: #111827;
     --utopia-surface-soft: #172033;
@@ -80,6 +90,11 @@ html.theme--dark {
   --utopia-brand-blue: #1976d2;
   --utopia-brand-blue-hover: #1565c0;
   --utopia-brand-blue-soft: #112b46;
+  --utopia-page-bg: #0b1220;
+  --utopia-sidebar-bg: #0b1220;
+  --utopia-sidebar-hover: #111827;
+  --utopia-sidebar-text: #dbe7f6;
+  --utopia-sidebar-muted: #9aa8bc;
   --utopia-bg: #0b1220;
   --utopia-surface: #111827;
   --utopia-surface-soft: #172033;
@@ -95,6 +110,35 @@ html.theme--dark {
   --utopia-inline-code-text: #dbeafe;
   --utopia-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
   --utopia-shadow-strong: 0 18px 45px rgba(0, 0, 0, 0.36);
+}
+
+html,
+body,
+.v-application {
+  background: var(--utopia-page-bg) !important;
+  color: var(--utopia-text) !important;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.v-application,
+.v-application .v-main,
+.v-application main {
+  background: var(--utopia-page-bg) !important;
+}
+
+.v-application h1,
+.v-application h2,
+.v-application h3,
+.v-application h4,
+.v-application h5,
+.v-application h6,
+.v-application p,
+.v-application a,
+.v-application li,
+.v-application td,
+.v-application th,
+.v-application .v-list-item__title {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
 
 .v-application .primary,
@@ -139,8 +183,8 @@ html.theme--dark {
 .v-application .v-navigation-drawer.blue,
 .v-application .v-navigation-drawer.info,
 .v-application .v-navigation-drawer .v-navigation-drawer__content {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
+  background: var(--utopia-sidebar-bg) !important;
+  background-color: var(--utopia-sidebar-bg) !important;
   border-right: 1px solid var(--utopia-border) !important;
   box-shadow: none !important;
 }
@@ -159,43 +203,43 @@ html.theme--dark {
 
 .v-application .v-navigation-drawer .v-list-item {
   min-height: 38px !important;
-  margin: 2px 10px !important;
-  padding: 0 10px !important;
-  border-radius: 6px !important;
-  color: #1f2f46 !important;
+  margin: 1px 12px !important;
+  padding: 0 8px !important;
+  border-radius: 0 !important;
+  color: var(--utopia-sidebar-text) !important;
 }
 
 .v-application .v-navigation-drawer .v-list-item__title,
 .v-application .v-navigation-drawer .v-list-item__subtitle,
 .v-application .v-navigation-drawer .v-list-group__header,
 .v-application .v-navigation-drawer .v-icon {
-  color: #1f2f46 !important;
+  color: var(--utopia-sidebar-text) !important;
 }
 
 .v-application .v-navigation-drawer .v-list-item__title {
-  font-size: 14px !important;
+  font-size: 14.5px !important;
   font-weight: 500 !important;
   line-height: 1.35 !important;
 }
 
 .v-application .v-navigation-drawer .v-subheader,
 .v-application .v-navigation-drawer .v-list-item--disabled .v-list-item__title {
-  color: #4b5568 !important;
+  color: var(--utopia-sidebar-muted) !important;
   font-size: 12px !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
   letter-spacing: 0.04em !important;
   text-transform: uppercase !important;
 }
 
 .v-application .v-navigation-drawer .v-list-item:hover {
-  background: #f6f9fc !important;
-  background-color: #f6f9fc !important;
+  background: transparent !important;
+  background-color: transparent !important;
   color: #000000 !important;
 }
 
 .v-application .v-navigation-drawer .v-list-item:hover .v-list-item__title,
 .v-application .v-navigation-drawer .v-list-item:hover .v-icon {
-  color: #000000 !important;
+  color: var(--utopia-brand-blue) !important;
 }
 
 .v-application .v-navigation-drawer .v-list-item--active,
@@ -215,13 +259,15 @@ html.theme--dark {
 .v-application .v-navigation-drawer hr,
 .v-application .v-navigation-drawer .v-divider {
   border-color: var(--utopia-border) !important;
+  opacity: 1 !important;
+  margin: 18px 16px !important;
 }
 
 main:has(.utopia-home-scope),
 .contents:has(.utopia-home-scope),
 .page-contents:has(.utopia-home-scope),
 .v-main:has(.utopia-home-scope) {
-  background: var(--utopia-bg);
+  background: var(--utopia-page-bg);
   color: var(--utopia-text);
   padding: 28px;
   border-radius: 8px;
