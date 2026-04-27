@@ -177,12 +177,24 @@ body,
 .v-application .v-navigation-drawer .v-list,
 .v-application .v-navigation-drawer .v-list-group,
 .v-application .v-navigation-drawer .v-list-item,
+.v-application .v-navigation-drawer .primary,
+.v-application .v-navigation-drawer .blue,
+.v-application .v-navigation-drawer .info,
 .v-application .v-navigation-drawer .v-list-item.primary,
 .v-application .v-navigation-drawer .v-list-item.blue,
 .v-application .v-navigation-drawer .v-list-item.info,
 .v-application .v-navigation-drawer .v-list-group__header,
 .v-application .v-navigation-drawer .v-list-group__items,
-.v-application .v-navigation-drawer .theme--dark {
+.v-application .v-navigation-drawer .theme--dark,
+.v-application .v-navigation-drawer .v-item-group,
+.v-application .v-navigation-drawer .v-btn-toggle,
+.v-application .v-navigation-drawer .v-slide-group,
+.v-application .v-navigation-drawer .v-slide-group__wrapper,
+.v-application .v-navigation-drawer .v-slide-group__content,
+.v-application .v-navigation-drawer .v-tabs-bar,
+.v-application .v-navigation-drawer .v-toolbar__content,
+.v-application .v-navigation-drawer .v-card__text,
+.v-application .v-navigation-drawer .v-card__actions {
   background: transparent !important;
   background-color: transparent !important;
 }
@@ -262,6 +274,17 @@ body,
 .v-application .v-navigation-drawer .v-btn .v-btn__content,
 .v-application .v-navigation-drawer .v-btn .v-icon {
   color: var(--utopia-sidebar-text) !important;
+}
+
+.v-application .v-navigation-drawer .v-btn::before,
+.v-application .v-navigation-drawer .v-btn::after,
+.v-application .v-navigation-drawer .v-list-item::before,
+.v-application .v-navigation-drawer .v-list-item::after,
+.v-application .v-navigation-drawer .v-tab::before,
+.v-application .v-navigation-drawer .v-tab::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  opacity: 0 !important;
 }
 
 .v-application .v-navigation-drawer .v-btn:hover,
