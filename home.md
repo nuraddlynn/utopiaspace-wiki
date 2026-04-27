@@ -13,7 +13,11 @@ editor: markdown
 
 Internal documentation for daily operations, role-based spaces, workflows, and system support.
 
-[Get started](/end-user-guide) [View updates](/updates) [Developer docs](/developer-space)
+<div class="utopia-home-actions">
+  <a href="/end-user-guide">Get started</a>
+  <a href="/updates">View updates</a>
+  <a href="/developer-space">Developer docs</a>
+</div>
 
 ## Start Here
 

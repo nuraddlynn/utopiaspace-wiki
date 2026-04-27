@@ -1,6 +1,14 @@
 # Wiki.js Stripe-Inspired UI Polish
 
-Use this when you want the wiki home page to feel closer to Stripe Docs: clearer navigation, tighter typography, card-like tables, code-friendly spacing, and a cleaner content surface.
+Use this when you want the wiki to use the same blue as the existing UtopiaSpace action buttons, while making the home page feel closer to Stripe Docs: clearer navigation, tighter typography, card-like tables, code-friendly spacing, and a cleaner content surface.
+
+Most of the visual polish below is scoped to the home page only. The brand-blue overrides are global so the website blue matches the button color shown in the UtopiaSpace UI.
+
+```html
+<span class="utopia-home-scope"></span>
+```
+
+The current `home.md` page already has that marker.
 
 ## Where to Add It
 
@@ -14,20 +22,113 @@ In Wiki.js:
 
 ## Custom CSS
 
+Copy everything inside this CSS block. Do not copy the opening or closing triple backticks.
+
 ```css
 .utopia-home-scope {
   display: none;
 }
 
 :root {
+  --utopia-brand-blue: #1976d2;
+  --utopia-brand-blue-hover: #1565c0;
+  --utopia-brand-blue-soft: #e8f2fd;
   --utopia-bg: #f6f9fc;
   --utopia-surface: #ffffff;
+  --utopia-surface-soft: #eef4ff;
   --utopia-text: #0a2540;
   --utopia-muted: #5b6b7f;
   --utopia-border: #dbe4ef;
-  --utopia-accent: #635bff;
-  --utopia-accent-strong: #4f46e5;
+  --utopia-accent: var(--utopia-brand-blue);
+  --utopia-accent-strong: var(--utopia-brand-blue);
   --utopia-code-bg: #0a2540;
+  --utopia-code-text: #e6edf7;
+  --utopia-inline-code-bg: #eef4ff;
+  --utopia-inline-code-text: #334155;
+  --utopia-shadow: 0 18px 45px rgba(10, 37, 64, 0.08);
+  --utopia-shadow-strong: 0 18px 45px rgba(10, 37, 64, 0.14);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --utopia-brand-blue: #1976d2;
+    --utopia-brand-blue-hover: #1565c0;
+    --utopia-brand-blue-soft: #112b46;
+    --utopia-bg: #0b1220;
+    --utopia-surface: #111827;
+    --utopia-surface-soft: #172033;
+    --utopia-text: #f8fafc;
+    --utopia-muted: #b6c2d1;
+    --utopia-border: #263247;
+    --utopia-accent: var(--utopia-brand-blue);
+    --utopia-accent-strong: #64b5f6;
+    --utopia-code-bg: #050816;
+    --utopia-code-text: #e6edf7;
+    --utopia-inline-code-bg: #1b2638;
+    --utopia-inline-code-text: #dbeafe;
+    --utopia-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
+    --utopia-shadow-strong: 0 18px 45px rgba(0, 0, 0, 0.36);
+  }
+}
+
+.theme--dark,
+.theme--dark.v-application,
+body.theme--dark,
+html.theme--dark {
+  --utopia-brand-blue: #1976d2;
+  --utopia-brand-blue-hover: #1565c0;
+  --utopia-brand-blue-soft: #112b46;
+  --utopia-bg: #0b1220;
+  --utopia-surface: #111827;
+  --utopia-surface-soft: #172033;
+  --utopia-text: #f8fafc;
+  --utopia-muted: #b6c2d1;
+  --utopia-border: #263247;
+  --utopia-accent: var(--utopia-brand-blue);
+  --utopia-accent-strong: #64b5f6;
+  --utopia-code-bg: #050816;
+  --utopia-code-text: #e6edf7;
+  --utopia-inline-code-bg: #1b2638;
+  --utopia-inline-code-text: #dbeafe;
+  --utopia-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
+  --utopia-shadow-strong: 0 18px 45px rgba(0, 0, 0, 0.36);
+}
+
+.v-application .primary,
+.v-application .blue,
+.v-application .info,
+.v-application .v-btn.primary,
+.v-application .v-btn.blue,
+.v-application .v-btn.info {
+  background-color: var(--utopia-brand-blue) !important;
+  border-color: var(--utopia-brand-blue) !important;
+}
+
+.v-application .primary--text,
+.v-application .blue--text,
+.v-application .info--text,
+.v-application a:not(.v-btn):not(.v-list-item) {
+  color: var(--utopia-brand-blue) !important;
+  caret-color: var(--utopia-brand-blue) !important;
+}
+
+.v-application .v-btn.primary:hover,
+.v-application .v-btn.blue:hover,
+.v-application .v-btn.info:hover {
+  background-color: var(--utopia-brand-blue-hover) !important;
+  border-color: var(--utopia-brand-blue-hover) !important;
+}
+
+.v-application .v-tabs-slider,
+.v-application .v-progress-linear__determinate,
+.v-application .v-pagination__item--active {
+  background-color: var(--utopia-brand-blue) !important;
+  border-color: var(--utopia-brand-blue) !important;
+}
+
+.v-application .v-list-item--active,
+.v-application .v-chip.primary {
+  background-color: var(--utopia-brand-blue-soft) !important;
 }
 
 main:has(.utopia-home-scope),
@@ -85,14 +186,14 @@ main:has(.utopia-home-scope) h2,
   margin-top: 36px;
 }
 
-.contents:has(.utopia-home-scope) p,
-.contents:has(.utopia-home-scope) li,
-.contents:has(.utopia-home-scope) td,
-.contents:has(.utopia-home-scope) th,
 main:has(.utopia-home-scope) p,
 main:has(.utopia-home-scope) li,
 main:has(.utopia-home-scope) td,
 main:has(.utopia-home-scope) th,
+.contents:has(.utopia-home-scope) p,
+.contents:has(.utopia-home-scope) li,
+.contents:has(.utopia-home-scope) td,
+.contents:has(.utopia-home-scope) th,
 .page-contents:has(.utopia-home-scope) p,
 .page-contents:has(.utopia-home-scope) li,
 .page-contents:has(.utopia-home-scope) td,
@@ -105,8 +206,8 @@ main:has(.utopia-home-scope) th,
   line-height: 1.65;
 }
 
-.contents:has(.utopia-home-scope) a,
 main:has(.utopia-home-scope) a,
+.contents:has(.utopia-home-scope) a,
 .page-contents:has(.utopia-home-scope) a,
 .v-main:has(.utopia-home-scope) a {
   color: var(--utopia-accent-strong);
@@ -114,24 +215,61 @@ main:has(.utopia-home-scope) a,
   text-decoration: none;
 }
 
-.contents:has(.utopia-home-scope) a:hover,
 main:has(.utopia-home-scope) a:hover,
+.contents:has(.utopia-home-scope) a:hover,
 .page-contents:has(.utopia-home-scope) a:hover,
 .v-main:has(.utopia-home-scope) a:hover {
   text-decoration: underline;
 }
 
-.contents:has(.utopia-home-scope) > p:first-of-type,
+main:has(.utopia-home-scope) .utopia-home-actions,
+.contents:has(.utopia-home-scope) .utopia-home-actions,
+.page-contents:has(.utopia-home-scope) .utopia-home-actions,
+.v-main:has(.utopia-home-scope) .utopia-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 32px;
+}
+
+main:has(.utopia-home-scope) .utopia-home-actions a,
+.contents:has(.utopia-home-scope) .utopia-home-actions a,
+.page-contents:has(.utopia-home-scope) .utopia-home-actions a,
+.v-main:has(.utopia-home-scope) .utopia-home-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  color: #ffffff !important;
+  background: var(--utopia-brand-blue);
+  border: 1px solid var(--utopia-brand-blue);
+  border-radius: 6px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(25, 118, 210, 0.22);
+}
+
+main:has(.utopia-home-scope) .utopia-home-actions a:hover,
+.contents:has(.utopia-home-scope) .utopia-home-actions a:hover,
+.page-contents:has(.utopia-home-scope) .utopia-home-actions a:hover,
+.v-main:has(.utopia-home-scope) .utopia-home-actions a:hover {
+  background: var(--utopia-brand-blue-hover);
+  border-color: var(--utopia-brand-blue-hover);
+  text-decoration: none;
+}
+
 main:has(.utopia-home-scope) p:first-of-type,
+.contents:has(.utopia-home-scope) > p:first-of-type,
 .page-contents:has(.utopia-home-scope) > p:first-of-type,
 .v-main:has(.utopia-home-scope) p:first-of-type {
   max-width: 760px;
-  color: #425466;
+  color: var(--utopia-muted);
   font-size: 18px;
 }
 
-.contents:has(.utopia-home-scope) table,
 main:has(.utopia-home-scope) table,
+.contents:has(.utopia-home-scope) table,
 .page-contents:has(.utopia-home-scope) table,
 .v-main:has(.utopia-home-scope) table {
   width: 100%;
@@ -142,24 +280,24 @@ main:has(.utopia-home-scope) table,
   background: var(--utopia-surface);
   border: 1px solid var(--utopia-border);
   border-radius: 8px;
-  box-shadow: 0 18px 45px rgba(10, 37, 64, 0.08);
+  box-shadow: var(--utopia-shadow);
 }
 
-.contents:has(.utopia-home-scope) th,
 main:has(.utopia-home-scope) th,
+.contents:has(.utopia-home-scope) th,
 .page-contents:has(.utopia-home-scope) th,
 .v-main:has(.utopia-home-scope) th {
-  background: #eef4ff;
+  background: var(--utopia-surface-soft);
   color: var(--utopia-text);
   font-size: 13px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
-.contents:has(.utopia-home-scope) th,
-.contents:has(.utopia-home-scope) td,
 main:has(.utopia-home-scope) th,
 main:has(.utopia-home-scope) td,
+.contents:has(.utopia-home-scope) th,
+.contents:has(.utopia-home-scope) td,
 .page-contents:has(.utopia-home-scope) th,
 .page-contents:has(.utopia-home-scope) td,
 .v-main:has(.utopia-home-scope) th,
@@ -169,47 +307,48 @@ main:has(.utopia-home-scope) td,
   vertical-align: top;
 }
 
-.contents:has(.utopia-home-scope) tr:last-child td,
 main:has(.utopia-home-scope) tr:last-child td,
+.contents:has(.utopia-home-scope) tr:last-child td,
 .page-contents:has(.utopia-home-scope) tr:last-child td,
 .v-main:has(.utopia-home-scope) tr:last-child td {
   border-bottom: 0;
 }
 
-.contents:has(.utopia-home-scope) code,
 main:has(.utopia-home-scope) code,
+.contents:has(.utopia-home-scope) code,
 .page-contents:has(.utopia-home-scope) code,
 .v-main:has(.utopia-home-scope) code {
-  color: #334155;
-  background: #eef4ff;
-  border: 1px solid #d8e2f0;
+  color: var(--utopia-inline-code-text);
+  background: var(--utopia-inline-code-bg);
+  border: 1px solid var(--utopia-border);
   border-radius: 6px;
   padding: 2px 6px;
 }
 
-.contents:has(.utopia-home-scope) pre,
 main:has(.utopia-home-scope) pre,
+.contents:has(.utopia-home-scope) pre,
 .page-contents:has(.utopia-home-scope) pre,
 .v-main:has(.utopia-home-scope) pre {
+  color: var(--utopia-code-text);
   background: var(--utopia-code-bg);
   border-radius: 8px;
-  box-shadow: 0 18px 45px rgba(10, 37, 64, 0.14);
+  box-shadow: var(--utopia-shadow-strong);
 }
 
-.contents:has(.utopia-home-scope) blockquote,
 main:has(.utopia-home-scope) blockquote,
+.contents:has(.utopia-home-scope) blockquote,
 .page-contents:has(.utopia-home-scope) blockquote,
 .v-main:has(.utopia-home-scope) blockquote {
   margin: 24px 0;
   padding: 18px 20px;
-  background: #ffffff;
+  background: var(--utopia-surface);
   border-left: 4px solid var(--utopia-accent);
   border-radius: 8px;
-  box-shadow: 0 12px 32px rgba(10, 37, 64, 0.07);
+  box-shadow: var(--utopia-shadow);
 }
 
-.contents:has(.utopia-home-scope) hr,
 main:has(.utopia-home-scope) hr,
+.contents:has(.utopia-home-scope) hr,
 .page-contents:has(.utopia-home-scope) hr,
 .v-main:has(.utopia-home-scope) hr {
   border-color: var(--utopia-border);
@@ -233,102 +372,6 @@ Then refresh the home page.
 - If you see a red bar under the title, the marker works and the issue is the container selector.
 - If you do not see a red bar, Wiki.js is stripping the marker or the home page has not synced yet.
 - If every page changes, the CSS was pasted without the scoped selectors.
-
-## Older Scoped CSS
-
-This was the first version. Use the larger CSS above first.
-
-```css
-.contents:has(.utopia-home-scope) p,
-.contents:has(.utopia-home-scope) li,
-.contents:has(.utopia-home-scope) td,
-.contents:has(.utopia-home-scope) th {
-  color: var(--utopia-muted);
-  line-height: 1.65;
-}
-
-.contents:has(.utopia-home-scope) a {
-  color: var(--utopia-accent-strong);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.contents:has(.utopia-home-scope) a:hover {
-  text-decoration: underline;
-}
-
-.contents:has(.utopia-home-scope) > p:first-of-type {
-  max-width: 760px;
-  color: #425466;
-  font-size: 18px;
-}
-
-.contents:has(.utopia-home-scope) table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  overflow: hidden;
-  margin: 20px 0 28px;
-  background: var(--utopia-surface);
-  border: 1px solid var(--utopia-border);
-  border-radius: 8px;
-  box-shadow: 0 18px 45px rgba(10, 37, 64, 0.08);
-}
-
-.contents:has(.utopia-home-scope) th {
-  background: #eef4ff;
-  color: var(--utopia-text);
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.contents:has(.utopia-home-scope) th,
-.contents:has(.utopia-home-scope) td {
-  border-bottom: 1px solid var(--utopia-border);
-  padding: 16px 18px;
-  vertical-align: top;
-}
-
-.contents:has(.utopia-home-scope) tr:last-child td {
-  border-bottom: 0;
-}
-
-.contents:has(.utopia-home-scope) code {
-  color: #334155;
-  background: #eef4ff;
-  border: 1px solid #d8e2f0;
-  border-radius: 6px;
-  padding: 2px 6px;
-}
-
-.contents:has(.utopia-home-scope) pre {
-  background: var(--utopia-code-bg);
-  border-radius: 8px;
-  box-shadow: 0 18px 45px rgba(10, 37, 64, 0.14);
-}
-
-.contents:has(.utopia-home-scope) blockquote {
-  margin: 24px 0;
-  padding: 18px 20px;
-  background: #ffffff;
-  border-left: 4px solid var(--utopia-accent);
-  border-radius: 8px;
-  box-shadow: 0 12px 32px rgba(10, 37, 64, 0.07);
-}
-
-.contents:has(.utopia-home-scope) hr {
-  border-color: var(--utopia-border);
-}
-```
-
-This CSS only affects pages that contain:
-
-```html
-<span class="utopia-home-scope"></span>
-```
-
-The current `home.md` page already has that marker. Other pages will stay unchanged.
 
 ## Content Pattern
 
