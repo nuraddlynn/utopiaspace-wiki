@@ -222,6 +222,43 @@ main:has(.utopia-home-scope) a:hover,
   text-decoration: underline;
 }
 
+main:has(.utopia-home-scope) .utopia-home-actions,
+.contents:has(.utopia-home-scope) .utopia-home-actions,
+.page-contents:has(.utopia-home-scope) .utopia-home-actions,
+.v-main:has(.utopia-home-scope) .utopia-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 32px;
+}
+
+main:has(.utopia-home-scope) .utopia-home-actions a,
+.contents:has(.utopia-home-scope) .utopia-home-actions a,
+.page-contents:has(.utopia-home-scope) .utopia-home-actions a,
+.v-main:has(.utopia-home-scope) .utopia-home-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  color: #ffffff !important;
+  background: var(--utopia-brand-blue);
+  border: 1px solid var(--utopia-brand-blue);
+  border-radius: 6px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(25, 118, 210, 0.22);
+}
+
+main:has(.utopia-home-scope) .utopia-home-actions a:hover,
+.contents:has(.utopia-home-scope) .utopia-home-actions a:hover,
+.page-contents:has(.utopia-home-scope) .utopia-home-actions a:hover,
+.v-main:has(.utopia-home-scope) .utopia-home-actions a:hover {
+  background: var(--utopia-brand-blue-hover);
+  border-color: var(--utopia-brand-blue-hover);
+  text-decoration: none;
+}
+
 main:has(.utopia-home-scope) p:first-of-type,
 .contents:has(.utopia-home-scope) > p:first-of-type,
 .page-contents:has(.utopia-home-scope) > p:first-of-type,
