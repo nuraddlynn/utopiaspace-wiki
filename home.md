@@ -30,31 +30,61 @@ Internal documentation for daily operations, role-based spaces, workflows, and s
 
 ## Browse by Workspace
 
-### Operations
+<div class="utopia-quickstart-table">
+  <div class="utopia-quickstart-head">Quickstart</div>
+  <div class="utopia-quickstart-head">Description</div>
 
-- [Personal Space](/personal-space): Manage your own tasks and activities.
-- [Taskboard](/taskboard): Create, assign, track, and manage tasks.
-- [Calendar](/calendar): Review schedules, events, and important dates.
-- [Meeting Notes](/meeting-notes): Record decisions, notes, and follow-ups.
+  <a href="/personal-space">Personal Space</a>
+  <p>Manage your own tasks, activities, and personal workflow inside UtopiaSpace.</p>
 
-### Role-Based Guides
+  <a href="/taskboard">Taskboard</a>
+  <p>Create, assign, track, and manage tasks across team workflows.</p>
 
-- [Manager Space](/manager-space): Review team workflows and approvals.
-- [Director Space](/director-space): Monitor higher-level operations and decisions.
-- [Supervisor Space](/supervisor-space): Track team activity and task progress.
-- [HR Space](/hr-space): Manage HR-related processes and records.
-- [Account Space](/account-space): Handle account and finance-related workflows.
-- [Credit Space](/credit-space): Review credit-related customer activity.
-- [Operations Efficiency Space](/oe-space): Improve workflows and operational processes.
-- [Indoor Space](/indoor-space): Support indoor sales and customer records.
+  <a href="/calendar">Calendar</a>
+  <p>Review schedules, events, important dates, and operational planning items.</p>
 
-### System and Support
+  <a href="/meeting-notes">Meeting Notes</a>
+  <p>Record decisions, discussion notes, action items, and follow-ups.</p>
 
-- [Announcements](/announcements): Read system notices and internal updates.
-- [User Management](/user-management): Manage users, access, and account setup.
-- [Roles and Permissions](/roles-and-permissions): Understand what each role can access.
-- [Settings](/settings): Configure system preferences.
-- [Troubleshooting](/troubleshooting): Fix common issues before escalating.
+  <a href="/manager-space">Manager Space</a>
+  <p>Review team workflows, approvals, assigned tasks, and department activity.</p>
+
+  <a href="/director-space">Director Space</a>
+  <p>Monitor higher-level operations, decisions, reports, and role-based activity.</p>
+
+  <a href="/supervisor-space">Supervisor Space</a>
+  <p>Track team activity, task progress, operational status, and staff follow-up.</p>
+
+  <a href="/hr-space">HR Space</a>
+  <p>Manage HR-related processes, staff records, requests, and internal workflows.</p>
+
+  <a href="/account-space">Account Space</a>
+  <p>Handle account, finance, payment, and internal record workflows.</p>
+
+  <a href="/credit-space">Credit Space</a>
+  <p>Review credit-related customer activity, repayment behaviour, and records.</p>
+
+  <a href="/oe-space">Operations Efficiency Space</a>
+  <p>Improve workflows, review process issues, and support operational efficiency.</p>
+
+  <a href="/indoor-space">Indoor Space</a>
+  <p>Support indoor sales activity, pricing checks, and customer records.</p>
+
+  <a href="/announcements">Announcements</a>
+  <p>Read system notices, internal updates, and important operational messages.</p>
+
+  <a href="/user-management">User Management</a>
+  <p>Manage users, account setup, access changes, and related admin tasks.</p>
+
+  <a href="/roles-and-permissions">Roles and Permissions</a>
+  <p>Understand what each user role can access and how permissions are assigned.</p>
+
+  <a href="/settings">Settings</a>
+  <p>Configure system preferences, account settings, and application behaviour.</p>
+
+  <a href="/troubleshooting">Troubleshooting</a>
+  <p>Fix common issues, check known errors, and prepare support details.</p>
+</div>
 
 ## Developer Resources
 

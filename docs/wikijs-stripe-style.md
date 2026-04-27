@@ -259,6 +259,114 @@ main:has(.utopia-home-scope) .utopia-home-actions a:hover,
   text-decoration: none;
 }
 
+main:has(.utopia-home-scope) .utopia-quickstart-table,
+.contents:has(.utopia-home-scope) .utopia-quickstart-table,
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table,
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table {
+  display: grid;
+  grid-template-columns: minmax(180px, 28%) 1fr;
+  margin: 18px 0 34px;
+  overflow: hidden;
+  background: var(--utopia-surface);
+  border: 1px solid var(--utopia-border);
+  border-radius: 8px;
+  box-shadow: var(--utopia-shadow);
+}
+
+main:has(.utopia-home-scope) .utopia-quickstart-head,
+.contents:has(.utopia-home-scope) .utopia-quickstart-head,
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-head,
+.v-main:has(.utopia-home-scope) .utopia-quickstart-head {
+  padding: 18px 22px;
+  color: var(--utopia-muted);
+  background: var(--utopia-bg);
+  border-bottom: 1px solid var(--utopia-border);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+main:has(.utopia-home-scope) .utopia-quickstart-table a,
+.contents:has(.utopia-home-scope) .utopia-quickstart-table a,
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table a,
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table a,
+main:has(.utopia-home-scope) .utopia-quickstart-table p,
+.contents:has(.utopia-home-scope) .utopia-quickstart-table p,
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table p,
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table p {
+  min-height: 74px;
+  margin: 0;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--utopia-border);
+  background: var(--utopia-surface);
+}
+
+main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-last-child(2),
+.contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-last-child(2),
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table a:nth-last-child(2),
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table a:nth-last-child(2),
+main:has(.utopia-home-scope) .utopia-quickstart-table p:last-child,
+.contents:has(.utopia-home-scope) .utopia-quickstart-table p:last-child,
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table p:last-child,
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table p:last-child {
+  border-bottom: 0;
+}
+
+main:has(.utopia-home-scope) .utopia-quickstart-table a,
+.contents:has(.utopia-home-scope) .utopia-quickstart-table a,
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table a,
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table a {
+  display: flex;
+  align-items: center;
+  color: var(--utopia-accent-strong) !important;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+main:has(.utopia-home-scope) .utopia-quickstart-table p,
+.contents:has(.utopia-home-scope) .utopia-quickstart-table p,
+.page-contents:has(.utopia-home-scope) .utopia-quickstart-table p,
+.v-main:has(.utopia-home-scope) .utopia-quickstart-table p {
+  color: var(--utopia-text);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+@media (max-width: 720px) {
+  main:has(.utopia-home-scope) .utopia-quickstart-table,
+  .contents:has(.utopia-home-scope) .utopia-quickstart-table,
+  .page-contents:has(.utopia-home-scope) .utopia-quickstart-table,
+  .v-main:has(.utopia-home-scope) .utopia-quickstart-table {
+    grid-template-columns: 1fr;
+  }
+
+  main:has(.utopia-home-scope) .utopia-quickstart-head:nth-child(2),
+  .contents:has(.utopia-home-scope) .utopia-quickstart-head:nth-child(2),
+  .page-contents:has(.utopia-home-scope) .utopia-quickstart-head:nth-child(2),
+  .v-main:has(.utopia-home-scope) .utopia-quickstart-head:nth-child(2) {
+    display: none;
+  }
+
+  main:has(.utopia-home-scope) .utopia-quickstart-table a,
+  .contents:has(.utopia-home-scope) .utopia-quickstart-table a,
+  .page-contents:has(.utopia-home-scope) .utopia-quickstart-table a,
+  .v-main:has(.utopia-home-scope) .utopia-quickstart-table a {
+    min-height: 0;
+    padding-bottom: 6px;
+    border-bottom: 0;
+  }
+
+  main:has(.utopia-home-scope) .utopia-quickstart-table p,
+  .contents:has(.utopia-home-scope) .utopia-quickstart-table p,
+  .page-contents:has(.utopia-home-scope) .utopia-quickstart-table p,
+  .v-main:has(.utopia-home-scope) .utopia-quickstart-table p {
+    min-height: 0;
+    padding-top: 0;
+  }
+}
+
 main:has(.utopia-home-scope) p:first-of-type,
 .contents:has(.utopia-home-scope) > p:first-of-type,
 .page-contents:has(.utopia-home-scope) > p:first-of-type,
