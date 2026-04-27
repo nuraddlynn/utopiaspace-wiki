@@ -134,6 +134,76 @@ html.theme--dark {
   background-color: var(--utopia-brand-blue-soft) !important;
 }
 
+.v-application .v-navigation-drawer {
+  background: #ffffff !important;
+  border-right: 1px solid var(--utopia-border) !important;
+  box-shadow: none !important;
+}
+
+.v-application .v-navigation-drawer .v-list,
+.v-application .v-navigation-drawer .v-list-group,
+.v-application .v-navigation-drawer .v-list-item {
+  background: transparent !important;
+}
+
+.v-application .v-navigation-drawer .v-list-item {
+  min-height: 38px !important;
+  margin: 2px 10px !important;
+  padding: 0 10px !important;
+  border-radius: 6px !important;
+  color: #1f2f46 !important;
+}
+
+.v-application .v-navigation-drawer .v-list-item__title,
+.v-application .v-navigation-drawer .v-list-item__subtitle,
+.v-application .v-navigation-drawer .v-list-group__header,
+.v-application .v-navigation-drawer .v-icon {
+  color: #1f2f46 !important;
+}
+
+.v-application .v-navigation-drawer .v-list-item__title {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+}
+
+.v-application .v-navigation-drawer .v-subheader,
+.v-application .v-navigation-drawer .v-list-item--disabled .v-list-item__title {
+  color: #4b5568 !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+.v-application .v-navigation-drawer .v-list-item:hover {
+  background: #f6f9fc !important;
+  color: #000000 !important;
+}
+
+.v-application .v-navigation-drawer .v-list-item:hover .v-list-item__title,
+.v-application .v-navigation-drawer .v-list-item:hover .v-icon {
+  color: #000000 !important;
+}
+
+.v-application .v-navigation-drawer .v-list-item--active,
+.v-application .v-navigation-drawer .v-list-item.v-list-item--active {
+  background: transparent !important;
+  color: var(--utopia-brand-blue) !important;
+  font-weight: 700 !important;
+}
+
+.v-application .v-navigation-drawer .v-list-item--active .v-list-item__title,
+.v-application .v-navigation-drawer .v-list-item--active .v-icon {
+  color: var(--utopia-brand-blue) !important;
+  font-weight: 700 !important;
+}
+
+.v-application .v-navigation-drawer hr,
+.v-application .v-navigation-drawer .v-divider {
+  border-color: var(--utopia-border) !important;
+}
+
 main:has(.utopia-home-scope),
 .contents:has(.utopia-home-scope),
 .page-contents:has(.utopia-home-scope),
