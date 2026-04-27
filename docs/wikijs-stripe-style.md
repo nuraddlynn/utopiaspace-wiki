@@ -389,6 +389,14 @@ main:has(.utopia-home-scope) h2,
   margin-top: 36px;
 }
 
+main:has(.utopia-home-scope) h3,
+.contents:has(.utopia-home-scope) h3,
+.page-contents:has(.utopia-home-scope) h3,
+.v-main:has(.utopia-home-scope) h3 {
+  margin-top: 30px;
+  margin-bottom: 14px;
+}
+
 main:has(.utopia-home-scope) p,
 main:has(.utopia-home-scope) li,
 main:has(.utopia-home-scope) td,
