@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-27T06:57:42.319Z
-dateCreated: 2026-04-27T06:57:42.319Z
+date: 2026-04-27T07:07:47.497Z
+dateCreated: 2026-04-27T07:07:47.497Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -20,7 +20,7 @@ General updates that do not belong to a single space/page are collected here.
 
 ## ⚡ Improvements
 
-- No improvements recorded yet.
+- General update.
 
 ## 🐛 Fixes
 
@@ -28,9 +28,9 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 📚 Update Details
 
-- No general updates recorded yet.
+- My update ([record](/update-records/updates-update-pr-16))
 
 ## Latest Trigger
 
-PR #15: Polish wiki home page styling guide
+PR #16: My update
 
