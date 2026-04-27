@@ -205,6 +205,12 @@ body,
   display: none !important;
 }
 
+.v-application .v-navigation-drawer .v-navigation-drawer__content > div:nth-child(2),
+.v-application .v-navigation-drawer .v-navigation-drawer__content > nav:first-of-type,
+.v-application .v-navigation-drawer .v-navigation-drawer__content > .v-list:first-of-type {
+  display: none !important;
+}
+
 .v-application .v-navigation-drawer .v-list-item {
   min-height: 38px !important;
   margin: 1px 12px !important;
