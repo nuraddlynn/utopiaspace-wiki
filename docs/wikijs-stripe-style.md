@@ -312,7 +312,14 @@ body,
 .v-application .v-navigation-drawer .v-divider {
   border-color: var(--utopia-border) !important;
   opacity: 1 !important;
-  margin: 18px 16px !important;
+  margin: 8px 16px 14px !important;
+}
+
+.v-application .v-navigation-drawer .v-subheader + hr,
+.v-application .v-navigation-drawer .v-subheader + .v-divider,
+.v-application .v-navigation-drawer .v-list-item--disabled + hr,
+.v-application .v-navigation-drawer .v-list-item--disabled + .v-divider {
+  margin-top: 2px !important;
 }
 
 main:has(.utopia-home-scope),
