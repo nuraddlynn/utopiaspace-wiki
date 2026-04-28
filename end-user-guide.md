@@ -1,51 +1,97 @@
-The UtopiaSpace system is an internal platform designed to support daily
-operations, improve collaboration, and streamline workflows across
-multiple departments.
+# Overview
 
-The system integrates various functional spaces such as Manager,
-Director, Supervisor, HR, Accounts, Credit, Operations Efficiency, and
-Indoor, allowing users to perform their tasks efficiently within a
-centralised environment.  
+<span class="utopia-overview-scope"></span>
 
-# What You Can Do
+UtopiaSpace is an internal platform for daily operations, team collaboration, role-based workflows, and system support across departments.
 
-Depending on your role, you can: 
+<div class="utopia-overview-actions">
+  <a href="/login-guide">Login Guide</a>
+  <a href="/basic-navigation">Basic Navigation</a>
+  <a href="/personal-space">Personal Space</a>
+</div>
 
-- Access your assigned workspace (e.g., Personal, Manager, HR, Accounts)
-- Submit and manage tasks or requests
-- View and update relevant data
-- Track progress and activities
-- Collaborate with other departments
+## What You Can Do
 
-# How the System Works
+<div class="utopia-overview-grid">
+  <section>
+    <h3>Access Your Workspace</h3>
+    <p>Open the spaces assigned to your role, such as Personal, Manager, HR, Accounts, Credit, Operations Efficiency, or Indoor.</p>
+  </section>
 
-The system is structured based on user roles and workflows:
+  <section>
+    <h3>Submit and Manage Work</h3>
+    <p>Create tasks, submit requests, update records, and follow the required workflow for your department.</p>
+  </section>
 
-1.  Users perform actions such as submitting requests or updating
-    records
-2.  The system routes the action to the relevant department
-3.  Managers or authorised users review and approve the action
-4.  All activities are recorded and tracked within the system
+  <section>
+    <h3>Track Progress</h3>
+    <p>Review task status, activity updates, schedules, announcements, and pending follow-ups.</p>
+  </section>
 
-# Navigation Overview
+  <section>
+    <h3>Collaborate Across Teams</h3>
+    <p>Coordinate with other departments using shared spaces, role-based access, and structured documentation.</p>
+  </section>
+</div>
 
-The system is organised into different sections:
+## How the System Works
 
-- Getting Started - Basic introduction and setup
-- User Guide - General system features
-- Role-Based Spaces - Specific functions for Manager, HR, Accounts, etc
-- Admin & Developer - Advanced configuration and technical documentation
+<div class="utopia-overview-flow">
+  <div>
+    <strong>1</strong>
+    <span>Users submit requests, tasks, updates, or records.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>UtopiaSpace routes the activity to the relevant workspace or department.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Managers or authorised users review, approve, or follow up.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Activities are tracked so teams can monitor progress and history.</span>
+  </div>
+</div>
 
-# Next Steps
+## Navigation Overview
 
-To begin, proceed to the Login Guide for system access instructions.
+<div class="utopia-overview-table">
+  <div class="utopia-overview-head">Section</div>
+  <div class="utopia-overview-head">Use it for</div>
 
-For general usage, refer to the User Guide section.
+  <a href="/login-guide">Getting Started</a>
+  <p>Basic access, login help, and first-time navigation.</p>
 
-For role-specific tasks, navigate to your assigned space.
+  <a href="/personal-space">User Guide</a>
+  <p>General system features such as personal tasks, announcements, calendar, and notes.</p>
 
- 
-documentation is for staff only
+  <a href="/manager-space">Role-Based Spaces</a>
+  <p>Specific functions for Manager, Director, Supervisor, HR, Accounts, Credit, Operations Efficiency, and Indoor teams.</p>
+
+  <a href="/developer-space">Admin and Developer</a>
+  <p>Advanced configuration, system monitoring, architecture, database, and technical documentation.</p>
+</div>
+
+## Next Steps
+
+<div class="utopia-overview-next">
+  <a href="/login-guide">
+    <strong>Start with login</strong>
+    <span>Use this if you need account access or sign-in guidance.</span>
+  </a>
+  <a href="/basic-navigation">
+    <strong>Learn the layout</strong>
+    <span>Understand the sidebar, top bar, and page structure.</span>
+  </a>
+  <a href="/roles-and-permissions">
+    <strong>Check role access</strong>
+    <span>See what each role can access inside the system.</span>
+  </a>
+</div>
+
+This documentation is for staff only.
 
 ## 🚀 Latest Updates
 
