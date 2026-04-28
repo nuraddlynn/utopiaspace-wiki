@@ -8,31 +8,48 @@ tags: updates, ai-generated
 editor: markdown
 ---
 
-# 🚀 What’s New This Week
+# What’s New This Week
 
-📅 April 28, 2026
+<span class="utopia-updates-scope"></span>
 
-General updates that do not belong to a single space/page are collected here.
+<div class="utopia-updates-hero">
+  <p class="utopia-updates-date">April 28, 2026</p>
+  <p>General updates that do not belong to a single space/page are collected here.</p>
+</div>
 
-## 🔥 Big Updates
+<div class="utopia-updates-grid">
 
-- Chore: Back-merge production to staging
+<section class="utopia-updates-card">
+  <h2>Big Updates</h2>
+  <ul>
+    <li>Chore: Back-merge production to staging</li>
+  </ul>
+</section>
 
-## ⚡ Improvements
+<section class="utopia-updates-card">
+  <h2>Improvements</h2>
+  <ul>
+    <li>No improvements recorded yet.</li>
+  </ul>
+</section>
 
-- No improvements recorded yet.
+<section class="utopia-updates-card">
+  <h2>Fixes</h2>
+  <ul>
+    <li>No fixes recorded yet.</li>
+  </ul>
+</section>
 
-## 🐛 Fixes
+</div>
 
-- No fixes recorded yet.
+<section class="utopia-updates-card utopia-updates-wide">
+  <h2>Update Details</h2>
+  <ul>
+    <li><a href="/update-records/updates-update-commit-711b02c">Chore: Back-merge production to staging</a></li>
+  </ul>
+</section>
 
-## 📚 Update Details
-
-- Chore: Back-merge production to staging ([record](/update-records/updates-update-commit-711b02c))
-
-## Latest Trigger
-
-Commit 711b02c: Merge pull request #572 from utopiabuilder/backmerge/prod-to-staging-150ba84
-
-chore: back-merge production -> staging (2026-04-28)
-
+<section class="utopia-updates-trigger">
+  <h2>Latest Trigger</h2>
+  <p>Commit 711b02c: Merge pull request #572 from utopiabuilder/backmerge/prod-to-staging-150ba84<br><br>chore: back-merge production -&gt; staging (2026-04-28)</p>
+</section>

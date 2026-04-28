@@ -477,7 +477,7 @@ main:has(.utopia-home-scope) .utopia-quickstart-table,
 .v-main:has(.utopia-home-scope) .utopia-quickstart-table {
   display: grid;
   grid-template-columns: minmax(190px, 34%) 1fr;
-  margin: 10px 0 30px;
+  margin: 18px 0 30px;
   overflow: hidden;
   background: var(--utopia-surface);
   border: 1px solid var(--utopia-border);
@@ -635,6 +635,155 @@ main:has(.utopia-home-scope) table,
   border: 1px solid var(--utopia-border);
   border-radius: 8px;
   box-shadow: var(--utopia-shadow);
+}
+
+main:has(.utopia-updates-scope),
+.contents:has(.utopia-updates-scope),
+.page-contents:has(.utopia-updates-scope),
+.v-main:has(.utopia-updates-scope) {
+  background: var(--utopia-page-bg);
+  color: var(--utopia-text);
+  padding: 28px;
+  border-radius: 8px;
+}
+
+main:has(.utopia-updates-scope) h1,
+.contents:has(.utopia-updates-scope) h1,
+.page-contents:has(.utopia-updates-scope) h1,
+.v-main:has(.utopia-updates-scope) h1 {
+  color: var(--utopia-text);
+  font-size: 38px;
+  line-height: 1.1;
+  letter-spacing: 0;
+  margin-bottom: 14px;
+}
+
+main:has(.utopia-updates-scope) .utopia-updates-hero,
+.contents:has(.utopia-updates-scope) .utopia-updates-hero,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-hero,
+.v-main:has(.utopia-updates-scope) .utopia-updates-hero {
+  max-width: 760px;
+  margin: 0 0 24px;
+}
+
+main:has(.utopia-updates-scope) .utopia-updates-hero p,
+.contents:has(.utopia-updates-scope) .utopia-updates-hero p,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-hero p,
+.v-main:has(.utopia-updates-scope) .utopia-updates-hero p {
+  color: var(--utopia-muted);
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0 0 8px;
+}
+
+main:has(.utopia-updates-scope) .utopia-updates-date,
+.contents:has(.utopia-updates-scope) .utopia-updates-date,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-date,
+.v-main:has(.utopia-updates-scope) .utopia-updates-date {
+  color: var(--utopia-brand-blue) !important;
+  font-size: 13px !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+main:has(.utopia-updates-scope) .utopia-updates-grid,
+.contents:has(.utopia-updates-scope) .utopia-updates-grid,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-grid,
+.v-main:has(.utopia-updates-scope) .utopia-updates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0 18px;
+}
+
+main:has(.utopia-updates-scope) .utopia-updates-card,
+.contents:has(.utopia-updates-scope) .utopia-updates-card,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-card,
+.v-main:has(.utopia-updates-scope) .utopia-updates-card,
+main:has(.utopia-updates-scope) .utopia-updates-trigger,
+.contents:has(.utopia-updates-scope) .utopia-updates-trigger,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-trigger,
+.v-main:has(.utopia-updates-scope) .utopia-updates-trigger {
+  background: var(--utopia-surface);
+  border: 1px solid var(--utopia-border);
+  border-radius: 8px;
+  box-shadow: var(--utopia-shadow);
+  padding: 18px 20px;
+}
+
+main:has(.utopia-updates-scope) .utopia-updates-wide,
+.contents:has(.utopia-updates-scope) .utopia-updates-wide,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-wide,
+.v-main:has(.utopia-updates-scope) .utopia-updates-wide,
+main:has(.utopia-updates-scope) .utopia-updates-trigger,
+.contents:has(.utopia-updates-scope) .utopia-updates-trigger,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-trigger,
+.v-main:has(.utopia-updates-scope) .utopia-updates-trigger {
+  margin-top: 16px;
+}
+
+main:has(.utopia-updates-scope) .utopia-updates-card h2,
+.contents:has(.utopia-updates-scope) .utopia-updates-card h2,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-card h2,
+.v-main:has(.utopia-updates-scope) .utopia-updates-card h2,
+main:has(.utopia-updates-scope) .utopia-updates-trigger h2,
+.contents:has(.utopia-updates-scope) .utopia-updates-trigger h2,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-trigger h2,
+.v-main:has(.utopia-updates-scope) .utopia-updates-trigger h2 {
+  color: var(--utopia-text);
+  font-size: 16px;
+  line-height: 1.3;
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+}
+
+main:has(.utopia-updates-scope) .utopia-updates-card ul,
+.contents:has(.utopia-updates-scope) .utopia-updates-card ul,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-card ul,
+.v-main:has(.utopia-updates-scope) .utopia-updates-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+main:has(.utopia-updates-scope) .utopia-updates-card li,
+.contents:has(.utopia-updates-scope) .utopia-updates-card li,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-card li,
+.v-main:has(.utopia-updates-scope) .utopia-updates-card li,
+main:has(.utopia-updates-scope) .utopia-updates-trigger p,
+.contents:has(.utopia-updates-scope) .utopia-updates-trigger p,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-trigger p,
+.v-main:has(.utopia-updates-scope) .utopia-updates-trigger p {
+  color: var(--utopia-muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+main:has(.utopia-updates-scope) .utopia-updates-card a,
+.contents:has(.utopia-updates-scope) .utopia-updates-card a,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-card a,
+.v-main:has(.utopia-updates-scope) .utopia-updates-card a {
+  color: var(--utopia-brand-blue) !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+main:has(.utopia-updates-scope) .utopia-updates-card a:hover,
+.contents:has(.utopia-updates-scope) .utopia-updates-card a:hover,
+.page-contents:has(.utopia-updates-scope) .utopia-updates-card a:hover,
+.v-main:has(.utopia-updates-scope) .utopia-updates-card a:hover {
+  color: #000000 !important;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  main:has(.utopia-updates-scope) .utopia-updates-grid,
+  .contents:has(.utopia-updates-scope) .utopia-updates-grid,
+  .page-contents:has(.utopia-updates-scope) .utopia-updates-grid,
+  .v-main:has(.utopia-updates-scope) .utopia-updates-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 main:has(.utopia-home-scope) th,

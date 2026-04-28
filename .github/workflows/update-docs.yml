@@ -531,8 +531,20 @@ jobs:
             year: 'numeric',
             timeZone: 'Asia/Kuala_Lumpur'
           }).format(new Date())
-          const section = (items, fallbackText) =>
-            items && items.length ? items.map((item) => `- ${item}`) : [`- ${fallbackText}`]
+          const escapeHtml = (value) =>
+            String(value)
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/"/g, '&quot;')
+              .replace(/'/g, '&#39;')
+          const htmlText = (value) => escapeHtml(value).replace(/\n/g, '<br>')
+          const htmlList = (items, fallbackText) =>
+            (items && items.length ? items : [fallbackText])
+              .map((item) => `    <li>${escapeHtml(item)}</li>`)
+          const detailItems = generalUpdates.length
+            ? generalUpdates.map((item) => `    <li><a href="/${item.recordFile.replace(/\.md$/, '')}">${escapeHtml(item.title)}</a></li>`)
+            : ['    <li>No general updates recorded yet.</li>']
 
           const updatesIndex = [
             '---',
@@ -545,33 +557,52 @@ jobs:
             'editor: markdown',
             '---',
             '',
-            '# 🚀 What’s New This Week',
+            '# What’s New This Week',
             '',
-            `📅 ${displayDate}`,
+            '<span class="utopia-updates-scope"></span>',
             '',
-            'General updates that do not belong to a single space/page are collected here.',
+            '<div class="utopia-updates-hero">',
+            `  <p class="utopia-updates-date">${displayDate}</p>`,
+            '  <p>General updates that do not belong to a single space/page are collected here.</p>',
+            '</div>',
             '',
-            '## 🔥 Big Updates',
+            '<div class="utopia-updates-grid">',
             '',
-            ...section(weeklySummary.big_updates, 'No big updates recorded yet.'),
+            '<section class="utopia-updates-card">',
+            '  <h2>Big Updates</h2>',
+            '  <ul>',
+            ...htmlList(weeklySummary.big_updates, 'No big updates recorded yet.'),
+            '  </ul>',
+            '</section>',
             '',
-            '## ⚡ Improvements',
+            '<section class="utopia-updates-card">',
+            '  <h2>Improvements</h2>',
+            '  <ul>',
+            ...htmlList(weeklySummary.improvements, 'No improvements recorded yet.'),
+            '  </ul>',
+            '</section>',
             '',
-            ...section(weeklySummary.improvements, 'No improvements recorded yet.'),
+            '<section class="utopia-updates-card">',
+            '  <h2>Fixes</h2>',
+            '  <ul>',
+            ...htmlList(weeklySummary.fixes, 'No fixes recorded yet.'),
+            '  </ul>',
+            '</section>',
             '',
-            '## 🐛 Fixes',
+            '</div>',
             '',
-            ...section(weeklySummary.fixes, 'No fixes recorded yet.'),
+            '<section class="utopia-updates-card utopia-updates-wide">',
+            '  <h2>Update Details</h2>',
+            '  <ul>',
+            ...detailItems,
+            '  </ul>',
+            '</section>',
             '',
-            '## 📚 Update Details',
+            '<section class="utopia-updates-trigger">',
+            '  <h2>Latest Trigger</h2>',
+            `  <p>${htmlText(summaryHeading)}</p>`,
+            '</section>',
             '',
-            ...(generalUpdates.length
-              ? generalUpdates.map((item) => `- ${item.title} ([record](/${item.recordFile.replace(/\.md$/, '')}))`)
-              : ['- No general updates recorded yet.']),
-            '',
-            '## Latest Trigger',
-            '',
-            summaryHeading,
             ''
           ].join('\n')
 
