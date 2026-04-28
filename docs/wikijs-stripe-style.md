@@ -1210,7 +1210,7 @@ main:has(.utopia-login-scope) .utopia-login-visual,
 .v-main:has(.utopia-login-scope) .utopia-login-visual {
   position: relative;
   min-height: 380px;
-  overflow: visible;
+  overflow: hidden;
 }
 
 main:has(.utopia-login-scope) .utopia-login-image,
@@ -1219,7 +1219,7 @@ main:has(.utopia-login-scope) .utopia-login-image,
 .v-main:has(.utopia-login-scope) .utopia-login-image {
   position: absolute;
   display: block;
-  width: min(520px, 90%);
+  width: min(440px, 72%);
   height: auto;
   aspect-ratio: 1366 / 768;
   object-fit: cover;
@@ -1260,7 +1260,7 @@ main:has(.utopia-login-scope) .utopia-login-image-back,
 .page-contents:has(.utopia-login-scope) .utopia-login-image-back,
 .v-main:has(.utopia-login-scope) .utopia-login-image-back {
   top: 24px;
-  left: 0;
+  left: clamp(0px, 4%, 28px);
   right: auto;
   z-index: 1;
   background-image: url("/assets/login/login-dark.jpeg");
@@ -1271,7 +1271,7 @@ main:has(.utopia-login-scope) .utopia-login-image-front,
 .page-contents:has(.utopia-login-scope) .utopia-login-image-front,
 .v-main:has(.utopia-login-scope) .utopia-login-image-front {
   top: 118px;
-  left: 30%;
+  left: clamp(80px, 22%, 150px);
   right: auto;
   z-index: 2;
   transform: none;
@@ -1532,6 +1532,21 @@ main:has(.utopia-login-scope) .utopia-login-table strong::after,
   .page-contents:has(.utopia-login-scope) .utopia-login-visual,
   .v-main:has(.utopia-login-scope) .utopia-login-visual {
     min-height: 300px;
+  }
+
+  main:has(.utopia-login-scope) .utopia-login-image,
+  .contents:has(.utopia-login-scope) .utopia-login-image,
+  .page-contents:has(.utopia-login-scope) .utopia-login-image,
+  .v-main:has(.utopia-login-scope) .utopia-login-image {
+    width: min(400px, 74%);
+  }
+
+  main:has(.utopia-login-scope) .utopia-login-image-front,
+  .contents:has(.utopia-login-scope) .utopia-login-image-front,
+  .page-contents:has(.utopia-login-scope) .utopia-login-image-front,
+  .v-main:has(.utopia-login-scope) .utopia-login-image-front {
+    top: 96px;
+    left: clamp(72px, 20%, 120px);
   }
 
   main:has(.utopia-login-scope) .utopia-login-grid,
