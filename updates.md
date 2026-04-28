@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-28T01:16:22.902Z
-dateCreated: 2026-04-28T01:16:22.902Z
+date: 2026-04-28T01:16:35.679Z
+dateCreated: 2026-04-28T01:16:35.679Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -28,11 +28,9 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 📚 Update Details
 
-- Development to Staging Promotion ([record](/update-records/updates-update-commit-73b2e91))
+- Development to Staging Promotion ([record](/update-records/updates-update-pr-568))
 
 ## Latest Trigger
 
-Commit 73b2e91: Merge pull request #568 from utopiabuilder/development
-
-promote: development to staging 28 april 2026
+PR #568: promote: development to staging 28 april 2026
 
