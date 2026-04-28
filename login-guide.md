@@ -6,11 +6,7 @@
   <div class="utopia-login-copy">
     <p>Use this guide to access UtopiaSpace with your official company Google account.</p>
 
-    <div class="utopia-login-actions">
-      <a href="https://space.utopiagroup.com.my">Open UtopiaSpace</a>
-      <a href="/basic-navigation">Basic Navigation</a>
-      <a href="/troubleshooting">Troubleshooting</a>
-    </div>
+    <p class="utopia-login-actions"><a href="https://space.utopiagroup.com.my">Open UtopiaSpace</a><a href="/basic-navigation">Basic Navigation</a><a href="/troubleshooting">Troubleshooting</a></p>
   </div>
 
   <div class="utopia-login-visual" aria-label="UtopiaSpace login screen previews">

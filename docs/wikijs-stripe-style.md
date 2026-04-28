@@ -1197,6 +1197,13 @@ main:has(.utopia-login-scope) .utopia-login-copy p,
   margin: 0;
 }
 
+main:has(.utopia-login-scope) .utopia-login-copy pre,
+.contents:has(.utopia-login-scope) .utopia-login-copy pre,
+.page-contents:has(.utopia-login-scope) .utopia-login-copy pre,
+.v-main:has(.utopia-login-scope) .utopia-login-copy pre {
+  display: none !important;
+}
+
 main:has(.utopia-login-scope) .utopia-login-visual,
 .contents:has(.utopia-login-scope) .utopia-login-visual,
 .page-contents:has(.utopia-login-scope) .utopia-login-visual,
@@ -1253,7 +1260,8 @@ main:has(.utopia-login-scope) .utopia-login-image-back,
 .page-contents:has(.utopia-login-scope) .utopia-login-image-back,
 .v-main:has(.utopia-login-scope) .utopia-login-image-back {
   top: 24px;
-  right: 0;
+  left: 0;
+  right: auto;
   z-index: 1;
   background-image: url("/assets/login/login-dark.jpeg");
 }
@@ -1263,9 +1271,10 @@ main:has(.utopia-login-scope) .utopia-login-image-front,
 .page-contents:has(.utopia-login-scope) .utopia-login-image-front,
 .v-main:has(.utopia-login-scope) .utopia-login-image-front {
   top: 118px;
-  right: 0;
+  left: 30%;
+  right: auto;
   z-index: 2;
-  transform: translateX(-70%);
+  transform: none;
   background-image: url("/assets/login/login-light.jpeg");
 }
 
@@ -1291,6 +1300,7 @@ main:has(.utopia-login-scope) .utopia-login-actions,
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  max-width: none;
   margin: 20px 0 28px;
 }
 
