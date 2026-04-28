@@ -655,7 +655,7 @@ main:has(.utopia-updates-scope) h1,
   font-size: 38px;
   line-height: 1.1;
   letter-spacing: 0;
-  margin-bottom: 14px;
+  margin-bottom: 6px;
 }
 
 main:has(.utopia-updates-scope) .utopia-updates-hero,
@@ -685,6 +685,7 @@ main:has(.utopia-updates-scope) .utopia-updates-date,
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  margin-top: 0 !important;
 }
 
 main:has(.utopia-updates-scope) .utopia-updates-grid,
