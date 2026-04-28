@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-28T01:24:56.017Z
-dateCreated: 2026-04-28T01:24:56.017Z
+date: 2026-04-28T01:25:29.124Z
+dateCreated: 2026-04-28T01:25:29.124Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -16,21 +16,23 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 🔥 Big Updates
 
-- Updated the wiki notification workflow
+- No big updates recorded yet.
 
 ## ⚡ Improvements
 
-- No improvements recorded yet.
+- General system updates and maintenance
 
 ## 🐛 Fixes
 
-- Implemented a backend fix for backfilling FT data to IRIS
+- No fixes recorded yet.
 
 ## 📚 Update Details
 
-- Infrastructure & Wiki Workflow Updates ([record](/update-records/updates-update-pr-570))
+- Merge pull request #571 from utopiabuilder/production ([record](/update-records/updates-update-commit-7397e39))
 
 ## Latest Trigger
 
-PR #570: promote: staging -> production (2026-04-28)
+Commit 7397e39: Merge pull request #571 from utopiabuilder/production
+
+Merge pull request #570 from utopiabuilder/staging
 
