@@ -24,7 +24,7 @@ services:
       DB_USER: wikijs
       DB_PASS: wikijsrocks
       DB_NAME: wiki
-      SITE_URL: http://localhost:3000
+      SITE_URL: ${SITE_URL:-https://wiki-production-a34d.up.railway.app}
     restart: unless-stopped
     ports:
       - "80:3000"
