@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-28T01:25:43.122Z
-dateCreated: 2026-04-28T01:25:43.122Z
+date: 2026-04-28T01:29:27.539Z
+dateCreated: 2026-04-28T01:29:27.539Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -16,7 +16,7 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 🔥 Big Updates
 
-- No big updates recorded yet.
+- Chore: Production to Staging Back-Merge
 
 ## ⚡ Improvements
 
@@ -28,9 +28,9 @@ General updates that do not belong to a single space/page are collected here.
 
 ## 📚 Update Details
 
-- Staging to Production Promotion ([record](/update-records/updates-update-pr-571))
+- Chore: Production to Staging Back-Merge ([record](/update-records/updates-update-pr-572))
 
 ## Latest Trigger
 
-PR #571: Merge pull request #570 from utopiabuilder/staging
+PR #572: chore: back-merge production -> staging (2026-04-28)
 
