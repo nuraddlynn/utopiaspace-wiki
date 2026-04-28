@@ -88,6 +88,11 @@ HR personnel are responsible for:
 
 <!-- AUTO-UPDATE-START -->
 <!-- AUTO-UPDATE-ENTRY-START -->
+### April 28, 2026 at 9:13 AM - Fix:Leave Checkbox Issue
+
+Fixed an issue with the leave checkbox.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-ENTRY-START -->
 ### April 23, 2026 at 12:32 PM - Update HR backcharge management documentation
 
 Updated documentation for HR backcharge management.

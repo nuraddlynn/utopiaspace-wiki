@@ -2,15 +2,15 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-27T09:52:27.161Z
-dateCreated: 2026-04-27T09:52:27.161Z
+date: 2026-04-28T01:13:07.175Z
+dateCreated: 2026-04-28T01:13:07.175Z
 tags: updates, ai-generated
 editor: markdown
 ---
 
 # 🚀 What’s New This Week
 
-📅 April 27, 2026
+📅 April 28, 2026
 
 General updates that do not belong to a single space/page are collected here.
 
@@ -32,7 +32,7 @@ General updates that do not belong to a single space/page are collected here.
 
 ## Latest Trigger
 
-Commit 7d0ad7b: setup: infisical environment
+Commit 65b99df: Fix:Leave Checkbox Issue
 
-Signed-off-by: Nazwa Najmuddin <naznajmuddin@gmail.com>
+Signed-off-by: gityow05 <ngyowshean05@gmail.com>
 
