@@ -1,66 +1,108 @@
-The Calendar provides a centralised view of schedules, including leave
-records, events, and employee birthdays.
+# Calendar
 
-It helps users stay informed about important dates and plan activities
-accordingly.  
+<span class="utopia-calendar-scope"></span>
 
-# Overview
+Use Calendar to view schedules, leave records, events, birthdays, and important dates in one central place.
 
-With the Calendar, users can:
+<div class="utopia-calendar-actions">
+  <a href="/announcements">Announcements</a>
+  <a href="/meeting-notes">Meeting Notes</a>
+  <a href="/personal-space">Personal Space</a>
+</div>
 
-- View monthly schedules
-- Track employee leave
-- See upcoming events and birthdays
-- Filter data by company and location
-- View detailed information for selected dates
+## Overview
 
-# Calendar View
+<div class="utopia-calendar-grid">
+  <section>
+    <h3>Monthly View</h3>
+    <p>Review schedules by month and move between months using the calendar navigation controls.</p>
+  </section>
 
-The calendar is displayed in a monthly format:
+  <section>
+    <h3>Important Dates</h3>
+    <p>See upcoming events, birthdays, and leave records without checking multiple pages.</p>
+  </section>
 
-- Each box represents a specific date
-- Indicators show the number of leave, events, or birthdays
-- Users can navigate between months using the arrow buttons
+  <section>
+    <h3>Filtered Planning</h3>
+    <p>Filter calendar data by company, location, birthdays, and leave to focus on relevant information.</p>
+  </section>
+</div>
 
-# Filters
+## Calendar Areas
 
-Users can filter calendar data using:
+<div class="utopia-calendar-table">
+  <div class="utopia-calendar-head">Area</div>
+  <div class="utopia-calendar-head">Purpose</div>
 
-## Company
+  <strong>Calendar View</strong>
+  <p>Displays the month layout. Each date box represents a specific day and may show indicators for leave, events, or birthdays.</p>
 
-Select the company to display relevant data
+  <strong>Month Navigation</strong>
+  <p>Use arrow buttons to switch between months, or select Today to return to the current date.</p>
 
-## Location
+  <strong>Date Selection</strong>
+  <p>Click a date to highlight it and view the detailed information for that selected day.</p>
 
-Filter schedules based on location
+  <strong>Day Details Panel</strong>
+  <p>Shows birthdays, events, leave entries, employee names, company details, leave type, and approval status where available.</p>
+</div>
 
-## Toggles
+## Filters
 
-- Birthdays - Show or hide birthday events
-- Leave - Show or hide leave records
+<div class="utopia-calendar-table">
+  <div class="utopia-calendar-head">Filter</div>
+  <div class="utopia-calendar-head">What it controls</div>
 
-# Date Selections
+  <strong>Company</strong>
+  <p>Displays calendar information for the selected company.</p>
 
-- Click on any date to view detailed information
-- Selected date will be highlighted
+  <strong>Location</strong>
+  <p>Filters schedules based on the selected location.</p>
 
-# Day Details Panel
+  <strong>Birthdays</strong>
+  <p>Shows or hides employee birthday events from the calendar view.</p>
 
-The right-side panel displays detailed information for the selected
-date:
+  <strong>Leave</strong>
+  <p>Shows or hides leave records so teams can review availability and planning conflicts.</p>
+</div>
 
-- Birthdays - Shows employees celebrating birthdays on that day
-- Events - Displays scheduled events (if any)
-- Leave - Lists employees on leave (Name, Company, Leave Type, Approval
-  Status0
+## Common Workflow
 
-# Navigation
+<div class="utopia-calendar-flow">
+  <div>
+    <strong>1</strong>
+    <span>Open Calendar from the sidebar.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>Select the month you want to review using the navigation arrows.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Apply company, location, birthday, or leave filters when needed.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Click a date to open the Day Details panel and review the full schedule for that day.</span>
+  </div>
+</div>
 
-- Use the arrow buttons to switch between months
-- Click *Today* to return to the current date
+## Tips
 
-# Tips
+<div class="utopia-calendar-grid">
+  <section>
+    <h3>Use Filters First</h3>
+    <p>Apply filters before reviewing busy months so the calendar only shows relevant information.</p>
+  </section>
 
-- Use filters to quickly find relevant information
-- Check the Day Details panel for full details
-- Monitor leave schedules to avoid conflicts in planning
+  <section>
+    <h3>Check Details</h3>
+    <p>Use the Day Details panel to confirm exact events, birthdays, leave types, and approval status.</p>
+  </section>
+
+  <section>
+    <h3>Plan Around Leave</h3>
+    <p>Review leave schedules early to avoid planning conflicts across teams or locations.</p>
+  </section>
+</div>
