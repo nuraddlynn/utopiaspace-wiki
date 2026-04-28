@@ -1369,8 +1369,32 @@ main:has(.utopia-login-scope) .utopia-login-table strong,
 .contents:has(.utopia-login-scope) .utopia-login-table strong,
 .page-contents:has(.utopia-login-scope) .utopia-login-table strong,
 .v-main:has(.utopia-login-scope) .utopia-login-table strong {
+  display: flex;
+  align-items: center;
   color: var(--utopia-text);
   font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+main:has(.utopia-login-scope) .utopia-login-table p,
+.contents:has(.utopia-login-scope) .utopia-login-table p,
+.page-contents:has(.utopia-login-scope) .utopia-login-table p,
+.v-main:has(.utopia-login-scope) .utopia-login-table p {
+  color: var(--utopia-text);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+main:has(.utopia-login-scope) .utopia-login-table strong::before,
+main:has(.utopia-login-scope) .utopia-login-table strong::after,
+.contents:has(.utopia-login-scope) .utopia-login-table strong::before,
+.contents:has(.utopia-login-scope) .utopia-login-table strong::after,
+.page-contents:has(.utopia-login-scope) .utopia-login-table strong::before,
+.page-contents:has(.utopia-login-scope) .utopia-login-table strong::after,
+.v-main:has(.utopia-login-scope) .utopia-login-table strong::before,
+.v-main:has(.utopia-login-scope) .utopia-login-table strong::after {
+  display: none !important;
 }
 
 @media (max-width: 900px) {
