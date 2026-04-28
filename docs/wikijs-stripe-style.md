@@ -1218,7 +1218,10 @@ main:has(.utopia-login-scope) .utopia-login-image,
   object-fit: cover;
   padding: 0;
   overflow: hidden;
-  background: var(--utopia-surface);
+  background-color: var(--utopia-surface);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border: 1px solid var(--utopia-border);
   border-radius: 10px;
   box-shadow: 0 22px 55px rgba(10, 37, 64, 0.16);
@@ -1227,7 +1230,7 @@ main:has(.utopia-login-scope) .utopia-login-image,
 .theme--dark.v-application main:has(.utopia-login-scope) .utopia-login-image,
 body.theme--dark main:has(.utopia-login-scope) .utopia-login-image,
 html.theme--dark main:has(.utopia-login-scope) .utopia-login-image {
-  background: var(--utopia-surface);
+  background-color: var(--utopia-surface);
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.32);
 }
 
@@ -1252,6 +1255,7 @@ main:has(.utopia-login-scope) .utopia-login-image-back,
   top: 24px;
   right: 0;
   z-index: 1;
+  background-image: url("/assets/login/login-dark.jpeg");
 }
 
 main:has(.utopia-login-scope) .utopia-login-image-front,
@@ -1262,6 +1266,22 @@ main:has(.utopia-login-scope) .utopia-login-image-front,
   right: 0;
   z-index: 2;
   transform: translateX(-70%);
+  background-image: url("/assets/login/login-light.jpeg");
+}
+
+main:has(.utopia-login-scope) .utopia-login-image span,
+main:has(.utopia-login-scope) .utopia-login-image strong,
+main:has(.utopia-login-scope) .utopia-login-image small,
+.contents:has(.utopia-login-scope) .utopia-login-image span,
+.contents:has(.utopia-login-scope) .utopia-login-image strong,
+.contents:has(.utopia-login-scope) .utopia-login-image small,
+.page-contents:has(.utopia-login-scope) .utopia-login-image span,
+.page-contents:has(.utopia-login-scope) .utopia-login-image strong,
+.page-contents:has(.utopia-login-scope) .utopia-login-image small,
+.v-main:has(.utopia-login-scope) .utopia-login-image span,
+.v-main:has(.utopia-login-scope) .utopia-login-image strong,
+.v-main:has(.utopia-login-scope) .utopia-login-image small {
+  display: none !important;
 }
 
 main:has(.utopia-login-scope) .utopia-login-actions,
