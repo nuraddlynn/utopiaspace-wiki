@@ -2,12 +2,29 @@
 
 <span class="utopia-login-scope"></span>
 
-Use this guide to access UtopiaSpace with your official company Google account.
+<div class="utopia-login-hero">
+  <div class="utopia-login-copy">
+    <p>Use this guide to access UtopiaSpace with your official company Google account.</p>
 
-<div class="utopia-login-actions">
-  <a href="https://space.utopiagroup.com.my">Open UtopiaSpace</a>
-  <a href="/basic-navigation">Basic Navigation</a>
-  <a href="/troubleshooting">Troubleshooting</a>
+    <div class="utopia-login-actions">
+      <a href="https://space.utopiagroup.com.my">Open UtopiaSpace</a>
+      <a href="/basic-navigation">Basic Navigation</a>
+      <a href="/troubleshooting">Troubleshooting</a>
+    </div>
+  </div>
+
+  <div class="utopia-login-visual" aria-hidden="true">
+    <div class="utopia-login-image utopia-login-image-back">
+      <span>Google sign-in</span>
+      <strong>Choose an account</strong>
+      <small>Continue to UtopiaSpace</small>
+    </div>
+    <div class="utopia-login-image utopia-login-image-front">
+      <span>UtopiaSpace</span>
+      <strong>Welcome back</strong>
+      <small>Secure company access</small>
+    </div>
+  </div>
 </div>
 
 ## Accessing the System
