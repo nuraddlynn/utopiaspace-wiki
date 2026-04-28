@@ -54,6 +54,11 @@ The Developer Space allows users to:
 
 <!-- AUTO-UPDATE-START -->
 <!-- AUTO-UPDATE-ENTRY-START -->
+### April 28, 2026 at 9:24 AM - Infisical Environment Setup
+
+Added setup instructions for the Infisical environment.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-ENTRY-START -->
 ### April 27, 2026 at 5:52 PM - Infisical Environment Setup
 
 Documented the setup process for the Infisical environment.

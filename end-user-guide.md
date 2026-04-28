@@ -51,6 +51,11 @@ documentation is for staff only
 
 <!-- AUTO-UPDATE-START -->
 <!-- AUTO-UPDATE-ENTRY-START -->
+### April 28, 2026 at 9:24 AM - Fixed Leave Application Checkbox
+
+Resolved an issue with the leave application checkbox.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-ENTRY-START -->
 ### April 23, 2026 at 9:32 AM - Update end user guide staff documentation note
 
 Updated staff documentation note in the end user guide.
