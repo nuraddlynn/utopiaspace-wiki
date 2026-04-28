@@ -2,8 +2,8 @@
 title: What’s New This Week
 description: Weekly summary of generated wiki update pages
 published: true
-date: 2026-04-28T01:13:07.175Z
-dateCreated: 2026-04-28T01:13:07.175Z
+date: 2026-04-28T01:13:17.734Z
+dateCreated: 2026-04-28T01:13:17.734Z
 tags: updates, ai-generated
 editor: markdown
 ---
@@ -32,7 +32,5 @@ General updates that do not belong to a single space/page are collected here.
 
 ## Latest Trigger
 
-Commit 65b99df: Fix:Leave Checkbox Issue
-
-Signed-off-by: gityow05 <ngyowshean05@gmail.com>
+PR #567: hotfix: leave application checkbox 
 

@@ -88,6 +88,11 @@ HR personnel are responsible for:
 
 <!-- AUTO-UPDATE-START -->
 <!-- AUTO-UPDATE-ENTRY-START -->
+### April 28, 2026 at 9:13 AM - Hotfix: Leave Application Checkbox Validation
+
+Removed browser's built-in validation for leave application checkbox to prevent issues.
+<!-- AUTO-UPDATE-ENTRY-END -->
+<!-- AUTO-UPDATE-ENTRY-START -->
 ### April 28, 2026 at 9:13 AM - Fix:Leave Checkbox Issue
 
 Fixed an issue with the leave checkbox.
