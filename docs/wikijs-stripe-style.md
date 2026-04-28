@@ -1117,6 +1117,287 @@ main:has(.utopia-overview-scope) .utopia-overview-next span,
   }
 }
 
+main:has(.utopia-login-scope),
+.contents:has(.utopia-login-scope),
+.page-contents:has(.utopia-login-scope),
+.v-main:has(.utopia-login-scope) {
+  background: var(--utopia-page-bg);
+  color: var(--utopia-text);
+  padding: 28px;
+  border-radius: 8px;
+}
+
+main:has(.utopia-login-scope) h1,
+.contents:has(.utopia-login-scope) h1,
+.page-contents:has(.utopia-login-scope) h1,
+.v-main:has(.utopia-login-scope) h1 {
+  color: var(--utopia-text);
+  font-size: 38px;
+  line-height: 1.1;
+  letter-spacing: 0;
+  margin-bottom: 10px;
+}
+
+main:has(.utopia-login-scope) h2,
+.contents:has(.utopia-login-scope) h2,
+.page-contents:has(.utopia-login-scope) h2,
+.v-main:has(.utopia-login-scope) h2 {
+  color: var(--utopia-text);
+  border-top: 1px solid var(--utopia-border);
+  font-size: 22px;
+  line-height: 1.3;
+  margin-top: 34px;
+  margin-bottom: 16px;
+  padding-top: 26px;
+}
+
+main:has(.utopia-login-scope) p,
+main:has(.utopia-login-scope) li,
+.contents:has(.utopia-login-scope) p,
+.contents:has(.utopia-login-scope) li,
+.page-contents:has(.utopia-login-scope) p,
+.page-contents:has(.utopia-login-scope) li,
+.v-main:has(.utopia-login-scope) p,
+.v-main:has(.utopia-login-scope) li {
+  color: var(--utopia-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+main:has(.utopia-login-scope) > p:first-of-type,
+.contents:has(.utopia-login-scope) > p:first-of-type,
+.page-contents:has(.utopia-login-scope) > p:first-of-type,
+.v-main:has(.utopia-login-scope) > p:first-of-type {
+  max-width: 780px;
+  font-size: 18px;
+}
+
+main:has(.utopia-login-scope) .utopia-login-actions,
+.contents:has(.utopia-login-scope) .utopia-login-actions,
+.page-contents:has(.utopia-login-scope) .utopia-login-actions,
+.v-main:has(.utopia-login-scope) .utopia-login-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 28px;
+}
+
+main:has(.utopia-login-scope) .utopia-login-actions a,
+.contents:has(.utopia-login-scope) .utopia-login-actions a,
+.page-contents:has(.utopia-login-scope) .utopia-login-actions a,
+.v-main:has(.utopia-login-scope) .utopia-login-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  color: #ffffff !important;
+  background: var(--utopia-brand-blue);
+  border: 1px solid var(--utopia-brand-blue);
+  border-radius: 6px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+main:has(.utopia-login-scope) .utopia-login-actions a:hover,
+.contents:has(.utopia-login-scope) .utopia-login-actions a:hover,
+.page-contents:has(.utopia-login-scope) .utopia-login-actions a:hover,
+.v-main:has(.utopia-login-scope) .utopia-login-actions a:hover {
+  background: var(--utopia-brand-blue-hover);
+  border-color: var(--utopia-brand-blue-hover);
+  text-decoration: none;
+}
+
+main:has(.utopia-login-scope) .utopia-login-flow,
+.contents:has(.utopia-login-scope) .utopia-login-flow,
+.page-contents:has(.utopia-login-scope) .utopia-login-flow,
+.v-main:has(.utopia-login-scope) .utopia-login-flow,
+main:has(.utopia-login-scope) .utopia-login-table,
+.contents:has(.utopia-login-scope) .utopia-login-table,
+.page-contents:has(.utopia-login-scope) .utopia-login-table,
+.v-main:has(.utopia-login-scope) .utopia-login-table {
+  overflow: hidden;
+  background: var(--utopia-surface);
+  border: 1px solid var(--utopia-border);
+  border-radius: 8px;
+  box-shadow: var(--utopia-shadow);
+}
+
+main:has(.utopia-login-scope) .utopia-login-flow div,
+.contents:has(.utopia-login-scope) .utopia-login-flow div,
+.page-contents:has(.utopia-login-scope) .utopia-login-flow div,
+.v-main:has(.utopia-login-scope) .utopia-login-flow div {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--utopia-border);
+}
+
+main:has(.utopia-login-scope) .utopia-login-flow div:nth-child(odd),
+.contents:has(.utopia-login-scope) .utopia-login-flow div:nth-child(odd),
+.page-contents:has(.utopia-login-scope) .utopia-login-flow div:nth-child(odd),
+.v-main:has(.utopia-login-scope) .utopia-login-flow div:nth-child(odd) {
+  background: var(--utopia-row-soft);
+}
+
+main:has(.utopia-login-scope) .utopia-login-flow div:last-child,
+.contents:has(.utopia-login-scope) .utopia-login-flow div:last-child,
+.page-contents:has(.utopia-login-scope) .utopia-login-flow div:last-child,
+.v-main:has(.utopia-login-scope) .utopia-login-flow div:last-child {
+  border-bottom: 0;
+}
+
+main:has(.utopia-login-scope) .utopia-login-flow strong,
+.contents:has(.utopia-login-scope) .utopia-login-flow strong,
+.page-contents:has(.utopia-login-scope) .utopia-login-flow strong,
+.v-main:has(.utopia-login-scope) .utopia-login-flow strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: #ffffff;
+  background: var(--utopia-brand-blue);
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+main:has(.utopia-login-scope) .utopia-login-flow span,
+.contents:has(.utopia-login-scope) .utopia-login-flow span,
+.page-contents:has(.utopia-login-scope) .utopia-login-flow span,
+.v-main:has(.utopia-login-scope) .utopia-login-flow span {
+  color: var(--utopia-text);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+main:has(.utopia-login-scope) .utopia-login-flow a,
+.contents:has(.utopia-login-scope) .utopia-login-flow a,
+.page-contents:has(.utopia-login-scope) .utopia-login-flow a,
+.v-main:has(.utopia-login-scope) .utopia-login-flow a {
+  color: var(--utopia-brand-blue) !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+main:has(.utopia-login-scope) .utopia-login-grid,
+.contents:has(.utopia-login-scope) .utopia-login-grid,
+.page-contents:has(.utopia-login-scope) .utopia-login-grid,
+.v-main:has(.utopia-login-scope) .utopia-login-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+main:has(.utopia-login-scope) .utopia-login-grid section,
+.contents:has(.utopia-login-scope) .utopia-login-grid section,
+.page-contents:has(.utopia-login-scope) .utopia-login-grid section,
+.v-main:has(.utopia-login-scope) .utopia-login-grid section {
+  background: var(--utopia-surface);
+  border: 1px solid var(--utopia-border);
+  border-radius: 8px;
+  box-shadow: var(--utopia-shadow);
+  padding: 18px 20px;
+}
+
+main:has(.utopia-login-scope) .utopia-login-grid h3,
+.contents:has(.utopia-login-scope) .utopia-login-grid h3,
+.page-contents:has(.utopia-login-scope) .utopia-login-grid h3,
+.v-main:has(.utopia-login-scope) .utopia-login-grid h3 {
+  color: var(--utopia-text);
+  font-size: 16px;
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
+
+main:has(.utopia-login-scope) .utopia-login-grid p,
+.contents:has(.utopia-login-scope) .utopia-login-grid p,
+.page-contents:has(.utopia-login-scope) .utopia-login-grid p,
+.v-main:has(.utopia-login-scope) .utopia-login-grid p {
+  margin: 0;
+}
+
+main:has(.utopia-login-scope) .utopia-login-table,
+.contents:has(.utopia-login-scope) .utopia-login-table,
+.page-contents:has(.utopia-login-scope) .utopia-login-table,
+.v-main:has(.utopia-login-scope) .utopia-login-table {
+  display: grid;
+  grid-template-columns: minmax(190px, 34%) 1fr;
+}
+
+main:has(.utopia-login-scope) .utopia-login-head,
+.contents:has(.utopia-login-scope) .utopia-login-head,
+.page-contents:has(.utopia-login-scope) .utopia-login-head,
+.v-main:has(.utopia-login-scope) .utopia-login-head {
+  color: var(--utopia-muted);
+  background: transparent;
+  border-bottom: 1px solid var(--utopia-border);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 14px 20px;
+  text-transform: uppercase;
+}
+
+main:has(.utopia-login-scope) .utopia-login-table strong,
+main:has(.utopia-login-scope) .utopia-login-table p,
+.contents:has(.utopia-login-scope) .utopia-login-table strong,
+.contents:has(.utopia-login-scope) .utopia-login-table p,
+.page-contents:has(.utopia-login-scope) .utopia-login-table strong,
+.page-contents:has(.utopia-login-scope) .utopia-login-table p,
+.v-main:has(.utopia-login-scope) .utopia-login-table strong,
+.v-main:has(.utopia-login-scope) .utopia-login-table p {
+  margin: 0;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--utopia-border);
+}
+
+main:has(.utopia-login-scope) .utopia-login-table > strong:nth-of-type(odd),
+main:has(.utopia-login-scope) .utopia-login-table > p:nth-of-type(odd),
+.contents:has(.utopia-login-scope) .utopia-login-table > strong:nth-of-type(odd),
+.contents:has(.utopia-login-scope) .utopia-login-table > p:nth-of-type(odd),
+.page-contents:has(.utopia-login-scope) .utopia-login-table > strong:nth-of-type(odd),
+.page-contents:has(.utopia-login-scope) .utopia-login-table > p:nth-of-type(odd),
+.v-main:has(.utopia-login-scope) .utopia-login-table > strong:nth-of-type(odd),
+.v-main:has(.utopia-login-scope) .utopia-login-table > p:nth-of-type(odd) {
+  background: var(--utopia-row-soft);
+}
+
+main:has(.utopia-login-scope) .utopia-login-table strong,
+.contents:has(.utopia-login-scope) .utopia-login-table strong,
+.page-contents:has(.utopia-login-scope) .utopia-login-table strong,
+.v-main:has(.utopia-login-scope) .utopia-login-table strong {
+  color: var(--utopia-text);
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  main:has(.utopia-login-scope) .utopia-login-grid,
+  .contents:has(.utopia-login-scope) .utopia-login-grid,
+  .page-contents:has(.utopia-login-scope) .utopia-login-grid,
+  .v-main:has(.utopia-login-scope) .utopia-login-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  main:has(.utopia-login-scope) .utopia-login-table,
+  .contents:has(.utopia-login-scope) .utopia-login-table,
+  .page-contents:has(.utopia-login-scope) .utopia-login-table,
+  .v-main:has(.utopia-login-scope) .utopia-login-table {
+    grid-template-columns: 1fr;
+  }
+
+  main:has(.utopia-login-scope) .utopia-login-head:nth-child(2),
+  .contents:has(.utopia-login-scope) .utopia-login-head:nth-child(2),
+  .page-contents:has(.utopia-login-scope) .utopia-login-head:nth-child(2),
+  .v-main:has(.utopia-login-scope) .utopia-login-head:nth-child(2) {
+    display: none;
+  }
+}
+
 main:has(.utopia-home-scope) th,
 .contents:has(.utopia-home-scope) th,
 .page-contents:has(.utopia-home-scope) th,
