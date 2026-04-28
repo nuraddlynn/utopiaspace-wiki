@@ -13,17 +13,9 @@
     </div>
   </div>
 
-  <div class="utopia-login-visual" aria-hidden="true">
-    <div class="utopia-login-image utopia-login-image-back">
-      <span>Google sign-in</span>
-      <strong>Choose an account</strong>
-      <small>Continue to UtopiaSpace</small>
-    </div>
-    <div class="utopia-login-image utopia-login-image-front">
-      <span>UtopiaSpace</span>
-      <strong>Welcome back</strong>
-      <small>Secure company access</small>
-    </div>
+  <div class="utopia-login-visual" aria-label="UtopiaSpace login screen previews">
+    <img class="utopia-login-image utopia-login-image-back" src="/assets/login/login-dark.jpeg" alt="Dark UtopiaSpace login screen">
+    <img class="utopia-login-image utopia-login-image-front" src="/assets/login/login-light.jpeg" alt="Light UtopiaSpace login screen">
   </div>
 </div>
 
