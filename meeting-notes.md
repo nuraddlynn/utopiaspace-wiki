@@ -1,130 +1,147 @@
-The Meeting Notes feature allows users to record, manage, and track
-meeting discussions, decisions, and action items in a centralised
-system.
+# Meeting Notes
 
-It ensures all meeting information is properly documented and accessible
-for future reference.  
+<span class="utopia-meeting-scope"></span>
 
-# Overview
+Use Meeting Notes to record discussions, decisions, action items, and follow-up tasks in one central place.
 
-With Meeting Notes, users can:
+<div class="utopia-meeting-actions">
+  <a href="/calendar">Calendar</a>
+  <a href="/taskboard">Taskboard</a>
+  <a href="/announcements">Announcements</a>
+</div>
 
-- View a list of all meetings
-- Search and filter meeting records
-- Create new meeting notes
-- Record discussion details and action items
-- Assign tasks to team members
+## Overview
 
-# Meeting List
+<div class="utopia-meeting-grid">
+  <section>
+    <h3>Document Meetings</h3>
+    <p>Record meeting details, discussion points, decisions, feedback, and key highlights.</p>
+  </section>
 
-The main page displays a list of all meetings with the following
-details.
+  <section>
+    <h3>Track Follow-Up</h3>
+    <p>Create action items and quick tasks so follow-up work is assigned and visible.</p>
+  </section>
 
-- Meeting ID - Unique identifier for each meeting
-- Meeting Title - Name of the meeting
-- Meeting Type - Type of meeting (e.g., scheduled, ad hoc, one-to-one)
-- Meeting Date - Date and time of the meeting
-- Business Unit - Associated business unit
-- Department - Related department
+  <section>
+    <h3>Find Records</h3>
+    <p>Search, filter, and open past meeting records for future reference.</p>
+  </section>
+</div>
 
-Users can:
+## Meeting List
 
-- Search meeting using the search bar
-- Filter by meeting type
-- Click on a meeting to view details
+<div class="utopia-meeting-table">
+  <div class="utopia-meeting-head">Column</div>
+  <div class="utopia-meeting-head">Description</div>
 
-# Creating a Meeting Note
+  <strong>Meeting ID</strong>
+  <p>Unique identifier for each meeting record.</p>
 
-To create a new meeting note:
+  <strong>Meeting Title</strong>
+  <p>Name or subject of the meeting.</p>
 
-1.  Navigate to *Meeting Notes*
-2.  Click on the *+ Add Meeting* button
-3.  Fill in the required information:
+  <strong>Meeting Type</strong>
+  <p>Type of meeting, such as scheduled, ad hoc, or one-to-one.</p>
 
-## Meeting Details
+  <strong>Meeting Date</strong>
+  <p>Date and time of the meeting.</p>
 
-- Meeting Title - Enter the meeting name
-- Meeting Type - Select meeting type
-- Date & Time - Set the meeting schedule
-- Business Unit - Select the relevant unit
-- Department - Select the department
+  <strong>Business Unit</strong>
+  <p>Business unit associated with the meeting.</p>
 
-## Content
+  <strong>Department</strong>
+  <p>Department related to the meeting record.</p>
+</div>
 
-- Enter discussion points, feedback, and key highlights of the meeting
-- Ensure important decisions are clearly documented
+## Creating a Meeting Note
 
-## Action Items
+<div class="utopia-meeting-flow">
+  <div>
+    <strong>1</strong>
+    <span>Open Meeting Notes from the sidebar.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>Click Add Meeting to create a new meeting note.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Fill in meeting title, type, date and time, business unit, and department.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Enter discussion points, feedback, decisions, and action items.</span>
+  </div>
+  <div>
+    <strong>5</strong>
+    <span>Add quick tasks if follow-up work needs to be assigned.</span>
+  </div>
+  <div>
+    <strong>6</strong>
+    <span>Click Save Minutes after all required details are completed.</span>
+  </div>
+</div>
 
-- Record action items based on meeting discussions
-- Clearly define tasks that need to be completed
+## Meeting Content
 
-## Quick Tasks
+<div class="utopia-meeting-table">
+  <div class="utopia-meeting-head">Section</div>
+  <div class="utopia-meeting-head">What to record</div>
 
-The Quick Tasks section allows users to:
+  <strong>Meeting Details</strong>
+  <p>Meeting title, meeting type, date and time, business unit, and department.</p>
 
-- Add tasks directly from the meeting
-- Assign tasks to specific employees
-- Set task priority (e.g., Low, Medium, High)
-- Define task deadlines
+  <strong>Content</strong>
+  <p>Discussion points, feedback, key highlights, and important decisions from the meeting.</p>
 
-## Saving Meeting Notes
+  <strong>Action Items</strong>
+  <p>Specific tasks or follow-ups that need to be completed after the meeting.</p>
 
-- Click *Save Minutes* to save the meeting notes
-- Ensure all required details are completed before saving
+  <strong>Quick Tasks</strong>
+  <p>Tasks created directly from the meeting, including assignee, priority, and deadline.</p>
+</div>
 
-# Viewing Meeting Details
+## Viewing Meeting Details
 
-Users can view detailed information for each meeting from the meeting
-list.
+<div class="utopia-meeting-table">
+  <div class="utopia-meeting-head">Details</div>
+  <div class="utopia-meeting-head">What you can review</div>
 
-To access meeting details:
+  <strong>Meeting Information</strong>
+  <p>Meeting title, meeting ID, and scheduled date and time.</p>
 
-1.  Navigate to *Meeting Notes*
-2.  Select a meeting from the list
+  <strong>Meeting Details</strong>
+  <p>Meeting type, business unit, and related department.</p>
 
-# Meeting History Details
+  <strong>Content</strong>
+  <p>Discussion notes, decisions, feedback, and key highlights recorded during the meeting.</p>
 
-The Meeting History Details page display complete information about a
-selected meeting.
+  <strong>Action</strong>
+  <p>Action items or decisions that came from the meeting discussion.</p>
 
-## Meeting Information
+  <strong>Quick Tasks</strong>
+  <p>Linked tasks, assigned users, priorities, deadlines, and related follow-up information.</p>
 
-- Meeting Title - Name of the meeting
-- Meeting ID - Unique identifier for the meeting
-- Date & Time - Scheduled meeting time
+  <strong>Created Date</strong>
+  <p>Date the meeting record was created in the system.</p>
+</div>
 
-## Meeting Details
+## Tips
 
-- Meeting Type - Type of meeting (e.g., scheduled, ad hoc, one-to-one)
-- Business Unit - Associated business unit
-- Department - Related department
+<div class="utopia-meeting-grid">
+  <section>
+    <h3>Use Clear Titles</h3>
+    <p>Make meeting titles specific so records are easy to search later.</p>
+  </section>
 
-## Content
+  <section>
+    <h3>Capture Decisions</h3>
+    <p>Record key decisions and action items while the discussion is still fresh.</p>
+  </section>
 
-Displays the discussion points, notes, and key highlights recorded
-during the meeting
-
-## Action
-
-Shows the action items or decisions made during the meeting
-
-## Quick Tasks
-
-- Lists tasks created from the meeting
-- Displays assigned tasks and related information
-- If no tasks are added, the system will show a message indicating no
-  tasks are linked
-
-## Created Date
-
-Shows when the meeting record was created in the system
-
-# Tips
-
-- Keep meeting titles clear and specific
-- Record key decisions and action items accurately
-- Assign tasks immediately after discussions
-- Use Quick Tasks to improve follow-up efficiency
-
- 
+  <section>
+    <h3>Assign Follow-Up</h3>
+    <p>Use Quick Tasks to assign owners, deadlines, and priority immediately after discussion.</p>
+  </section>
+</div>
