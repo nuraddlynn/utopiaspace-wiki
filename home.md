@@ -23,7 +23,7 @@ Internal documentation for daily operations, role-based spaces, workflows, and s
 
 | Guide | Best for | What you will find |
 | --- | --- | --- |
-| [End User Guide](/end-user-guide) | All staff | System overview, common actions, and next steps |
+| [Overview](/end-user-guide) | All staff | System overview, common actions, and next steps |
 | [Login Guide](/login-guide) | New users | Account access, sign-in flow, and login help |
 | [Basic Navigation](/basic-navigation) | First-time users | Sidebar, top bar, pages, and role-based access |
 | [FAQ](/faq) | Everyone | Quick answers to common questions |
