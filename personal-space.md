@@ -1,92 +1,105 @@
-The Personal Space is a dedicated section for users to manage their
-personal activities such as claims, leave applications, overtime, and
-related records.
+# Personal Space
 
-It serves as a centralised area where users can submit requests and
-track their history in one place.  
+<span class="utopia-personal-scope"></span>
 
-# Overview
+Use Personal Space to submit your own requests, check balances, and track personal activity history in one place.
 
-Within Personal Space, users can:
+<div class="utopia-personal-actions">
+  <a href="/login-guide">Login Guide</a>
+  <a href="/basic-navigation">Basic Navigation</a>
+  <a href="/end-user-guide">Overview</a>
+</div>
 
-- Submit various types of applications (claims, leave, overtime)
-- View application history and status
-- Check entitlement and balances
-- Access personal-related records
+## What You Can Do
 
-# Claims
+<div class="utopia-personal-grid">
+  <section>
+    <h3>Submit Requests</h3>
+    <p>Create claims, leave applications, overtime requests, and other personal submissions.</p>
+  </section>
 
-## Claim Application
+  <section>
+    <h3>Track Status</h3>
+    <p>Review submitted records and follow approval progress from your own history pages.</p>
+  </section>
 
-- Create and submit personal claims
-- Attach supporting documents if required
+  <section>
+    <h3>Check Balances</h3>
+    <p>View entitlement, leave balance, benefits, and usage details where available.</p>
+  </section>
+</div>
 
-## Claim History
+## Request Areas
 
-- View all submitted claims
-- Track approval status and updates
+<div class="utopia-personal-table">
+  <div class="utopia-personal-head">Area</div>
+  <div class="utopia-personal-head">Purpose</div>
 
-## Benefit Entitlement
+  <strong>Claims</strong>
+  <p>Create personal claims, attach supporting documents, and check claim history or approval status.</p>
 
-- View available benefits and usage details
+  <strong>SGS Application</strong>
+  <p>Submit SGS commission requests, upload documents, and review submitted application outcomes.</p>
 
-# SGS Application
+  <strong>Leave</strong>
+  <p>Apply for leave, view leave history, and monitor available leave entitlement or balance.</p>
 
-## SGS Commission Application
+  <strong>Overtime</strong>
+  <p>Submit overtime requests with working details and track approval updates from overtime history.</p>
 
-- Submit SGS commission requests
-- Upload necessary supporting documents
+  <strong>Petty Cash</strong>
+  <p>Review petty cash history, availability, and past usage where this feature is enabled.</p>
+</div>
 
-## SGS Commission History
+## Common Workflow
 
-- Track submitted SGS applications
-- View approval status and outcomes
+<div class="utopia-personal-flow">
+  <div>
+    <strong>1</strong>
+    <span>Open Personal Space from the sidebar.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>Select the request area you need, such as Claims, Leave, or Overtime.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Complete the required information and upload supporting documents if needed.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Check the related history page to monitor approval status and updates.</span>
+  </div>
+</div>
 
-# Leave
+## Tips
 
-## Leave Application
+<div class="utopia-personal-grid">
+  <section>
+    <h3>Check Required Fields</h3>
+    <p>Make sure all required information is filled before submitting any request.</p>
+  </section>
 
-- Submit new leave requests
-- Provide necessary details for approval
+  <section>
+    <h3>Attach Documents</h3>
+    <p>Upload supporting documents whenever the request type requires proof or records.</p>
+  </section>
 
-## Leave History
+  <section>
+    <h3>Review History</h3>
+    <p>Use history pages regularly to confirm whether requests are pending, approved, or rejected.</p>
+  </section>
+</div>
 
-- View past leave submissions
-- Check approval or rejection status
+## Notes
 
-## Leave Balance
+<div class="utopia-personal-table">
+  <div class="utopia-personal-head">Access</div>
+  <div class="utopia-personal-head">Details</div>
 
-- Monitor available leave entitlement
-- Track usage of leave days
+  <strong>Available to Users</strong>
+  <p>Personal Space is available for users to manage their own personal records and requests.</p>
 
-# Overtime
-
-## Overtime Application
-
-- Submit overtime requests
-- Provide relevant working details
-
-## Overtime History
-
-- View previous overtime submissions
-- Track approval status
-
-# Petty Cash
-
-## Petty Cash History
-
-- View petty cash history (if applicable)
-- Check availability and past usage
-
-# Tips
-
-- Always ensure all required information is filled before submission
-- Upload supporting documents where necessary
-- Regularly check history to monitor application status
-
-# Notes
-
-- Personal Space is accessible to all users
-- Users can only manage their own information
-
- 
+  <strong>Own Records Only</strong>
+  <p>Users can only view and manage information connected to their own account access.</p>
+</div>
