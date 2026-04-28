@@ -1,48 +1,110 @@
-# Main Layout
+# Basic Navigation
 
-After logging in, you will see the main interface consisting of:  
+<span class="utopia-navigation-scope"></span>
 
-- Sidebar Menu - Located on the left side, used to access different
-  sections of the system
-- Main Content Area - Displays the selected page or module
-- Top bar - Contains user profile, notifications, and system controls
+Use this guide to understand the UtopiaSpace layout, sidebar menu, and how to move between sections.
 
-# Sidebar Menu
+<div class="utopia-navigation-actions">
+  <a href="/end-user-guide">Overview</a>
+  <a href="/login-guide">Login Guide</a>
+  <a href="/personal-space">Personal Space</a>
+</div>
 
-The sidebar menu is the primary navigation tool. It is organised into
-sections such as:
+## Main Layout
 
-- Home
-- Announcements
-- Calendar
-- Meeting Notes
-- Personal Space
-- Incident Report
-- Incident Report Tracker
-- Improvement Suggestion
-- Improvement Suggestion Tracker
-- Taskboard
-- Help
-- System Settings
+<div class="utopia-navigation-grid">
+  <section>
+    <h3>Sidebar Menu</h3>
+    <p>Located on the left side and used to access different spaces, guides, and system sections.</p>
+  </section>
 
-# Navigating Between Sections
+  <section>
+    <h3>Main Content Area</h3>
+    <p>Displays the selected page, documentation guide, workspace, or module.</p>
+  </section>
 
-- Select a section from the sidebar to view its content
-- Use the menu to switch between different functional areas
+  <section>
+    <h3>Top Bar</h3>
+    <p>Contains user profile, notifications, and system controls where available.</p>
+  </section>
+</div>
 
-# Access Based on Role
+## Sidebar Menu
 
-The available menu options may vary depending on your role:
+<div class="utopia-navigation-table">
+  <div class="utopia-navigation-head">Menu Area</div>
+  <div class="utopia-navigation-head">What it opens</div>
 
-- General users will see basic features
-- Managers, Directors, Supervisors, HR, Accounts, Operations Efficiency,
-  and Indoors will have access to role-specific sections
-- Developers / Admin users will have additional system management
-  options
+  <a href="/home">Home</a>
+  <p>Main wiki entry point and documentation overview.</p>
 
-# Tips for Navigation
+  <a href="/announcements">Announcements</a>
+  <p>Important internal notices, updates, and communication.</p>
 
-- Use the sidebar as your main reference point
-- Follow the structure of the documentation for guidance
+  <a href="/calendar">Calendar</a>
+  <p>Schedules, events, dates, and planning references.</p>
 
- 
+  <a href="/meeting-notes">Meeting Notes</a>
+  <p>Meeting records, decisions, notes, and follow-up items.</p>
+
+  <a href="/personal-space">Personal Space</a>
+  <p>Your own tasks, activities, and personal workflow.</p>
+
+  <a href="/taskboard">Taskboard</a>
+  <p>Task creation, assignment, tracking, and board-based work management.</p>
+
+  <a href="/settings">System Settings</a>
+  <p>System preferences, account configuration, and application behaviour.</p>
+</div>
+
+## Navigating Between Sections
+
+<div class="utopia-navigation-flow">
+  <div>
+    <strong>1</strong>
+    <span>Select a section from the sidebar.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>Review the page or module displayed in the main content area.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Use the sidebar again to switch to another guide, workspace, or system area.</span>
+  </div>
+</div>
+
+## Access Based on Role
+
+<div class="utopia-navigation-table">
+  <div class="utopia-navigation-head">Role Type</div>
+  <div class="utopia-navigation-head">Available access</div>
+
+  <strong>General Users</strong>
+  <p>Basic system features, personal workspace, announcements, calendar, notes, and general guides.</p>
+
+  <strong>Role-Based Users</strong>
+  <p>Managers, Directors, Supervisors, HR, Accounts, Operations Efficiency, and Indoor users may see role-specific spaces.</p>
+
+  <strong>Developers and Admins</strong>
+  <p>Additional system management, monitoring, configuration, and technical documentation.</p>
+</div>
+
+## Tips for Navigation
+
+<div class="utopia-navigation-grid">
+  <section>
+    <h3>Start from the Sidebar</h3>
+    <p>Use the sidebar as the main reference point when looking for pages or spaces.</p>
+  </section>
+
+  <section>
+    <h3>Follow the Page Structure</h3>
+    <p>Most guides are grouped by purpose, role, or workflow to make scanning easier.</p>
+  </section>
+
+  <section>
+    <h3>Check Your Role</h3>
+    <p>If a menu item is missing, it may depend on your assigned access level.</p>
+  </section>
+</div>
