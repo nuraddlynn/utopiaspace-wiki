@@ -5863,6 +5863,142 @@ main:has(.utopia-personal-scope) .utopia-personal-table strong,
   }
 }
 
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) {
+  background: var(--utopia-page-bg);
+  color: var(--utopia-text);
+  padding: 28px;
+  border-radius: 8px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-scope {
+  display: none;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) h1 {
+  color: var(--utopia-text);
+  font-size: 38px;
+  line-height: 1.1;
+  letter-spacing: 0;
+  margin-bottom: 10px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) h2 {
+  color: var(--utopia-text);
+  border-top: 1px solid var(--utopia-border);
+  font-size: 21px;
+  line-height: 1.3;
+  margin-top: 30px;
+  margin-bottom: 14px;
+  padding-top: 24px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) p,
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) li {
+  color: var(--utopia-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) > p:first-of-type {
+  max-width: 760px;
+  font-size: 18px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 28px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  color: #ffffff !important;
+  background: var(--utopia-brand-blue);
+  border: 1px solid var(--utopia-brand-blue);
+  border-radius: 6px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-actions a:hover {
+  background: var(--utopia-brand-blue-hover);
+  border-color: var(--utopia-brand-blue-hover);
+  text-decoration: none;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-grid section {
+  background: var(--utopia-surface);
+  border: 1px solid var(--utopia-border);
+  border-top: 3px solid var(--utopia-brand-blue);
+  border-radius: 8px;
+  box-shadow: var(--utopia-shadow);
+  padding: 18px 20px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-grid section:nth-child(2) {
+  border-top-color: #00a88f;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-grid section:nth-child(3) {
+  border-top-color: #7c3aed;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-grid h3 {
+  color: var(--utopia-text);
+  font-size: 16px;
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-grid p {
+  margin: 0;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-list section {
+  background: var(--utopia-surface);
+  border: 1px solid var(--utopia-border);
+  border-radius: 8px;
+  box-shadow: var(--utopia-shadow);
+  padding: 16px 18px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-list section:hover {
+  border-color: var(--utopia-brand-blue);
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-list h3 {
+  color: var(--utopia-text);
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0 0 6px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-list p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  :is(main, .contents, .page-contents, .v-main):has(.utopia-faq-scope) .utopia-faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 :is(
   .utopia-quickstart-table,
   .utopia-overview-table,

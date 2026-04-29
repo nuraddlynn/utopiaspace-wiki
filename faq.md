@@ -1,115 +1,170 @@
-This section provides answers to common questions and issues encountered
-by users when using the system.  
+# FAQ
 
-# General Questions
+<span class="utopia-faq-scope"></span>
 
-1.  How do I access the system?
+Use this page to find quick answers to common UtopiaSpace questions before escalating to support.
 
-Users can access the system by logging in using their registered email
-and password.
+<div class="utopia-faq-actions">
+  <a href="/login-guide">Login Guide</a>
+  <a href="/troubleshooting">Troubleshooting</a>
+  <a href="/settings">System Settings</a>
+</div>
 
-2\. What should I do if I forget my password?
+## Quick Help
 
-Click on the "Forgot Password" option on the login page and follow the
-instructions to reset your password.
+<div class="utopia-faq-grid">
+  <section>
+    <h3>Access</h3>
+    <p>Login, modules, roles, permissions, and account access.</p>
+  </section>
 
-3\. Why can\'t I see certain modules?
+  <section>
+    <h3>Daily Work</h3>
+    <p>Announcements, calendar, meeting notes, tasks, approvals, and finance requests.</p>
+  </section>
 
-Access to modules depends on your role and permissions. Contact your
-administrator if you require access.
+  <section>
+    <h3>Support</h3>
+    <p>Slow loading, bugs, security, mobile use, and support channels.</p>
+  </section>
+</div>
 
-# Announcements
+## General Questions
 
-4\. How do I create an announcement?
+<div class="utopia-faq-list">
+  <section>
+    <h3>How do I access the system?</h3>
+    <p>Use your registered company account to sign in. See the Login Guide if you need help with the sign-in flow.</p>
+  </section>
 
-Go to Announcements ⇢ Click *+ Add* ⇢ Fill in the details ⇢ Submit
+  <section>
+    <h3>What should I do if I forget my password?</h3>
+    <p>Use the password recovery option on the login page, or contact the system administrator if your account uses company-managed access.</p>
+  </section>
 
-5\. Can I edit or delete on announcement?
+  <section>
+    <h3>Why can't I see certain modules?</h3>
+    <p>Module visibility depends on your assigned role and permissions. Contact your administrator if you need additional access.</p>
+  </section>
+</div>
 
-Yes, but only if you have the required permissions.
+## Announcements
 
-# Calendar
+<div class="utopia-faq-list">
+  <section>
+    <h3>How do I create an announcement?</h3>
+    <p>Go to Announcements, select the add action, fill in the required details, choose the audience, then submit.</p>
+  </section>
 
-6\. Why are some events not visible?
+  <section>
+    <h3>Can I edit or delete an announcement?</h3>
+    <p>Yes, but only if your role has the required announcement permissions.</p>
+  </section>
+</div>
 
-Check your filter (company, location, leave, birthdays). Some data may
-be hidden based on selected filters.
+## Calendar
 
-# Meeting Notes
+<div class="utopia-faq-list">
+  <section>
+    <h3>Why are some events not visible?</h3>
+    <p>Check filters such as company, location, leave, birthdays, or event type. Some information may also depend on role access.</p>
+  </section>
+</div>
 
-7\. How do I create meeting notes?
+## Meeting Notes
 
-Go to Meeting Notes ⇢ Click *+ Add Meeting* ⇢ Fill in the details ⇢
-Submit
+<div class="utopia-faq-list">
+  <section>
+    <h3>How do I create meeting notes?</h3>
+    <p>Go to Meeting Notes, select the add meeting action, fill in the meeting details, then submit.</p>
+  </section>
 
-8\. Can I assign tasks during a meeting?
+  <section>
+    <h3>Can I assign tasks during a meeting?</h3>
+    <p>Yes. Add tasks under the quick task area while creating or updating meeting notes.</p>
+  </section>
+</div>
 
-Yes, tasks can be added under the *Quick Tasks* section while creating
-meeting notes.
+## Taskboard
 
-# Taskboard
+<div class="utopia-faq-list">
+  <section>
+    <h3>How do I create a task?</h3>
+    <p>Go to Taskboard, create a task, fill in the required details, assign the user, then submit.</p>
+  </section>
 
-9\. How do I create a task?
+  <section>
+    <h3>Why is my task not visible?</h3>
+    <p>Check the task status, selected filters, assignee, date range, and whether the task is under To-do, Done, or KIV.</p>
+  </section>
+</div>
 
-Go to Taskboard ⇢ Click *+ Create Task* ⇢ Fill in the details ⇢ Submit
+## Approvals
 
-10\. Why is my task not visible?
+<div class="utopia-faq-list">
+  <section>
+    <h3>How do I approve requests?</h3>
+    <p>Open the relevant role space, such as Manager, Director, Supervisor, HR, or Account, then review the approval module and submit your decision.</p>
+  </section>
 
-Ensure the task status is correct (To-do, Done, KIV) and filters are not
-hiding it.
+  <section>
+    <h3>Why can't I approve a request?</h3>
+    <p>You may not have the required role, permission, or workflow authority. The request may also already be processed or in the wrong status.</p>
+  </section>
+</div>
 
-# Approvals
+## Account and Finance
 
-11\. How do I approve requests?
+<div class="utopia-faq-list">
+  <section>
+    <h3>How do I submit a payment request?</h3>
+    <p>Go to Account Space, open Supplier Payment Request, fill in the required details, attach supporting information, then submit.</p>
+  </section>
 
-Go to your respective space (Manager, Director, Supervisor, HR) ⇢ Open
-approval module ⇢ Review and approve/reject.
+  <section>
+    <h3>Where can I track payment status?</h3>
+    <p>Use Supplier Payment Tracker, Supplier Payment History, Payment Summary, or the relevant Account Space history page.</p>
+  </section>
+</div>
 
-12\. Why can\'t I approve a request?
+## Technical Issues
 
-You may not have the required role or permission.
+<div class="utopia-faq-list">
+  <section>
+    <h3>What should I do if the system is slow or not loading?</h3>
+    <p>Refresh the page, check your internet connection, try again after a few minutes, then contact support if the issue continues.</p>
+  </section>
 
-# Account / Finance
+  <section>
+    <h3>Who should I contact for support?</h3>
+    <p>Use the Support Center in System Settings or contact your system administrator.</p>
+  </section>
+</div>
 
-13\. How do I submit a payment request?
+## Security
 
-Go to Account Space ⇢ Supplier Payment Request ⇢ Fill in required
-details ⇢ Submit
+<div class="utopia-faq-list">
+  <section>
+    <h3>Is my data secure?</h3>
+    <p>Yes. UtopiaSpace uses secure authentication, role-based access, and Supabase security features such as database protection and row-level controls.</p>
+  </section>
 
-14\. Where can I track payment status?
+  <section>
+    <h3>Can I access the system from any device?</h3>
+    <p>Yes, the system is web-based and can be accessed from supported browsers.</p>
+  </section>
+</div>
 
-Go to Supplier Payment Tracker or Payment History.
+## Other
 
-# Technical Issues
+<div class="utopia-faq-list">
+  <section>
+    <h3>Can I use the system on mobile?</h3>
+    <p>Yes, but the experience may vary depending on screen size and the module being used.</p>
+  </section>
 
-15\. What should I do if the system is slow or not loading?
-
-- Refresh the page
-- Check internet connection
-- Try again later
-
-16\. Who should I contact for support?
-
-Go to Support Center in System Settings or contact your system
-administrator.
-
-# Security
-
-17\. Is my data secure?
-
-Yes, the system uses secure authentication and database protection
-(Supabase security features).
-
-18\. Can I access the system from any device?
-
-Yes, the system is web-based and accessible from supported browsers.
-
-# Other
-
-19\. Can I use the system on mobile?
-
-Yes, but the experience may vary depending on screen size.
-
-20\. How do I report a bug or issue?
-
-Use the Support Center or Incident Report module to submit issues.
+  <section>
+    <h3>How do I report a bug or issue?</h3>
+    <p>Use the Support Center or Incident Report module to submit the issue with clear details and screenshots where possible.</p>
+  </section>
+</div>
