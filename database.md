@@ -1,89 +1,247 @@
-The system uses Supabase as its backend database service. Supabase is
-built on PostgreSQL and provides a scalable, secure, and real-time
-database solution.
+# Database
 
-It is used to store all application data, manage user authentication,
-and support system workflows.  
+<span class="utopia-database-scope"></span>
 
-# Why Supabase
+This page documents two related but separate data areas: the UtopiaSpace application database, which stores operational system data in Supabase, and the Wiki.js documentation storage flow, which syncs Markdown pages from Git into the wiki.
 
-Supabase was selected because:
+<div class="utopia-database-actions">
+  <a href="/architecture">Architecture</a>
+  <a href="/api">API</a>
+  <a href="/docs/wikijs-git-sync">Wiki.js Git Sync</a>
+</div>
 
-- Built on PostgreSQL (reliable and powerful)
-- Supports real-time data updates
-- Easy integration with frontend and backend
-- Cloud-based and scalable
+## Overview
 
-# Database Structure
+<div class="utopia-database-grid">
+  <section>
+    <h3>Application Data</h3>
+    <p>UtopiaSpace uses Supabase PostgreSQL to store user, workflow, approval, attendance, finance, and operations records.</p>
+  </section>
 
-The database is designed using a relational structure, where data is
-stored in tables and linked using relationships.
+  <section>
+    <h3>Documentation Data</h3>
+    <p>The wiki uses Git-backed Markdown files as the source of truth for pages, guides, update records, and developer documentation.</p>
+  </section>
 
-## Key Data Entities
+  <section>
+    <h3>Access and Security</h3>
+    <p>Authentication, roles, permissions, RLS, and policy metadata protect both data access and workflow visibility.</p>
+  </section>
+</div>
 
-The system includes several core tables:
+## UtopiaSpace Application Database
 
-### profiles
+<div class="utopia-database-table">
+  <div class="utopia-database-head">Area</div>
+  <div class="utopia-database-head">Purpose</div>
 
-Stores users information (e.g., full_name, short_name, phone_num)
+  <strong>Supabase PostgreSQL</strong>
+  <p>Stores structured operational data in relational tables and supports queries from the application backend and frontend.</p>
 
-### announcements
+  <strong>Authentication</strong>
+  <p>Connects logged-in users to profile records, sessions, roles, and access checks.</p>
 
-Stores all company announcements (e.g., title, summary, type,
-department_id)
+  <strong>Workflow Storage</strong>
+  <p>Stores submissions, approvals, tasks, claims, attendance, announcements, meetings, finance records, and operational trackers.</p>
 
-### one_to_one
+  <strong>Realtime and Integration</strong>
+  <p>Supports application modules that need quick updates, shared data, and integration with frontend and backend logic.</p>
+</div>
 
-Stores meeting records and notes (e.g., meeting_title, meeting_time,
-meeting_bu)
+## Core Data Entities
 
-### pbac_settings
+<div class="utopia-database-table">
+  <div class="utopia-database-head">Table / Entity</div>
+  <div class="utopia-database-head">What It Stores</div>
 
-Handles approval-based workflows (e.g., user_id, before_json,
-after_json)
+  <strong>profiles</strong>
+  <p>User information such as full name, short name, phone number, and related profile details.</p>
 
-### Relationships
+  <strong>announcements</strong>
+  <p>Company announcements, including title, summary, type, department, target audience, and publishing details.</p>
 
-The database uses relationships to connect data between tables
+  <strong>one_to_one</strong>
+  <p>Meeting records and notes, including meeting title, time, business unit, linked tasks, and follow-up information.</p>
 
-Examples:
+  <strong>pbac_settings</strong>
+  <p>Approval-based workflow settings, including user references and before/after JSON values for controlled changes.</p>
 
-- One user can create many announcements
-- One meeting can have multiple tasks
-- One user can have multiple approvals
+  <strong>abac_policy_metadata</strong>
+  <p>Attribute-based access metadata used to support role and permission behaviour across the system.</p>
+</div>
 
-This ensure data consistency and efficient queries.
+## Module Data Coverage
 
-### abac_policy_metadata
+<div class="utopia-database-table">
+  <div class="utopia-database-head">Module</div>
+  <div class="utopia-database-head">Data Examples</div>
 
-Supabase Authentication is used to manage user login and access.
+  <strong>Personal Space</strong>
+  <p>Personal tasks, general claims, calendars, announcements, meeting notes, and user activity records.</p>
 
-- Secure login system
-- Role-based access integration
-- Session management
+  <strong>HR Space</strong>
+  <p>Employee records, attendance, leave, overtime, benefit claims, salary advance approvals, and company structure data.</p>
 
-# Data Flow
+  <strong>Account Space</strong>
+  <p>Supplier payment requests, backcharges, claims verification, petty cash, AP records, payment history, and finance trackers.</p>
 
-1.  User submits data from frontend
-2.  Request is sent to backend
-3.  Backend communicates with Supabase
-4.  Data is stored or retrieved from database
-5.  Response is returned to user
+  <strong>Credit Space</strong>
+  <p>Rental accounts, payment collection progress, repayment timelines, overdue status, and follow-up tracking.</p>
 
-# Security
+  <strong>Operations Efficiency</strong>
+  <p>Operations attendance, workforce availability, RentalTracker records, warehouse pages, item history, and backcharge support data.</p>
 
-The system uses Supabase security features such as:
+  <strong>Indoor Space</strong>
+  <p>Sales documents, ceiling calculator records, quotation history, customer references, and indoor sales records.</p>
 
-- Row Level Security (RLS)
-- Role-based data access
-- Authentication control
+  <strong>Developer / Admin</strong>
+  <p>System settings, user management, roles, permissions, technical monitoring, and support/debugging records.</p>
+</div>
 
-# Benefits
+## Application Data Flow
 
-- Centralised data management
-- Real-time updates
-- Secure and scalable
-- Easy integration with system modules
+<div class="utopia-database-flow">
+  <div>
+    <strong>1</strong>
+    <span>User performs an action, such as submitting a task, claim, announcement, leave request, or payment request.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>The frontend sends a request through the application logic or API layer.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>The application validates input, role access, workflow rules, and required permissions.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Supabase stores, updates, or retrieves the relevant records.</span>
+  </div>
+  <div>
+    <strong>5</strong>
+    <span>The updated data is returned to the user interface for review, approval, tracking, or reporting.</span>
+  </div>
+</div>
+
+## Relationships
+
+<div class="utopia-database-table">
+  <div class="utopia-database-head">Relationship</div>
+  <div class="utopia-database-head">Example</div>
+
+  <strong>User to Announcement</strong>
+  <p>One user can create or manage many announcements depending on role and permissions.</p>
+
+  <strong>User to Approval</strong>
+  <p>One user can submit requests, while another authorised user reviews, approves, rejects, or processes them.</p>
+
+  <strong>Meeting to Task</strong>
+  <p>One meeting can contain multiple linked tasks, assignees, deadlines, and follow-up items.</p>
+
+  <strong>Role to Data Access</strong>
+  <p>Roles and policy metadata determine which rows, modules, and actions are visible to a user.</p>
+</div>
+
+## Security
+
+<div class="utopia-database-table">
+  <div class="utopia-database-head">Control</div>
+  <div class="utopia-database-head">Purpose</div>
+
+  <strong>Supabase Authentication</strong>
+  <p>Manages login sessions and connects authenticated users to their profile and access information.</p>
+
+  <strong>Row Level Security</strong>
+  <p>Restricts database rows so users only access data allowed by their role, department, company, or workflow context.</p>
+
+  <strong>Role-Based Access</strong>
+  <p>Controls which modules and actions users can access, such as view, create, edit, approve, reject, process, or debug.</p>
+
+  <strong>Policy Metadata</strong>
+  <p>Supports rule-based access decisions and keeps permission behaviour consistent across modules.</p>
+</div>
+
+## Wiki.js Documentation Storage
+
+<div class="utopia-database-table">
+  <div class="utopia-database-head">Component</div>
+  <div class="utopia-database-head">Role</div>
+
+  <strong>Markdown Pages</strong>
+  <p>Wiki pages are stored as `.md` files in the GitHub wiki repository, including guides, role pages, developer docs, and updates.</p>
+
+  <strong>Wiki.js Git Storage</strong>
+  <p>Pulls the Markdown files into Wiki.js so GitHub can act as the source of truth for documentation.</p>
+
+  <strong>Update Records</strong>
+  <p>Generated files in `update-records/` capture release notes, PR summaries, commit updates, and documentation changes.</p>
+
+  <strong>Custom CSS</strong>
+  <p>The Stripe-inspired wiki styling is documented in `docs/wikijs-stripe-style.md` and applied through Wiki.js custom CSS.</p>
+</div>
+
+## Wiki Sync Flow
+
+<div class="utopia-database-flow">
+  <div>
+    <strong>1</strong>
+    <span>A Markdown page or update record is changed in the wiki Git repository.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>The change is committed and pushed to the `main` branch on GitHub.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Wiki.js Git Storage imports or syncs from GitHub.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Wiki.js renders the Markdown content as pages inside the documentation site.</span>
+  </div>
+  <div>
+    <strong>5</strong>
+    <span>If Wiki.js local edits conflict with GitHub, purge the local repository and import from Git as the source of truth.</span>
+  </div>
+</div>
+
+## Wiki Automation
+
+<div class="utopia-database-table">
+  <div class="utopia-database-head">Automation</div>
+  <div class="utopia-database-head">Purpose</div>
+
+  <strong>GitHub Actions</strong>
+  <p>Reads PR and commit details, then creates or updates documentation records when relevant system changes are merged.</p>
+
+  <strong>Gemini Classification</strong>
+  <p>Classifies change summaries into matching documentation targets so update pages can be generated automatically.</p>
+
+  <strong>Repository Dispatch</strong>
+  <p>Supports automated wiki update triggers from the UtopiaSpace application repository into the wiki repository.</p>
+
+  <strong>Updates Page</strong>
+  <p>Aggregates generated update records into a readable weekly summary for users and internal teams.</p>
+</div>
+
+## Maintenance Guidelines
+
+<div class="utopia-database-grid">
+  <section>
+    <h3>Keep App Data Protected</h3>
+    <p>Use RLS, role checks, and permission metadata so sensitive operational records remain controlled.</p>
+  </section>
+
+  <section>
+    <h3>Keep Wiki Git-First</h3>
+    <p>When documentation is managed from Git, avoid editing the same pages directly inside Wiki.js to prevent conflicts.</p>
+  </section>
+
+  <section>
+    <h3>Monitor Sync Health</h3>
+    <p>If Wiki.js reports merge conflicts, purge the local repository and import from GitHub before continuing.</p>
+  </section>
+</div>
 
 ## 🚀 Latest Updates
 
