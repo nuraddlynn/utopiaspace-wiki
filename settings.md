@@ -1,77 +1,146 @@
-The System Settings page provides a centralised location for configuring
-system preferences, managing account settings, and customising
-application behaviour.
+# System Settings
 
-It allows users and administrators to maintain consistency and control
-across the system.  
+<span class="utopia-settings-scope"></span>
 
-# Overview
+Use System Settings to configure preferences, manage account settings, control notifications, access support resources, and maintain profile accuracy.
 
-System Settings enable users to:
+<div class="utopia-settings-actions">
+  <a href="/user-management">User Management</a>
+  <a href="/roles-and-permissions">Roles and Permissions</a>
+  <a href="/troubleshooting">Troubleshooting</a>
+</div>
 
-- Configure personal and system preferences
-- Manage notifications and updates
-- Access support and help resources
-- Maintain account-related information
+## Overview
 
-# Search Controls
+<div class="utopia-settings-grid">
+  <section>
+    <h3>Manage Preferences</h3>
+    <p>Configure personal and system preferences so the application fits daily work needs.</p>
+  </section>
 
-The search function allows users to quickly locate settings, pages or
-tools by entering keywords.
+  <section>
+    <h3>Control Notifications</h3>
+    <p>Enable, disable, and test notifications for claims, tasks, updates, and system activity.</p>
+  </section>
 
-This improve navigation efficiency and helps users find configurations
-faster.
+  <section>
+    <h3>Find Support Quickly</h3>
+    <p>Access support, help resources, guides, and documentation from one settings area.</p>
+  </section>
+</div>
 
-# Most Visited Settings
+## Search Controls
 
-This section highlights commonly used settings for quick access.
+<div class="utopia-settings-table">
+  <div class="utopia-settings-head">Control</div>
+  <div class="utopia-settings-head">Use</div>
 
-## My Profile
+  <strong>Search Keywords</strong>
+  <p>Enter keywords to quickly locate settings, pages, tools, or configuration areas.</p>
 
-- Update personal details and contact information
-- Maintain accurate user profile data
-- Manage work-related information
+  <strong>Navigation Shortcut</strong>
+  <p>Use search to reduce manual navigation when looking for specific settings.</p>
 
-## Push Notifications
+  <strong>Configuration Discovery</strong>
+  <p>Find related preferences and support areas faster when the exact location is unclear.</p>
+</div>
 
-- Enable or disable system notifications
-- Receive updates for claims, tasks, and system activities
-- Test notification functionality
+## Most Visited Settings
 
-## Security & Access
+<div class="utopia-settings-table">
+  <div class="utopia-settings-head">Setting</div>
+  <div class="utopia-settings-head">Purpose</div>
 
-- Manage login and security-related configurations
-- Control access and authentication settings
+  <strong>My Profile</strong>
+  <p>Update personal details, contact information, work-related information, and user profile data.</p>
 
-# Support & Help
+  <strong>Push Notifications</strong>
+  <p>Enable or disable system notifications and test notification functionality.</p>
 
-## Support Center
+  <strong>Security and Access</strong>
+  <p>Manage login, authentication, access, and security-related configurations.</p>
 
-- Contact support for assistance
-- Submit tickets for issues
-- Review previous support requests
+  <strong>Account Settings</strong>
+  <p>Maintain account-related information so user records and preferences stay accurate.</p>
+</div>
 
-## Help Center
+## Support and Help
 
-- Access guides and documentation
-- Learn system features and best practices
-- Stay updated with new enhancements
+<div class="utopia-settings-table">
+  <div class="utopia-settings-head">Area</div>
+  <div class="utopia-settings-head">Use</div>
 
-# Key Functions
+  <strong>Support Center</strong>
+  <p>Contact support, submit tickets for issues, and review previous support requests.</p>
 
-The System Settings page allows users to:
+  <strong>Help Center</strong>
+  <p>Access guides, documentation, feature references, and best-practice resources.</p>
 
-- Personalise system experience
-- Manage notification preferences
-- Access support resources easily
-- Maintain profile accuracy
+  <strong>Documentation</strong>
+  <p>Use internal wiki pages to learn system features and recent enhancements.</p>
 
-# Best Practices
+  <strong>Issue Follow-Up</strong>
+  <p>Use support resources when settings, access, or system behaviour needs help.</p>
+</div>
 
-- Keep profile information updated
-- Enable notifications for important updates
-- Use search to quickly locate settings
-- Refer to help resources when needed
+## Common Workflow
+
+<div class="utopia-settings-flow">
+  <div>
+    <strong>1</strong>
+    <span>Open System Settings from the sidebar or navigation area.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>Use search or the most visited settings list to find the setting you need.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Review the current preference, notification, profile, access, or support setting.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Update the setting, test where needed, and keep account information accurate.</span>
+  </div>
+</div>
+
+## Key Functions
+
+<div class="utopia-settings-table">
+  <div class="utopia-settings-head">Function</div>
+  <div class="utopia-settings-head">Focus</div>
+
+  <strong>Personalisation</strong>
+  <p>Adjust the system experience through preferences and account-related options.</p>
+
+  <strong>Notification Management</strong>
+  <p>Control how important claims, tasks, updates, and activities are surfaced.</p>
+
+  <strong>Support Access</strong>
+  <p>Reach help resources and support channels without leaving the settings area.</p>
+
+  <strong>Profile Maintenance</strong>
+  <p>Keep user profile information accurate and aligned with current account details.</p>
+</div>
+
+## Best Practices
+
+<div class="utopia-settings-grid">
+  <section>
+    <h3>Keep Profiles Updated</h3>
+    <p>Review profile and contact information whenever work or personal details change.</p>
+  </section>
+
+  <section>
+    <h3>Use Search First</h3>
+    <p>Search is the fastest way to find settings, tools, and support areas.</p>
+  </section>
+
+  <section>
+    <h3>Enable Important Alerts</h3>
+    <p>Keep notifications active for important claims, tasks, system updates, and support activity.</p>
+  </section>
+</div>
 
 ## 🚀 Latest Updates
 
