@@ -1,42 +1,127 @@
-The Credit Space is designed to monitor and manage rental accounts,
-payment collections, and repayment activities.
+# Credit Space
 
-It provides visibility into payment status and helps ensure timely
-collection and account tracking.  
+<span class="utopia-credit-scope"></span>
 
-# Overview
+Use Credit Space to monitor rental accounts, track payment collections, review repayment progress, and follow up on credit-related activity.
 
-With Credit Space, users can:
+<div class="utopia-credit-actions">
+  <a href="/account-space">Account Space</a>
+  <a href="/manager-space">Manager Space</a>
+  <a href="/taskboard">Taskboard</a>
+</div>
 
-- Track rental account performance
-- Monitor payment collection progress
-- Review repayment timelines
-- Analyse return and account activity
+## Overview
 
-# Credit Operations
+<div class="utopia-credit-grid">
+  <section>
+    <h3>Track Rental Accounts</h3>
+    <p>Monitor active, completed, pending, and overdue rental accounts from one workspace.</p>
+  </section>
 
-The Credit Operations section focuses on tracking financial activities
-related to rental accounts.
+  <section>
+    <h3>Review Collections</h3>
+    <p>Check payment collection progress, repayment timelines, and account follow-up status.</p>
+  </section>
 
-## Rental Tracker
+  <section>
+    <h3>Improve Visibility</h3>
+    <p>Use account activity and return details to support cleaner credit monitoring.</p>
+  </section>
+</div>
 
-- View rental account progress
-- Monitor payment status for each account
-- Track repayment schedules and timelines
-- Review return activity and account updates
+## Credit Operations
 
-# Key Functions
+<div class="utopia-credit-table">
+  <div class="utopia-credit-head">Area</div>
+  <div class="utopia-credit-head">Use</div>
 
-The Rental Tracker enables users to:
+  <strong>Rental Tracker</strong>
+  <p>View rental account progress, payment status, repayment schedules, timelines, returns, and account updates.</p>
 
-- Identify overdue or pending payments
-- Monitor active and completed rental accounts
-- Track customer repayment behaviour
-- Ensure proper follow-up on collections
+  <strong>Payment Status</strong>
+  <p>Monitor whether accounts are paid, pending, overdue, or require follow-up.</p>
 
-# Tips
+  <strong>Repayment Timeline</strong>
+  <p>Review repayment schedules to understand expected collection dates and delays.</p>
 
-- Regularly review rental tracker to monitor payment delays
-- Follow up on overdue accounts promptly
-- Use the system to ensure accurate tracking of repayments
-- Maintain updated records for better financial visibility
+  <strong>Return Activity</strong>
+  <p>Track return-related account updates where they affect payment or collection status.</p>
+</div>
+
+## Key Functions
+
+<div class="utopia-credit-table">
+  <div class="utopia-credit-head">Function</div>
+  <div class="utopia-credit-head">Purpose</div>
+
+  <strong>Identify Overdue Accounts</strong>
+  <p>Find overdue or pending payments so the team can take action quickly.</p>
+
+  <strong>Monitor Account Progress</strong>
+  <p>Review active and completed rental accounts for finance and credit visibility.</p>
+
+  <strong>Track Repayment Behaviour</strong>
+  <p>Understand customer repayment patterns and account consistency.</p>
+
+  <strong>Support Follow-Up</strong>
+  <p>Use account records to guide follow-up on delayed or incomplete collections.</p>
+</div>
+
+## Common Workflow
+
+<div class="utopia-credit-flow">
+  <div>
+    <strong>1</strong>
+    <span>Open Credit Space from the sidebar.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>Go to Rental Tracker to review rental account and payment status.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Check repayment timelines, overdue items, pending payments, and return activity.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Follow up on delayed collections and keep account records updated.</span>
+  </div>
+</div>
+
+## Key Responsibilities
+
+<div class="utopia-credit-table">
+  <div class="utopia-credit-head">Responsibility</div>
+  <div class="utopia-credit-head">Focus</div>
+
+  <strong>Collection Monitoring</strong>
+  <p>Review payment progress and flag accounts that need attention.</p>
+
+  <strong>Account Tracking</strong>
+  <p>Keep rental account statuses accurate for operational visibility.</p>
+
+  <strong>Repayment Review</strong>
+  <p>Monitor repayment schedules and customer repayment behaviour.</p>
+
+  <strong>Follow-Up Support</strong>
+  <p>Use system records to support timely follow-up on overdue accounts.</p>
+</div>
+
+## Tips
+
+<div class="utopia-credit-grid">
+  <section>
+    <h3>Review Regularly</h3>
+    <p>Check the rental tracker often to catch delays early.</p>
+  </section>
+
+  <section>
+    <h3>Follow Up Promptly</h3>
+    <p>Prioritise overdue accounts so collections do not sit too long.</p>
+  </section>
+
+  <section>
+    <h3>Keep Records Updated</h3>
+    <p>Maintain accurate repayment and account data for better financial visibility.</p>
+  </section>
+</div>
