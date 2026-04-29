@@ -82,26 +82,20 @@ UtopiaSpace is structured as a role-based internal operations platform. The appl
   <p>System health, Supabase usage, server monitoring, deployment notes, environment setup, and technical workflows.</p>
 </div>
 
-## Data Model
+## Data Boundaries
 
 <div class="utopia-architecture-table">
-  <div class="utopia-architecture-head">Entity</div>
-  <div class="utopia-architecture-head">Purpose</div>
+  <div class="utopia-architecture-head">Boundary</div>
+  <div class="utopia-architecture-head">What Architecture Covers</div>
 
-  <strong>profiles</strong>
-  <p>Stores user information such as full name, short name, phone number, and related profile details.</p>
+  <strong>Application Data</strong>
+  <p>Architecture explains where application data lives and how modules depend on it. Detailed tables and entities are documented in Database.</p>
 
-  <strong>announcements</strong>
-  <p>Stores company announcements, including title, summary, type, department, and audience information.</p>
+  <strong>Documentation Data</strong>
+  <p>Architecture explains that Wiki.js uses Git-backed Markdown. Detailed sync behaviour, update records, and conflict handling are documented in Database and Wiki.js Git Sync.</p>
 
-  <strong>one_to_one</strong>
-  <p>Stores meeting records, meeting titles, meeting time, business unit information, and related notes.</p>
-
-  <strong>pbac_settings</strong>
-  <p>Supports approval-based configuration and workflow changes through before-and-after record tracking.</p>
-
-  <strong>abac_policy_metadata</strong>
-  <p>Supports attribute-based access metadata used to help control role and permission behaviour.</p>
+  <strong>API Communication</strong>
+  <p>Architecture shows request movement between frontend, application logic, and Supabase. Detailed request and response patterns are documented in API.</p>
 </div>
 
 ## Request Flow
