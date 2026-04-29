@@ -8,81 +8,187 @@ editor: markdown
 dateCreated: 2026-04-21T05:11:56.196Z
 ---
 
-The HR Space is a centralised model for managing all human resource-related workflows, including employee records, approvals, attendance, and organisational.
+# HR Space
 
-It enables HR personnel to monitor, manage, and maintain accurate employee and operational information.  
+<span class="utopia-hr-scope"></span>
 
-# Overview
+Use HR Space to manage employee records, approvals, attendance, benefits, workforce reports, and internal communication.
 
-With HR Space, users can:
+<div class="utopia-hr-actions">
+  <a href="/manager-space">Manager Space</a>
+  <a href="/director-space">Director Space</a>
+  <a href="/announcements">Announcements</a>
+</div>
 
-- Manage employee records and company structure
-- Handle approvals and benefits
-- Monitor attendance and overtime
-- Track reports and HR-related data
-- Manage announcements and internal communication
+## Overview
 
-# Calendar
+<div class="utopia-hr-grid">
+  <section>
+    <h3>Manage People</h3>
+    <p>Maintain employee records, company structure, company profiles, and directory information.</p>
+  </section>
 
-View company-wide events, employee leave, and birthdays.
+  <section>
+    <h3>Process HR Workflows</h3>
+    <p>Handle benefits, leave, attendance, overtime, petty cash, and HR-related approvals.</p>
+  </section>
 
-# Claim Management
+  <section>
+    <h3>Monitor Workforce Data</h3>
+    <p>Review attendance records, reports, incidents, announcements, and operational HR activity.</p>
+  </section>
+</div>
 
-- Benefit Approval - Review and approve employee benefit claims
-- Benefit Entitlement - Allocate and manage benefit entitlements for employees
-- Advance Salary Approvals - Review and process advance salary requests
+## Claim and Benefits
 
-# Leave Management
+<div class="utopia-hr-table">
+  <div class="utopia-hr-head">Area</div>
+  <div class="utopia-hr-head">Use</div>
 
-- Leave Approvals - Approve or reject employee leave requests
-- Leave Allocation - Configure leave entitlements for employees
-- Leave Summary - View overview of leave balances and usage
+  <strong>Benefit Approval</strong>
+  <p>Review and approve employee benefit claims.</p>
 
-# Overtime Management 
+  <strong>Benefit Entitlement</strong>
+  <p>Allocate and manage benefit entitlements for employees.</p>
 
-- Overtime Verification - Review and approve pending overtime requests
-- Overtime Summary - View overtime reports and history with filters
+  <strong>Advance Salary Approvals</strong>
+  <p>Review and process employee advance salary requests.</p>
+</div>
 
-# People & Directory
+## Leave and Overtime
 
-- Employee List - Manage employee information and status
-- Birthday Dashboard - View employee birthdays
-- Company Directory - Manage company profiles and details
-- Company Structure - View and manage organisational hierarchy
+<div class="utopia-hr-table">
+  <div class="utopia-hr-head">Area</div>
+  <div class="utopia-hr-head">Use</div>
 
-# Petty Cash Management
+  <strong>Leave Approvals</strong>
+  <p>Approve or reject employee leave requests.</p>
 
-- Petty Cash - Track HR-related petty cash records
+  <strong>Leave Allocation</strong>
+  <p>Configure leave entitlements for employees.</p>
 
-# Announcement Management
+  <strong>Leave Summary</strong>
+  <p>View leave balances, usage, and team leave overview.</p>
 
-- Manage Announcement - Manage and monitor uploaded announcements
+  <strong>Overtime Verification</strong>
+  <p>Review and approve pending overtime requests.</p>
 
-# Reports
+  <strong>Overtime Summary</strong>
+  <p>View overtime reports and history with filters.</p>
+</div>
 
-- Attendance Record - View daily attendance (who is in or out of office)
-- Non-Exec Attendance Record - View attendance specifically for non-executive staff
-- Punch State Admin - Review anomalies and adjust attendance records
+## People and Directory
 
-# Incident Report Management
+<div class="utopia-hr-table">
+  <div class="utopia-hr-head">Directory Area</div>
+  <div class="utopia-hr-head">Purpose</div>
 
-- Incident Report Review - Review employee-related or policy-sensitive incident reports
+  <strong>Employee List</strong>
+  <p>Manage employee information, profile details, and employment status.</p>
 
-# Key Responsibilities
+  <strong>Birthday Dashboard</strong>
+  <p>View employee birthdays and related staff information.</p>
 
-HR personnel are responsible for:
+  <strong>Company Directory</strong>
+  <p>Manage company profiles and company-level details.</p>
 
-- Maintaining accurate employee records
-- Managing benefits, leave, and attendance
-- Ensuring compliance with company policies
-- Monitoring workforce data and reports
+  <strong>Company Structure</strong>
+  <p>View and manage organisational hierarchy.</p>
+</div>
 
-# Tips
+## Reports and Monitoring
 
-- Regularly update employee information
-- Monitor attendance and leave to avoid discrepancies
-- Ensure all approvals are processes accurately
-- Use reports for better workforce planning
+<div class="utopia-hr-table">
+  <div class="utopia-hr-head">Report</div>
+  <div class="utopia-hr-head">Use</div>
+
+  <strong>Attendance Record</strong>
+  <p>View daily attendance and see who is in or out of office.</p>
+
+  <strong>Non-Exec Attendance Record</strong>
+  <p>Review attendance specifically for non-executive staff.</p>
+
+  <strong>Punch State Admin</strong>
+  <p>Review attendance anomalies and adjust attendance records when required.</p>
+
+  <strong>Incident Report Review</strong>
+  <p>Review employee-related or policy-sensitive incident reports.</p>
+</div>
+
+## Communication and Finance
+
+<div class="utopia-hr-table">
+  <div class="utopia-hr-head">Area</div>
+  <div class="utopia-hr-head">Purpose</div>
+
+  <strong>Calendar</strong>
+  <p>View company-wide events, employee leave, and birthdays.</p>
+
+  <strong>Manage Announcement</strong>
+  <p>Manage and monitor uploaded internal announcements.</p>
+
+  <strong>Petty Cash</strong>
+  <p>Track HR-related petty cash records where applicable.</p>
+</div>
+
+## Common Workflow
+
+<div class="utopia-hr-flow">
+  <div>
+    <strong>1</strong>
+    <span>Open HR Space from the sidebar.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>Select the HR area you need, such as employee records, leave, attendance, benefits, or reports.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Review the request, record, report, or employee detail carefully before updating it.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Save updates, process approvals, or follow up with the relevant employee or department.</span>
+  </div>
+</div>
+
+## Key Responsibilities
+
+<div class="utopia-hr-table">
+  <div class="utopia-hr-head">Responsibility</div>
+  <div class="utopia-hr-head">Focus</div>
+
+  <strong>Employee Records</strong>
+  <p>Maintain accurate employee details, company structure, and directory information.</p>
+
+  <strong>Benefits and Leave</strong>
+  <p>Manage benefits, leave allocation, leave approvals, and related employee entitlements.</p>
+
+  <strong>Attendance</strong>
+  <p>Monitor attendance, overtime, and anomalies to keep workforce data accurate.</p>
+
+  <strong>Compliance</strong>
+  <p>Ensure HR records and approvals follow company policies.</p>
+</div>
+
+## Tips
+
+<div class="utopia-hr-grid">
+  <section>
+    <h3>Update Records</h3>
+    <p>Regularly update employee information to keep reports and workflows reliable.</p>
+  </section>
+
+  <section>
+    <h3>Check Attendance</h3>
+    <p>Monitor attendance and leave records early to avoid discrepancies.</p>
+  </section>
+
+  <section>
+    <h3>Use Reports</h3>
+    <p>Use reports to support workforce planning, compliance checks, and HR follow-up.</p>
+  </section>
+</div>
 
 ## 🚀 Latest Updates
 
