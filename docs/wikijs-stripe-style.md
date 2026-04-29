@@ -5999,6 +5999,153 @@ main:has(.utopia-personal-scope) .utopia-personal-table strong,
   }
 }
 
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) {
+  background: var(--utopia-page-bg);
+  color: var(--utopia-text);
+  padding: 28px;
+  border-radius: 8px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-scope {
+  display: none;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) h1 {
+  color: var(--utopia-text);
+  font-size: 38px;
+  line-height: 1.1;
+  letter-spacing: 0;
+  margin-bottom: 10px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) h2 {
+  color: var(--utopia-text);
+  border-top: 1px solid var(--utopia-border);
+  font-size: 21px;
+  line-height: 1.3;
+  margin-top: 30px;
+  margin-bottom: 14px;
+  padding-top: 24px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) p,
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) li {
+  color: var(--utopia-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) > p:first-of-type {
+  max-width: 820px;
+  font-size: 18px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 28px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  color: #ffffff !important;
+  background: var(--utopia-brand-blue);
+  border: 1px solid var(--utopia-brand-blue);
+  border-radius: 6px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-actions a:hover {
+  background: var(--utopia-brand-blue-hover);
+  border-color: var(--utopia-brand-blue-hover);
+  text-decoration: none;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-grid section {
+  background: var(--utopia-surface);
+  border: 1px solid var(--utopia-border);
+  border-top: 3px solid var(--utopia-brand-blue);
+  border-radius: 8px;
+  box-shadow: var(--utopia-shadow);
+  padding: 18px 20px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-grid section:nth-child(2) {
+  border-top-color: #00a88f;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-grid section:nth-child(3) {
+  border-top-color: #7c3aed;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-grid h3,
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-list h3 {
+  color: var(--utopia-text);
+  font-size: 16px;
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-grid p {
+  margin: 0;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-list {
+  display: grid;
+  gap: 12px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-list section {
+  background: var(--utopia-surface);
+  border: 1px solid var(--utopia-border);
+  border-radius: 8px;
+  box-shadow: var(--utopia-shadow);
+  padding: 18px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-detail {
+  display: grid;
+  grid-template-columns: minmax(150px, 22%) 1fr;
+  gap: 14px;
+  border-top: 1px solid var(--utopia-border);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-detail strong {
+  color: var(--utopia-brand-blue);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+:is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-detail p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  :is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  :is(main, .contents, .page-contents, .v-main):has(.utopia-troubleshooting-scope) .utopia-troubleshooting-detail {
+    grid-template-columns: 1fr;
+  }
+}
+
 :is(
   .utopia-quickstart-table,
   .utopia-overview-table,
