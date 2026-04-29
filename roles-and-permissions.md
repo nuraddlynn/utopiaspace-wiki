@@ -1,106 +1,167 @@
-The Role & Permission component defines how access is controlled within
-the system by assigning roles and limiting what each user can view or
-perform.
+# Roles and Permissions
 
-It ensures that users only have access to the features and data relevant
-to their responsibilities.  
+<span class="utopia-roles-scope"></span>
 
-# Overview
+Use Roles and Permissions to control what users can view, create, update, approve, process, and manage across UtopiaSpace.
 
-Administrators manage access by:
+<div class="utopia-roles-actions">
+  <a href="/user-management">User Management</a>
+  <a href="/basic-navigation">Basic Navigation</a>
+  <a href="/settings">Settings</a>
+</div>
 
-- Assigning roles to users
-- Controlling visibility of system modules
-- Restricting access to sensitive data
-- Ensuring proper authorisation across the system
+## Overview
 
-# Role Definition
+<div class="utopia-roles-grid">
+  <section>
+    <h3>Assign the Right Access</h3>
+    <p>Give each user the role that matches their job responsibility and workspace needs.</p>
+  </section>
 
-A role represents a user\'s responsibility within the organisation.
+  <section>
+    <h3>Protect Sensitive Data</h3>
+    <p>Limit access to financial, HR, operational, and technical information based on role.</p>
+  </section>
 
-Each role determines which modules and features are accessible to the
-user.
+  <section>
+    <h3>Keep Operations Secure</h3>
+    <p>Use permissions to keep approvals, processing, reporting, and configuration controlled.</p>
+  </section>
+</div>
 
-# Common Roles
+## Role Definition
 
-## Admin
+<div class="utopia-roles-table">
+  <div class="utopia-roles-head">Concept</div>
+  <div class="utopia-roles-head">Meaning</div>
 
-Administrators have complete control over the system, including access
-to all modules, user data, and configuration settings.
+  <strong>Role</strong>
+  <p>A role represents a user's responsibility within the organisation and determines which modules are available.</p>
 
-## Manager
+  <strong>Permission</strong>
+  <p>A permission defines the action a role can perform, such as viewing, creating, editing, approving, or processing records.</p>
 
-Managers have access to approval functions, reporting tools, and team
-monitoring features.
+  <strong>Access Control</strong>
+  <p>Access control keeps users limited to the features and data required for their work.</p>
+</div>
 
-## Director
+## Common Roles
 
-Directors have access to high-level approval and monitoring functions.
-They review and approve submissions escalated from managers and oversee
-cross-department activities.
+<div class="utopia-roles-table">
+  <div class="utopia-roles-head">Role</div>
+  <div class="utopia-roles-head">Access Focus</div>
 
-## Supervisor
+  <strong>Admin</strong>
+  <p>Complete control over system modules, user data, configuration, and administrative settings.</p>
 
-Supervisors have access to operational modules and assist in reviewing
-and processing requests.
+  <strong>Manager</strong>
+  <p>Approval functions, reporting tools, team monitoring, operational review, and follow-up workflows.</p>
 
-## HR
+  <strong>Director</strong>
+  <p>High-level approval, monitoring, escalated submissions, and cross-department oversight.</p>
 
-HR staffs have access to employee-related modules, including attendance,
-leave, and employee records.
+  <strong>Supervisor</strong>
+  <p>Operational modules and request review or processing support.</p>
 
-## Accounts / Finance
+  <strong>HR</strong>
+  <p>Employee records, attendance, leave, benefits, company structure, and HR workflows.</p>
 
-Accounts have access to financial modules, including payment processing,
-claims verification, and reporting.
+  <strong>Accounts / Finance</strong>
+  <p>Payment processing, claims verification, supplier payments, backcharges, and finance reporting.</p>
 
-## Credit
+  <strong>Credit</strong>
+  <p>Rental tracking, collections, repayment behaviour, and credit-related account monitoring.</p>
 
-Credit space provides access to rental tracking and collection
-monitoring functions to oversee payment progress and account status.
+  <strong>OE</strong>
+  <p>Operations attendance tracking, workforce efficiency, rental tracker, warehouse activity, and item history.</p>
 
-## OE (Operations Efficiency)
+  <strong>Indoor Sales Operation</strong>
+  <p>Sales documents, ceiling calculator, quotation history, customer references, and indoor sales tools.</p>
 
-OE staff have access to operations attendance tracking and workforce
-efficiency monitoring tools.
+  <strong>Developer</strong>
+  <p>System monitoring, database usage, server performance, technical workflows, and debugging support.</p>
+</div>
 
-## Indoor Sales Operation
+## Permission Control
 
-Indoor Sales staff have access to sales-related, tools, including
-document management, quotation tracking, and calculation tools.
+<div class="utopia-roles-table">
+  <div class="utopia-roles-head">Permission</div>
+  <div class="utopia-roles-head">Use</div>
 
-## Developer
+  <strong>View</strong>
+  <p>Allows users to see records, pages, dashboards, reports, or workspace information.</p>
 
-Developers have access to system monitoring tools such as database usage
-and server performance.
+  <strong>Create</strong>
+  <p>Allows users to submit new requests, records, tasks, announcements, or operational entries.</p>
 
-# Permission Control
+  <strong>Edit</strong>
+  <p>Allows users to update existing records and maintain accurate information.</p>
 
-Permissions define the actions that a role can perform within the
-system.
+  <strong>Approve / Reject</strong>
+  <p>Allows authorised users to review submissions and make approval decisions.</p>
 
-Examples include:
+  <strong>Process</strong>
+  <p>Allows users to move approved records into payment, operational, or administrative processing.</p>
+</div>
 
-- View information
-- Create records
-- Edit or update data
-- Approve or reject requests
-- Process transactions
+## Access Control
 
-# Access Control
+<div class="utopia-roles-table">
+  <div class="utopia-roles-head">Control Area</div>
+  <div class="utopia-roles-head">Purpose</div>
 
-Access is managed based on roles to ensure that:
+  <strong>Module Visibility</strong>
+  <p>Show only the spaces and modules that are relevant to the user's assigned role.</p>
 
-- Users only see relevant modules
-- Sensitive information is protected
-- System operations remain secure and organised
+  <strong>Data Protection</strong>
+  <p>Restrict sensitive HR, finance, operational, and technical data from unauthorised users.</p>
 
-# Best Practices
+  <strong>Separation of Duties</strong>
+  <p>Keep review, approval, processing, and admin responsibilities properly separated.</p>
 
-- Assign roles based on job responsibilities
-- Avoid granting full administrative access unnecessarily
-- Regularly review and update user roles
-- Ensure proper separation of duties
+  <strong>Debugging Access</strong>
+  <p>Grant IT or developer visibility only where needed for support, investigation, or debugging.</p>
+</div>
+
+## Common Workflow
+
+<div class="utopia-roles-flow">
+  <div>
+    <strong>1</strong>
+    <span>Confirm the user's department, position, and work responsibility.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>Select the role that matches the user's required workspace access.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Review permission actions such as view, create, edit, approve, reject, or process.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Save the role assignment and review access regularly when responsibilities change.</span>
+  </div>
+</div>
+
+## Best Practices
+
+<div class="utopia-roles-grid">
+  <section>
+    <h3>Use Job-Based Access</h3>
+    <p>Assign roles based on actual responsibilities, not convenience or temporary needs.</p>
+  </section>
+
+  <section>
+    <h3>Limit Admin Access</h3>
+    <p>Avoid granting full administrative access unless it is genuinely required.</p>
+  </section>
+
+  <section>
+    <h3>Review Regularly</h3>
+    <p>Check roles and permissions when users move departments, change positions, or become inactive.</p>
+  </section>
+</div>
 
 ## 🚀 Latest Updates
 
