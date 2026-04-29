@@ -1,57 +1,134 @@
-The Supervisor Space is designed for supervisors to manage team
-operations, submit applications, and handle approval processes.
+# Supervisor Space
 
-It acts as a bridge between employees and higher management by ensuring
-requests are properly reviewed and processed.  
+<span class="utopia-supervisor-scope"></span>
 
-# Overview
+Use Supervisor Space to manage daily team operations, submit operational applications, and process team approvals before escalation.
 
-With Supervisor Space, users can:
+<div class="utopia-supervisor-actions">
+  <a href="/manager-space">Manager Space</a>
+  <a href="/director-space">Director Space</a>
+  <a href="/personal-space">Personal Space</a>
+</div>
 
-- Submit operational applications
-- Review and approve team requests
-- Monitor team records and activities
-- Track reports and historical data
+## Overview
 
-# Applications
+<div class="utopia-supervisor-grid">
+  <section>
+    <h3>Submit Applications</h3>
+    <p>Create supplier payment and intercompany backcharge requests for operational needs.</p>
+  </section>
 
-Supervisors can submit requests related to operational needs:
+  <section>
+    <h3>Review Requests</h3>
+    <p>Review leave and overtime submissions from team members before they move forward.</p>
+  </section>
 
-- Supplier Payment Request - Create and submit supplier payment requests
-- Intercompany Backcharge - Submit intracompany backcharge requests
+  <section>
+    <h3>Monitor Records</h3>
+    <p>Track team records, reports, historical data, and request progress.</p>
+  </section>
+</div>
 
-# Approvals
+## Applications
 
-Supervisors can review and process team submissions:
+<div class="utopia-supervisor-table">
+  <div class="utopia-supervisor-head">Application</div>
+  <div class="utopia-supervisor-head">Purpose</div>
 
-- Leave Approvals - Review and approve employee leave requests
-- Overtime Approvals - Approve or reject overtime applications
+  <strong>Supplier Payment Request</strong>
+  <p>Create and submit supplier payment requests with the required supporting details.</p>
 
-# Reports & History
+  <strong>Intercompany Backcharge</strong>
+  <p>Submit intercompany backcharge requests for operational or business-related charges.</p>
+</div>
 
-Supervisors can monitor team records and reports:
+## Approvals
 
-- Leave History - View past leave applications from team members
-- Overtime Summary - View overtime reports and summaries
-- Supplier Payment Tracker - Track and monitor supplier payment request
-  progress
-- Supplier Payment History - View read-only records of past supplier
-  payments
+<div class="utopia-supervisor-table">
+  <div class="utopia-supervisor-head">Approval Area</div>
+  <div class="utopia-supervisor-head">What supervisors process</div>
 
-# Key Responsibilities
+  <strong>Leave Approvals</strong>
+  <p>Review and approve employee leave requests from team members.</p>
 
-Supervisors are responsible for:
+  <strong>Overtime Approvals</strong>
+  <p>Approve or reject overtime applications based on team needs and request details.</p>
+</div>
 
-- Reviewing and approving team requests
-- Ensuring accuracy before escalation to managers
-- Monitoring daily team operations
-- Supporting workflow efficiency
+## Reports and History
 
-# Tips
+<div class="utopia-supervisor-table">
+  <div class="utopia-supervisor-head">Report</div>
+  <div class="utopia-supervisor-head">Use</div>
 
-- Review requests promptly to avoid delays
-- Ensure all submitted applications are complete
-- Monitor reports to track team performance
-- Communicate clearly with team members regarding approvals
+  <strong>Leave History</strong>
+  <p>View past leave applications from team members.</p>
 
- 
+  <strong>Overtime Summary</strong>
+  <p>View overtime reports and summaries for the team.</p>
+
+  <strong>Supplier Payment Tracker</strong>
+  <p>Track active supplier payment requests and monitor their progress.</p>
+
+  <strong>Supplier Payment History</strong>
+  <p>View read-only records of past supplier payments.</p>
+</div>
+
+## Key Responsibilities
+
+<div class="utopia-supervisor-table">
+  <div class="utopia-supervisor-head">Responsibility</div>
+  <div class="utopia-supervisor-head">Focus</div>
+
+  <strong>Team Requests</strong>
+  <p>Review and process team requests accurately and on time.</p>
+
+  <strong>Accuracy Check</strong>
+  <p>Ensure submitted applications are complete before they move to managers.</p>
+
+  <strong>Daily Operations</strong>
+  <p>Monitor day-to-day team operations and request status.</p>
+
+  <strong>Workflow Support</strong>
+  <p>Support workflow efficiency by communicating clearly with team members.</p>
+</div>
+
+## Common Workflow
+
+<div class="utopia-supervisor-flow">
+  <div>
+    <strong>1</strong>
+    <span>Open Supervisor Space from the sidebar.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>Review pending applications, approvals, reports, or history pages.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Check request details and supporting information before taking action.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Approve, reject, submit, or follow up based on the workflow requirement.</span>
+  </div>
+</div>
+
+## Tips
+
+<div class="utopia-supervisor-grid">
+  <section>
+    <h3>Review Promptly</h3>
+    <p>Check requests regularly to avoid approval delays.</p>
+  </section>
+
+  <section>
+    <h3>Check Completeness</h3>
+    <p>Confirm applications have the required details before escalation.</p>
+  </section>
+
+  <section>
+    <h3>Communicate Clearly</h3>
+    <p>Keep team members informed when requests need correction or follow-up.</p>
+  </section>
+</div>
