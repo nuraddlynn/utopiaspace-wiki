@@ -32,29 +32,45 @@ Use this guide to understand the UtopiaSpace layout, sidebar menu, and how to mo
 ## Sidebar Menu
 
 <div class="utopia-navigation-table">
-  <div class="utopia-navigation-head">Menu Area</div>
-  <div class="utopia-navigation-head">What it opens</div>
+  <div class="utopia-navigation-row utopia-navigation-row-head">
+    <div class="utopia-navigation-head">Menu Area</div>
+    <div class="utopia-navigation-head">What it opens</div>
+  </div>
 
-  <a href="/home">Home</a>
-  <p>Main wiki entry point and documentation overview.</p>
+  <div class="utopia-navigation-row">
+    <a href="/home">Home</a>
+    <p>Main wiki entry point and documentation overview.</p>
+  </div>
 
-  <a href="/announcements">Announcements</a>
-  <p>Important internal notices, updates, and communication.</p>
+  <div class="utopia-navigation-row">
+    <a href="/announcements">Announcements</a>
+    <p>Important internal notices, updates, and communication.</p>
+  </div>
 
-  <a href="/calendar">Calendar</a>
-  <p>Schedules, events, dates, and planning references.</p>
+  <div class="utopia-navigation-row">
+    <a href="/calendar">Calendar</a>
+    <p>Schedules, events, dates, and planning references.</p>
+  </div>
 
-  <a href="/meeting-notes">Meeting Notes</a>
-  <p>Meeting records, decisions, notes, and follow-up items.</p>
+  <div class="utopia-navigation-row">
+    <a href="/meeting-notes">Meeting Notes</a>
+    <p>Meeting records, decisions, notes, and follow-up items.</p>
+  </div>
 
-  <a href="/personal-space">Personal Space</a>
-  <p>Your own tasks, activities, and personal workflow.</p>
+  <div class="utopia-navigation-row">
+    <a href="/personal-space">Personal Space</a>
+    <p>Your own tasks, activities, and personal workflow.</p>
+  </div>
 
-  <a href="/taskboard">Taskboard</a>
-  <p>Task creation, assignment, tracking, and board-based work management.</p>
+  <div class="utopia-navigation-row">
+    <a href="/taskboard">Taskboard</a>
+    <p>Task creation, assignment, tracking, and board-based work management.</p>
+  </div>
 
-  <a href="/settings">System Settings</a>
-  <p>System preferences, account configuration, and application behaviour.</p>
+  <div class="utopia-navigation-row">
+    <a href="/settings">System Settings</a>
+    <p>System preferences, account configuration, and application behaviour.</p>
+  </div>
 </div>
 
 ## Navigating Between Sections
@@ -77,17 +93,25 @@ Use this guide to understand the UtopiaSpace layout, sidebar menu, and how to mo
 ## Access Based on Role
 
 <div class="utopia-navigation-table">
-  <div class="utopia-navigation-head">Role Type</div>
-  <div class="utopia-navigation-head">Available access</div>
+  <div class="utopia-navigation-row utopia-navigation-row-head">
+    <div class="utopia-navigation-head">Role Type</div>
+    <div class="utopia-navigation-head">Available access</div>
+  </div>
 
-  <strong>General Users</strong>
-  <p>Basic system features, personal workspace, announcements, calendar, notes, and general guides.</p>
+  <div class="utopia-navigation-row">
+    <strong>General Users</strong>
+    <p>Basic system features, personal workspace, announcements, calendar, notes, and general guides.</p>
+  </div>
 
-  <strong>Role-Based Users</strong>
-  <p>Managers, Directors, Supervisors, HR, Accounts, Operations Efficiency, and Indoor users may see role-specific spaces.</p>
+  <div class="utopia-navigation-row">
+    <strong>Role-Based Users</strong>
+    <p>Managers, Directors, Supervisors, HR, Accounts, Operations Efficiency, and Indoor users may see role-specific spaces.</p>
+  </div>
 
-  <strong>Developers and Admins</strong>
-  <p>Additional system management, monitoring, configuration, and technical documentation.</p>
+  <div class="utopia-navigation-row">
+    <strong>Developers and Admins</strong>
+    <p>Additional system management, monitoring, configuration, and technical documentation.</p>
+  </div>
 </div>
 
 ## Tips for Navigation

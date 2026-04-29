@@ -1052,6 +1052,58 @@ main:has(.utopia-overview-scope) .utopia-overview-next a:hover strong,
   text-decoration: none;
 }
 
+main:has(.utopia-overview-scope) .utopia-overview-table:has(.utopia-overview-row),
+.contents:has(.utopia-overview-scope) .utopia-overview-table:has(.utopia-overview-row),
+.page-contents:has(.utopia-overview-scope) .utopia-overview-table:has(.utopia-overview-row),
+.v-main:has(.utopia-overview-scope) .utopia-overview-table:has(.utopia-overview-row) {
+  display: block;
+}
+
+main:has(.utopia-overview-scope) .utopia-overview-row,
+.contents:has(.utopia-overview-scope) .utopia-overview-row,
+.page-contents:has(.utopia-overview-scope) .utopia-overview-row,
+.v-main:has(.utopia-overview-scope) .utopia-overview-row {
+  display: grid;
+  grid-template-columns: minmax(190px, 34%) 1fr;
+  border-bottom: 1px solid var(--utopia-border);
+}
+
+main:has(.utopia-overview-scope) .utopia-overview-row:last-child,
+.contents:has(.utopia-overview-scope) .utopia-overview-row:last-child,
+.page-contents:has(.utopia-overview-scope) .utopia-overview-row:last-child,
+.v-main:has(.utopia-overview-scope) .utopia-overview-row:last-child {
+  border-bottom: 0;
+}
+
+main:has(.utopia-overview-scope) .utopia-overview-row:nth-child(even),
+.contents:has(.utopia-overview-scope) .utopia-overview-row:nth-child(even),
+.page-contents:has(.utopia-overview-scope) .utopia-overview-row:nth-child(even),
+.v-main:has(.utopia-overview-scope) .utopia-overview-row:nth-child(even) {
+  background: var(--utopia-row-soft);
+}
+
+main:has(.utopia-overview-scope) .utopia-overview-row > a,
+main:has(.utopia-overview-scope) .utopia-overview-row > p,
+.contents:has(.utopia-overview-scope) .utopia-overview-row > a,
+.contents:has(.utopia-overview-scope) .utopia-overview-row > p,
+.page-contents:has(.utopia-overview-scope) .utopia-overview-row > a,
+.page-contents:has(.utopia-overview-scope) .utopia-overview-row > p,
+.v-main:has(.utopia-overview-scope) .utopia-overview-row > a,
+.v-main:has(.utopia-overview-scope) .utopia-overview-row > p {
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+  border-bottom: 0 !important;
+  background: transparent !important;
+}
+
+main:has(.utopia-overview-scope) .utopia-overview-row-head .utopia-overview-head,
+.contents:has(.utopia-overview-scope) .utopia-overview-row-head .utopia-overview-head,
+.page-contents:has(.utopia-overview-scope) .utopia-overview-row-head .utopia-overview-head,
+.v-main:has(.utopia-overview-scope) .utopia-overview-row-head .utopia-overview-head {
+  border-bottom: 0;
+}
+
 main:has(.utopia-overview-scope) .utopia-overview-next,
 .contents:has(.utopia-overview-scope) .utopia-overview-next,
 .page-contents:has(.utopia-overview-scope) .utopia-overview-next,
@@ -1848,6 +1900,62 @@ main:has(.utopia-navigation-scope) .utopia-navigation-table a:hover,
 .v-main:has(.utopia-navigation-scope) .utopia-navigation-table a:hover {
   color: #000000 !important;
   text-decoration: none;
+}
+
+main:has(.utopia-navigation-scope) .utopia-navigation-table:has(.utopia-navigation-row),
+.contents:has(.utopia-navigation-scope) .utopia-navigation-table:has(.utopia-navigation-row),
+.page-contents:has(.utopia-navigation-scope) .utopia-navigation-table:has(.utopia-navigation-row),
+.v-main:has(.utopia-navigation-scope) .utopia-navigation-table:has(.utopia-navigation-row) {
+  display: block;
+}
+
+main:has(.utopia-navigation-scope) .utopia-navigation-row,
+.contents:has(.utopia-navigation-scope) .utopia-navigation-row,
+.page-contents:has(.utopia-navigation-scope) .utopia-navigation-row,
+.v-main:has(.utopia-navigation-scope) .utopia-navigation-row {
+  display: grid;
+  grid-template-columns: minmax(190px, 34%) 1fr;
+  border-bottom: 1px solid var(--utopia-border);
+}
+
+main:has(.utopia-navigation-scope) .utopia-navigation-row:last-child,
+.contents:has(.utopia-navigation-scope) .utopia-navigation-row:last-child,
+.page-contents:has(.utopia-navigation-scope) .utopia-navigation-row:last-child,
+.v-main:has(.utopia-navigation-scope) .utopia-navigation-row:last-child {
+  border-bottom: 0;
+}
+
+main:has(.utopia-navigation-scope) .utopia-navigation-row:nth-child(even),
+.contents:has(.utopia-navigation-scope) .utopia-navigation-row:nth-child(even),
+.page-contents:has(.utopia-navigation-scope) .utopia-navigation-row:nth-child(even),
+.v-main:has(.utopia-navigation-scope) .utopia-navigation-row:nth-child(even) {
+  background: var(--utopia-row-soft);
+}
+
+main:has(.utopia-navigation-scope) .utopia-navigation-row > a,
+main:has(.utopia-navigation-scope) .utopia-navigation-row > strong,
+main:has(.utopia-navigation-scope) .utopia-navigation-row > p,
+.contents:has(.utopia-navigation-scope) .utopia-navigation-row > a,
+.contents:has(.utopia-navigation-scope) .utopia-navigation-row > strong,
+.contents:has(.utopia-navigation-scope) .utopia-navigation-row > p,
+.page-contents:has(.utopia-navigation-scope) .utopia-navigation-row > a,
+.page-contents:has(.utopia-navigation-scope) .utopia-navigation-row > strong,
+.page-contents:has(.utopia-navigation-scope) .utopia-navigation-row > p,
+.v-main:has(.utopia-navigation-scope) .utopia-navigation-row > a,
+.v-main:has(.utopia-navigation-scope) .utopia-navigation-row > strong,
+.v-main:has(.utopia-navigation-scope) .utopia-navigation-row > p {
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+  border-bottom: 0 !important;
+  background: transparent !important;
+}
+
+main:has(.utopia-navigation-scope) .utopia-navigation-row-head .utopia-navigation-head,
+.contents:has(.utopia-navigation-scope) .utopia-navigation-row-head .utopia-navigation-head,
+.page-contents:has(.utopia-navigation-scope) .utopia-navigation-row-head .utopia-navigation-head,
+.v-main:has(.utopia-navigation-scope) .utopia-navigation-row-head .utopia-navigation-head {
+  border-bottom: 0;
 }
 
 @media (max-width: 900px) {

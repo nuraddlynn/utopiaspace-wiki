@@ -58,20 +58,30 @@ UtopiaSpace is an internal platform for daily operations, team collaboration, ro
 ## Navigation Overview
 
 <div class="utopia-overview-table">
-  <div class="utopia-overview-head">Section</div>
-  <div class="utopia-overview-head">Use it for</div>
+  <div class="utopia-overview-row utopia-overview-row-head">
+    <div class="utopia-overview-head">Section</div>
+    <div class="utopia-overview-head">Use it for</div>
+  </div>
 
-  <a href="/login-guide">Getting Started</a>
-  <p>Basic access, login help, and first-time navigation.</p>
+  <div class="utopia-overview-row">
+    <a href="/login-guide">Getting Started</a>
+    <p>Basic access, login help, and first-time navigation.</p>
+  </div>
 
-  <a href="/personal-space">User Guide</a>
-  <p>General system features such as personal tasks, announcements, calendar, and notes.</p>
+  <div class="utopia-overview-row">
+    <a href="/personal-space">User Guide</a>
+    <p>General system features such as personal tasks, announcements, calendar, and notes.</p>
+  </div>
 
-  <a href="/manager-space">Role-Based Spaces</a>
-  <p>Specific functions for Manager, Director, Supervisor, HR, Accounts, Credit, Operations Efficiency, and Indoor teams.</p>
+  <div class="utopia-overview-row">
+    <a href="/manager-space">Role-Based Spaces</a>
+    <p>Specific functions for Manager, Director, Supervisor, HR, Accounts, Credit, Operations Efficiency, and Indoor teams.</p>
+  </div>
 
-  <a href="/developer-space">Admin and Developer</a>
-  <p>Advanced configuration, system monitoring, architecture, database, and technical documentation.</p>
+  <div class="utopia-overview-row">
+    <a href="/developer-space">Admin and Developer</a>
+    <p>Advanced configuration, system monitoring, architecture, database, and technical documentation.</p>
+  </div>
 </div>
 
 ## Next Steps
