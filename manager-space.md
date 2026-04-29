@@ -1,73 +1,146 @@
-The Manager Space is designed for managers to review, approve, and
-monitor team activities across different modules.
+# Manager Space
 
-It provides a centralised dashboard for handling applications,
-approvals, and reporting functions.  
+<span class="utopia-manager-scope"></span>
 
-# Overview
+Use Manager Space to review team activity, approve requests, monitor reports, and manage operational workflows from one place.
 
-With Manager Space, managers can:
+<div class="utopia-manager-actions">
+  <a href="/director-space">Director Space</a>
+  <a href="/supervisor-space">Supervisor Space</a>
+  <a href="/hr-space">HR Space</a>
+</div>
 
-- Review and approve team requests
-- Monitor employee activities
-- Access reports and historical data
-- Manage operational workflows efficiently
+## Overview
 
-# Applications
+<div class="utopia-manager-grid">
+  <section>
+    <h3>Review Requests</h3>
+    <p>Check and process team submissions such as leave, overtime, claims, and payment requests.</p>
+  </section>
 
-Managers can submit requests related to business operations:
+  <section>
+    <h3>Monitor Activity</h3>
+    <p>Review employee activity, historical records, reporting summaries, and operational status.</p>
+  </section>
 
-- Backcharge Application - Submit intercompany backcharge
-- Supplier Payment Request - Submit supplier payment requests with
-  supporting details
+  <section>
+    <h3>Manage Follow-Up</h3>
+    <p>Review feedback, validate incident reports, and keep workflows moving without approval delays.</p>
+  </section>
+</div>
 
-# Approvals
+## Applications
 
-The Approvals section allows managers to review and process team
-submissions.
+<div class="utopia-manager-table">
+  <div class="utopia-manager-head">Application</div>
+  <div class="utopia-manager-head">Purpose</div>
 
-- Leave Approvals - Review and approve employee leave requests
-- Overtime Approvals - Approve or reject overtime applications
-- General Approvals - Review general claims and employee submissions
-- SGS Commission Approvals - Manage SGS commission applications
-- Backcharge Approvals - Review and approve intercompany backcharge
-  requests
-- Supplier Payment Approvals - Approve supplier payment submissions
-- Advance Salary Approvals - Review advance salary requests from
-  employees
+  <strong>Backcharge Application</strong>
+  <p>Submit intercompany backcharge requests with relevant business details.</p>
 
-# Reports & History 
+  <strong>Supplier Payment Request</strong>
+  <p>Submit supplier payment requests with supporting information for processing.</p>
+</div>
 
-Managers can track and review historical data:
+## Approvals
 
-- Leave History - Track team leave applications and records
-- Overtime Summary - View overtime reports for team members
-- Petty Cash Overview - Monitor team petty cash balances
-- Supplier Payment Tracker - Track and monitor supplier payment requests
-- Supplier Payment History - View past supplier payment records
-  (read-only)
+<div class="utopia-manager-table">
+  <div class="utopia-manager-head">Approval Area</div>
+  <div class="utopia-manager-head">What managers review</div>
 
-# Feedback & Ticket Management
+  <strong>Leave Approvals</strong>
+  <p>Review and approve employee leave requests.</p>
 
-Managers can review and manage submitted feedback:
+  <strong>Overtime Approvals</strong>
+  <p>Approve or reject overtime applications from team members.</p>
 
-- Incident Report Review - Review and validate reported issues
-- Improvement Suggestions - Manage and review submitted improvement
-  ideas
+  <strong>General Approvals</strong>
+  <p>Review general claims and employee submissions.</p>
 
-# Tips
+  <strong>SGS Commission Approvals</strong>
+  <p>Manage SGS commission applications and related approval outcomes.</p>
 
-- Regularly review approval requests to avoid delays
-- Monitor reports to track team performance
-- Ensure all approvals are handled accurately
-- Use the dashboard to stay updated on team activities
+  <strong>Backcharge Approvals</strong>
+  <p>Review and approve intercompany backcharge requests.</p>
 
-## 🚀 Latest Updates
+  <strong>Supplier Payment Approvals</strong>
+  <p>Approve supplier payment submissions before they continue through the workflow.</p>
 
-<!-- AUTO-UPDATE-START -->
-<!-- AUTO-UPDATE-ENTRY-START -->
-### April 25, 2026 at 5:20 PM - Fixed Petty Cash Validation
+  <strong>Advance Salary Approvals</strong>
+  <p>Review employee advance salary requests.</p>
+</div>
 
-Resolved a validation issue in the Petty Cash manager interface by removing a stray dependency-array fragment.
-<!-- AUTO-UPDATE-ENTRY-END -->
-<!-- AUTO-UPDATE-END -->
+## Reports and History
+
+<div class="utopia-manager-table">
+  <div class="utopia-manager-head">Report</div>
+  <div class="utopia-manager-head">Use</div>
+
+  <strong>Leave History</strong>
+  <p>Track team leave applications and past leave records.</p>
+
+  <strong>Overtime Summary</strong>
+  <p>View overtime reports and summaries for team members.</p>
+
+  <strong>Petty Cash Overview</strong>
+  <p>Monitor petty cash balances and usage across the team.</p>
+
+  <strong>Supplier Payment Tracker</strong>
+  <p>Track active supplier payment requests and their current progress.</p>
+
+  <strong>Supplier Payment History</strong>
+  <p>View past supplier payment records in read-only mode.</p>
+</div>
+
+## Feedback and Tickets
+
+<div class="utopia-manager-table">
+  <div class="utopia-manager-head">Area</div>
+  <div class="utopia-manager-head">Responsibility</div>
+
+  <strong>Incident Report Review</strong>
+  <p>Review, validate, and follow up on reported issues.</p>
+
+  <strong>Improvement Suggestions</strong>
+  <p>Review submitted improvement ideas and manage next steps.</p>
+</div>
+
+## Common Workflow
+
+<div class="utopia-manager-flow">
+  <div>
+    <strong>1</strong>
+    <span>Open Manager Space from the sidebar.</span>
+  </div>
+  <div>
+    <strong>2</strong>
+    <span>Review pending applications, approvals, reports, or feedback items.</span>
+  </div>
+  <div>
+    <strong>3</strong>
+    <span>Check all supporting details before approving, rejecting, or following up.</span>
+  </div>
+  <div>
+    <strong>4</strong>
+    <span>Use reports and history pages to monitor team activity and workflow health.</span>
+  </div>
+</div>
+
+## Tips
+
+<div class="utopia-manager-grid">
+  <section>
+    <h3>Review Regularly</h3>
+    <p>Check approvals often so employee requests do not sit too long.</p>
+  </section>
+
+  <section>
+    <h3>Validate Details</h3>
+    <p>Confirm supporting records before making approval decisions.</p>
+  </section>
+
+  <section>
+    <h3>Use Reports</h3>
+    <p>Monitor reports to understand team workload, overtime, leave, and payment activity.</p>
+  </section>
+</div>
