@@ -146,37 +146,41 @@ This page explains how API-style communication works across UtopiaSpace and the 
   <p>Date range, company, department, workspace, status, type, assignee, supplier, employee, or search keyword.</p>
 </div>
 
-## Example Request
+## Request and Response Examples
 
-```json
-{
+<div class="utopia-api-code-grid">
+  <section>
+    <h3>Task Request</h3>
+    <p>Example payload when a user creates a task from a workspace.</p>
+    <pre><code>{
   "title": "Prepare monthly report",
   "assigned_to": "user_id",
   "priority": "medium",
   "due_date": "2026-04-30",
   "workspace": "manager-space"
-}
-```
+}</code></pre>
+  </section>
 
-## Example Response
-
-```json
-{
+  <section>
+    <h3>Success Response</h3>
+    <p>Returned after validation passes and the record is stored.</p>
+    <pre><code>{
   "status": "success",
   "message": "Task created successfully",
   "record_id": "task_id"
-}
-```
+}</code></pre>
+  </section>
 
-## Error Response Pattern
-
-```json
-{
+  <section>
+    <h3>Error Response</h3>
+    <p>Returned when access, validation, or workflow state fails.</p>
+    <pre><code>{
   "status": "error",
   "message": "You do not have permission to approve this request.",
   "code": "permission_denied"
-}
-```
+}</code></pre>
+  </section>
+</div>
 
 ## Supabase Interaction
 
